@@ -13,8 +13,10 @@
 
 #include <string>
 #include <vector>
+#include <optional>
 
 #include "db/kv_checksum.h"
+#include "db/dbformat.h"
 #include "db/pinned_iterators_manager.h"
 #include "port/malloc.h"
 #include "rocksdb/advanced_cache.h"
@@ -426,7 +428,9 @@ class BlockIter : public InternalIteratorBase<TValue> {
   Cache::Handle* cache_handle() { return cache_handle_; }
 
  protected:
-  std::unique_ptr<InternalKeyComparator> icmp_;
+  InternalKeyComparator icmp_;
+  // Cached pointer to the underlying user comparator for fast access.
+  const Comparator* ucmp_ = nullptr;
   const char* data_;       // underlying block contents
   uint32_t num_restarts_;  // Number of uint32_t entries in restart array
 
@@ -529,7 +533,7 @@ class BlockIter : public InternalIteratorBase<TValue> {
     assert(data_ == nullptr);  // Ensure it is called only once
     assert(num_restarts > 0);  // Ensure the param is valid
 
-    icmp_ = std::make_unique<InternalKeyComparator>(raw_ucmp);
+    icmp_ = InternalKeyComparator(raw_ucmp);
     data_ = data;
     restarts_ = restarts;
     num_restarts_ = num_restarts;
@@ -538,6 +542,7 @@ class BlockIter : public InternalIteratorBase<TValue> {
     global_seqno_ = global_seqno;
     if (raw_ucmp != nullptr) {
       ts_sz_ = raw_ucmp->timestamp_size();
+      ucmp_ = raw_ucmp;
     }
     pad_min_timestamp_ = ts_sz_ > 0 && !user_defined_timestamp_persisted;
     block_contents_pinned_ = block_contents_pinned;
@@ -624,12 +629,13 @@ class BlockIter : public InternalIteratorBase<TValue> {
   int CompareCurrentKey(const Slice& other) {
     if (raw_key_.IsUserKey()) {
       assert(global_seqno_ == kDisableGlobalSequenceNumber);
-      return icmp_->user_comparator()->Compare(raw_key_.GetUserKey(), other);
+      const Comparator* cmp = ucmp_ ? ucmp_ : icmp_.user_comparator();
+      return cmp->Compare(raw_key_.GetUserKey(), other);
     } else if (global_seqno_ == kDisableGlobalSequenceNumber) {
-      return icmp_->Compare(raw_key_.GetInternalKey(), other);
+      return icmp_.Compare(raw_key_.GetInternalKey(), other);
     }
-    return icmp_->Compare(raw_key_.GetInternalKey(), global_seqno_, other,
-                          kDisableGlobalSequenceNumber);
+    return icmp_.Compare(raw_key_.GetInternalKey(), global_seqno_, other,
+                         kDisableGlobalSequenceNumber);
   }
 
  private:
@@ -846,7 +852,7 @@ class IndexBlockIter final : public BlockIter<IndexValue> {
     value_delta_encoded_ = !value_is_full;
     have_first_key_ = have_first_key;
     if (have_first_key_ && global_seqno != kDisableGlobalSequenceNumber) {
-      global_seqno_state_.reset(new GlobalSeqnoState(global_seqno));
+      global_seqno_state_.emplace(global_seqno);
     } else {
       global_seqno_state_.reset();
     }
@@ -859,7 +865,7 @@ class IndexBlockIter final : public BlockIter<IndexValue> {
 
   IndexValue value() const override {
     assert(Valid());
-    if (value_delta_encoded_ || global_seqno_state_ != nullptr ||
+    if (value_delta_encoded_ || global_seqno_state_.has_value() ||
         pad_min_timestamp_) {
       return decoded_value_;
     } else {
@@ -878,7 +884,7 @@ class IndexBlockIter final : public BlockIter<IndexValue> {
   }
 
   bool IsValuePinned() const override {
-    return global_seqno_state_ != nullptr ? false : BlockIter::IsValuePinned();
+    return global_seqno_state_.has_value() ? false : BlockIter::IsValuePinned();
   }
 
  protected:
@@ -933,7 +939,7 @@ class IndexBlockIter final : public BlockIter<IndexValue> {
     explicit GlobalSeqnoState(SequenceNumber seqno) : global_seqno(seqno) {}
   };
 
-  std::unique_ptr<GlobalSeqnoState> global_seqno_state_;
+  std::optional<GlobalSeqnoState> global_seqno_state_;
 
   // Buffers the `first_internal_key` referred by `decoded_value_` when
   // `pad_min_timestamp_` is true.

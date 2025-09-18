@@ -440,8 +440,8 @@ bool DataBlockIter::SeekForGetImpl(const Slice& target) {
     return true;
   }
 
-  if (icmp_->user_comparator()->Compare(raw_key_.GetUserKey(),
-                                        target_user_key) != 0) {
+  const Comparator* cmp = ucmp_ ? ucmp_ : icmp_.user_comparator();
+  if (cmp->Compare(raw_key_.GetUserKey(), target_user_key) != 0) {
     // the key is not in this block and cannot be at the next block either.
     return false;
   }
@@ -719,7 +719,7 @@ bool IndexBlockIter::ParseNextIndexKey() {
   bool ok = (value_delta_encoded_) ? ParseNextKey<DecodeEntryV4>(&is_shared)
                                    : ParseNextKey<DecodeEntry>(&is_shared);
   if (ok) {
-    if (value_delta_encoded_ || global_seqno_state_ != nullptr ||
+    if (value_delta_encoded_ || global_seqno_state_.has_value() ||
         pad_min_timestamp_) {
       DecodeCurrentValue(is_shared);
     }
@@ -747,7 +747,7 @@ void IndexBlockIter::DecodeCurrentValue(bool is_shared) {
   assert(decode_s.ok());
   value_ = Slice(value_.data(), v.data() - value_.data());
 
-  if (global_seqno_state_ != nullptr) {
+  if (global_seqno_state_.has_value()) {
     // Overwrite sequence number the same way as in DataBlockIter.
 
     IterKey& first_internal_key = global_seqno_state_->first_internal_key;
