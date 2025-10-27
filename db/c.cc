@@ -7900,4 +7900,46 @@ uint64_t rocksdb_wait_for_compact_options_get_timeout(
   return opt->rep.timeout.count();
 }
 
+unsigned char rocksdb_prefix_exists(rocksdb_t* db,
+                                    const rocksdb_readoptions_t* options,
+                                    const char* prefix, size_t prefix_len,
+                                    char** errptr) {
+  return rocksdb_prefix_exists_cf(
+      db, options,
+      static_cast<DB*>(db)->DefaultColumnFamily(), prefix, prefix_len, errptr);
+}
+
+unsigned char rocksdb_prefix_exists_cf(
+    rocksdb_t* db, const rocksdb_readoptions_t* options,
+    rocksdb_column_family_handle_t* column_family, const char* prefix,
+    size_t prefix_len, char** errptr) {
+  DB* db_ptr = static_cast<DB*>(db);
+  ColumnFamilyHandle* cf_ptr =
+      static_cast<ColumnFamilyHandle*>(column_family);
+  ReadOptions* opts = static_cast<ReadOptions*>(
+      const_cast<rocksdb_readoptions_t*>(options));
+
+  Status s = db_ptr->PrefixExists(*opts, cf_ptr, Slice(prefix, prefix_len));
+
+  if (s.ok()) {
+    // Prefix exists
+    if (errptr != nullptr) {
+      *errptr = nullptr;
+    }
+    return 1;
+  } else if (s.IsNotFound()) {
+    // Prefix does not exist - no error
+    if (errptr != nullptr) {
+      *errptr = nullptr;
+    }
+    return 0;
+  } else {
+    // Error occurred (e.g., no prefix extractor configured)
+    if (errptr != nullptr) {
+      *errptr = strdup(s.ToString().c_str());
+    }
+    return 0;
+  }
+}
+
 }  // end extern "C"

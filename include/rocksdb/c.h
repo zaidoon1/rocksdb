@@ -534,6 +534,37 @@ extern ROCKSDB_LIBRARY_API char* rocksdb_get_cf_with_ts(
     rocksdb_column_family_handle_t* column_family, const char* key,
     size_t keylen, size_t* vallen, char** ts, size_t* tslen, char** errptr);
 
+/* Check if a key with the given prefix exists in the database.
+ * This is an optimized operation for prefix existence checks that:
+ * 1. Checks mutable memtable (O(log N))
+ * 2. Checks immutable memtables (O(log N) each)
+ * 3. Uses filter policies (bloom, ribbon, etc.) to eliminate SST files (O(1))
+ * 4. Only seeks the index block if filter policy matches
+ * 5. Returns immediately without loading data blocks
+ *
+ * Optional: A prefix extractor can be configured in column family options
+ * for better performance. If not configured, the input is used as a search
+ * key and we check if found keys start with it. You still benefit from:
+ * - Early abort on first key match
+ * - No data block loading
+ *
+ * Return values:
+ * - 1: Prefix exists (errptr is set to NULL)
+ * - 0: Prefix does not exist (errptr is set to NULL)
+ * - 0 with error: An error occurred (errptr contains error message)
+ */
+extern ROCKSDB_LIBRARY_API unsigned char rocksdb_prefix_exists(
+    rocksdb_t* db, const rocksdb_readoptions_t* options, const char* prefix,
+    size_t prefix_len, char** errptr);
+
+/* Check if a key with the given prefix exists in a specific column family.
+ * See rocksdb_prefix_exists for details.
+ */
+extern ROCKSDB_LIBRARY_API unsigned char rocksdb_prefix_exists_cf(
+    rocksdb_t* db, const rocksdb_readoptions_t* options,
+    rocksdb_column_family_handle_t* column_family, const char* prefix,
+    size_t prefix_len, char** errptr);
+
 /**
  * Returns a malloc() buffer with the DB identity, assigning the length to
  * *id_len. Returns NULL if an error occurred.

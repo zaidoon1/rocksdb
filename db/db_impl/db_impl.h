@@ -532,6 +532,10 @@ class DBImpl : public DB {
       uint64_t start_time, uint64_t end_time,
       std::unique_ptr<StatsHistoryIterator>* stats_iterator) override;
 
+  Status PrefixExists(const ReadOptions& options,
+                      ColumnFamilyHandle* column_family,
+                      const Slice& prefix) override;
+
   using DB::ResetStats;
   Status ResetStats() override;
   // All the returned filenames start with "/"

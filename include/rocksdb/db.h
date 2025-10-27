@@ -2197,6 +2197,34 @@ class DB {
     return Status::NotSupported("GetStatsHistory() is not implemented.");
   }
 
+  // Check if a key with the given prefix exists in the database.
+  // This is an optimized operation for prefix existence checks that:
+  // 1. Checks mutable memtable (O(log N))
+  // 2. Checks immutable memtables (O(log N) each)
+  // 3. Uses filter policies (bloom, ribbon, etc.) to eliminate SST files (O(1))
+  // 4. Only seeks the index block if filter policy matches
+  // 5. Returns immediately without loading data blocks
+  //
+  // Optional: A prefix extractor can be configured in column family options
+  // for better performance. If not configured, the input is used as a search
+  // key and we check if found keys start with it. You still benefit from:
+  // - Early abort on first key match
+  // - No data block loading
+  //
+  // Returns:
+  // - OK if a key with the prefix exists
+  // - NotFound if no key with the prefix exists
+  // - Other error status if an error occurs
+  virtual Status PrefixExists(const ReadOptions& options,
+                              ColumnFamilyHandle* column_family,
+                              const Slice& prefix) = 0;
+
+  // Convenience method for PrefixExists with default column family
+  virtual Status PrefixExists(const ReadOptions& options,
+                              const Slice& prefix) {
+    return PrefixExists(options, DefaultColumnFamily(), prefix);
+  }
+
   // Make the secondary instance catch up with the primary by tailing and
   // replaying the MANIFEST and WAL of the primary.
   // Column families created by the primary after the secondary instance starts
