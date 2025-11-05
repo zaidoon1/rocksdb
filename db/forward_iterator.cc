@@ -239,9 +239,6 @@ ForwardIterator::ForwardIterator(DBImpl* db, const ReadOptions& read_options,
       is_prev_set_(false),
       is_prev_inclusive_(false),
       pinned_iters_mgr_(nullptr) {
-  if (sv_) {
-    RebuildIterators(false);
-  }
   if (!CheckFSFeatureSupport(cfd_->ioptions().env->GetFileSystem().get(),
                              FSSupportedOps::kAsyncIO)) {
     read_options_.async_io = false;
@@ -346,8 +343,8 @@ bool ForwardIterator::Valid() const {
 }
 
 void ForwardIterator::SeekToFirst() {
-  if (sv_ == nullptr) {
-    RebuildIterators(true);
+  if (mutable_iter_ == nullptr) {
+    RebuildIterators(sv_ == nullptr);
   } else if (sv_->version_number != cfd_->GetSuperVersionNumber()) {
     RenewIterators();
   } else if (immutable_status_.IsIncomplete()) {
@@ -364,8 +361,8 @@ bool ForwardIterator::IsOverUpperBound(const Slice& internal_key) const {
 }
 
 void ForwardIterator::Seek(const Slice& internal_key) {
-  if (sv_ == nullptr) {
-    RebuildIterators(true);
+  if (mutable_iter_ == nullptr) {
+    RebuildIterators(sv_ == nullptr);
   } else if (sv_->version_number != cfd_->GetSuperVersionNumber()) {
     RenewIterators();
   } else if (immutable_status_.IsIncomplete()) {
