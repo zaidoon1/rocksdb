@@ -1,0 +1,37 @@
+table/block_based/builtin_index_factory_test.cc
+  14d7ef58f76ccbbb 39-52,448-737
+table/block_based/block_based_table_reader.cc
+  14d7ef58f76ccbbb 1315-1321
+table/block_based/builtin_index_factory.cc
+  14d7ef58f76ccbbb 286-295,543-569
+include/rocksdb/index_factory.h
+  14d7ef58f76ccbbb 35-43
+table/block_based/block_based_table_builder.cc
+  14d7ef58f76ccbbb 922-927,932-934,939-943,947-948,1344-1347,1350-1352,1402-1414,1456-1460,1938-1951,2601-2633,2635-2648,2678-2682,2695-2705,2750-2752
+table/table_test.cc
+  14d7ef58f76ccbbb 8471-8585
+table/block_based/block_based_table_builder.h
+  14d7ef58f76ccbbb 185-188
+table/block_based/builtin_index_factory.h
+  14d7ef58f76ccbbb 170-181,259-267
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "7e7eaa3883e7a4c78a8ebd0eb3bc68b63cb6b7e7",
+  "prompts": {
+    "14d7ef58f76ccbbb": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_36805deb5ffey4pLbv6Y4e2fs5",
+        "model": "anthropic/claude-opus-4-6"
+      },
+      "human_author": "zaidoon",
+      "messages": [],
+      "total_additions": 625,
+      "total_deletions": 149,
+      "accepted_lines": 625,
+      "overriden_lines": 0
+    }
+  }
+}
