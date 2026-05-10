@@ -1,0 +1,23 @@
+include/rocksdb/index_factory.h
+  14d7ef58f76ccbbb 107
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "c2523465586dab8fadab8bac309a19feaffccca2",
+  "prompts": {
+    "14d7ef58f76ccbbb": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_36805deb5ffey4pLbv6Y4e2fs5",
+        "model": "anthropic/claude-opus-4-6"
+      },
+      "human_author": "zaidoon",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
