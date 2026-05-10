@@ -1,0 +1,23 @@
+tools/db_crashtest.py
+  14d7ef58f76ccbbb 1117-1136
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "c77740994a2fa4da0e56a9eea1fb38f2c0ad4b48",
+  "prompts": {
+    "14d7ef58f76ccbbb": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_36805deb5ffey4pLbv6Y4e2fs5",
+        "model": "anthropic/claude-opus-4-6"
+      },
+      "human_author": "zaidoon",
+      "messages": [],
+      "total_additions": 20,
+      "total_deletions": 0,
+      "accepted_lines": 20,
+      "overriden_lines": 0
+    }
+  }
+}
