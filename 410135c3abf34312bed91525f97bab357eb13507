@@ -1,0 +1,41 @@
+table/table_test.cc
+  14d7ef58f76ccbbb 8191-8194,8224-8226,8723-8724,8768-8847
+include/rocksdb/index_factory.h
+  14d7ef58f76ccbbb 34-36,43-52,54-56,62-65,67-74,76-79,148-150,191-194,196-199,201-204
+tools/db_crashtest.py
+  14d7ef58f76ccbbb 1088-1089
+utilities/trie_index/trie_index_factory.cc
+  14d7ef58f76ccbbb 272-274,283,318,321,324-325,331-332
+table/block_based/block_based_table_builder.cc
+  14d7ef58f76ccbbb 860-861,867-869,931-933,938,946,951,1347-1350,1463,1465-1468,1945-1955,1964-1966,1968-1974,1976-1977,2149-2152,2506-2509,2516-2518,2753-2755,2764-2769,2778,2871-2876
+table/block_based/block_based_table_reader.cc
+  14d7ef58f76ccbbb 1345-1348
+table/block_based/builtin_index_factory.h
+  14d7ef58f76ccbbb 171-172,245-247,254-257
+utilities/trie_index/trie_index_db_test.cc
+  14d7ef58f76ccbbb 5003-5006,5067-5140
+include/rocksdb/table.h
+  14d7ef58f76ccbbb 532-537
+utilities/trie_index/trie_index_factory.h
+  14d7ef58f76ccbbb 115-118
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "410135c3abf34312bed91525f97bab357eb13507",
+  "prompts": {
+    "14d7ef58f76ccbbb": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_36805deb5ffey4pLbv6Y4e2fs5",
+        "model": "anthropic/claude-opus-4-6"
+      },
+      "human_author": "zaidoon",
+      "messages": [],
+      "total_additions": 335,
+      "total_deletions": 192,
+      "accepted_lines": 335,
+      "overriden_lines": 0
+    }
+  }
+}
