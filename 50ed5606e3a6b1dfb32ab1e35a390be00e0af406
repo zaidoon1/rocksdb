@@ -1,0 +1,31 @@
+utilities/trie_index/trie_index_factory.cc
+  14d7ef58f76ccbbb 133-136,241-342
+utilities/trie_index/trie_index_factory.h
+  14d7ef58f76ccbbb 35,88-89,92-109,145-147,149-175
+tools/db_crashtest.py
+  14d7ef58f76ccbbb 1089
+utilities/trie_index/trie_index_test.cc
+  14d7ef58f76ccbbb 5707-5874
+utilities/trie_index/trie_index_db_test.cc
+  14d7ef58f76ccbbb 4987-5066
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "50ed5606e3a6b1dfb32ab1e35a390be00e0af406",
+  "prompts": {
+    "14d7ef58f76ccbbb": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_36805deb5ffey4pLbv6Y4e2fs5",
+        "model": "anthropic/claude-opus-4-6"
+      },
+      "human_author": "zaidoon",
+      "messages": [],
+      "total_additions": 406,
+      "total_deletions": 5,
+      "accepted_lines": 406,
+      "overriden_lines": 0
+    }
+  }
+}

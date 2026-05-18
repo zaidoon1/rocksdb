@@ -1,0 +1,31 @@
+db/table_cache.cc
+  0878aece7195346f 371-372
+db/db_options_test.cc
+  0878aece7195346f 1786-1792,1805
+include/rocksdb/options.h
+  0878aece7195346f 1143-1156
+db/compaction/compaction_job.cc
+  0878aece7195346f 1555
+unreleased_history/new_features/use_direct_reads_for_compaction.md
+  0878aece7195346f 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "d5bb307a7c6c9b6ab93d64e50698d821c071f750",
+  "prompts": {
+    "0878aece7195346f": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1db5cc578ffeL9bc18inrM1T3o",
+        "model": "anthropic/claude-opus-4-7"
+      },
+      "human_author": null,
+      "messages": [],
+      "total_additions": 50,
+      "total_deletions": 53,
+      "accepted_lines": 27,
+      "overriden_lines": 0
+    }
+  }
+}

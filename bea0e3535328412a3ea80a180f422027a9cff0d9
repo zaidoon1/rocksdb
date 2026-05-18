@@ -1,0 +1,29 @@
+table/table_test.cc
+  14d7ef58f76ccbbb 8185-8302,8704-8762,8766-8768,8771-8780,8795-8796,8798-8802,8804-8812
+table/block_based/block_based_table_factory.cc
+  14d7ef58f76ccbbb 781-787
+include/rocksdb/index_factory.h
+  14d7ef58f76ccbbb 155-159,204-214
+table/block_based/block_based_table_builder.cc
+  14d7ef58f76ccbbb 285-293,1353-1358,1406-1409,1469-1491,1952-1954,1956-1995,2143-2148,2154-2161,2499-2504,2511-2522
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "bea0e3535328412a3ea80a180f422027a9cff0d9",
+  "prompts": {
+    "14d7ef58f76ccbbb": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_36805deb5ffey4pLbv6Y4e2fs5",
+        "model": "anthropic/claude-opus-4-6"
+      },
+      "human_author": "zaidoon",
+      "messages": [],
+      "total_additions": 357,
+      "total_deletions": 75,
+      "accepted_lines": 357,
+      "overriden_lines": 0
+    }
+  }
+}
