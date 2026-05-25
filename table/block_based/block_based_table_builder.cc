@@ -1274,13 +1274,16 @@ struct BlockBasedTableBuilder::Rep {
           ioptions.stats));
     }
 
-    // If user_defined_index_factory is provided, wrap the index builder with
-    // UserDefinedIndexWrapper
+    // Defensive copy of the validation in
+    // BlockBasedTableFactory::ValidateOptions. ValidateOptions runs at
+    // DB::Open; this re-check catches the rare case of a callsite that
+    // constructs a builder via BlockBasedTableFactory after mutating
+    // table_options post-validation. Error messages MUST stay in sync with the
+    // ValidateOptions versions so debugging is consistent.
     if (table_options.use_udi_as_primary_index &&
         table_options.user_defined_index_factory == nullptr) {
       SetStatus(Status::InvalidArgument(
-          "use_udi_as_primary_index requires user_defined_index_factory to "
-          "be set"));
+          "use_udi_as_primary_index requires user_defined_index_factory"));
     }
     if (table_options.user_defined_index_factory != nullptr) {
       if (tbo.moptions.compression_opts.parallel_threads > 1 ||
@@ -1293,12 +1296,14 @@ struct BlockBasedTableBuilder::Rep {
                      BlockBasedTableOptions::kTwoLevelIndexSearch) {
         SetStatus(Status::InvalidArgument(
             "use_udi_as_primary_index is incompatible with partitioned index "
-            "(kTwoLevelIndexSearch)"));
+            "(kTwoLevelIndexSearch). The UDI wrapper currently only supports "
+            "flat (single-level) index builders."));
       } else if (table_options.use_udi_as_primary_index &&
                  table_options.partition_filters) {
         SetStatus(Status::InvalidArgument(
             "use_udi_as_primary_index is incompatible with partitioned "
-            "filters"));
+            "filters. The UDI wrapper does not support the partitioned "
+            "index/filter layout."));
       } else {
         std::unique_ptr<UserDefinedIndexBuilder> user_defined_index_builder;
         UserDefinedIndexOption udi_options;
