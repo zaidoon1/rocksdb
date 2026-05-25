@@ -61,10 +61,11 @@ class TrieIndexBuilder final : public UserDefinedIndexBuilder {
   // between last_key_in_current_block and first_key_in_next_block, buffer
   // it for deferred trie construction in Finish(), and return it.
   //
-  // The sequence numbers from context are used to detect same-user-key
-  // block boundaries. When such a boundary is detected, the builder
-  // switches to encoding ALL separators with seqno side-table metadata,
-  // mirroring the internal index's must_use_separator_with_seq_ strategy.
+  // The last_key_tag from context is stored in the per-leaf seqno side-table
+  // for same-user-key boundary and last-block separators, so the post-seek
+  // correction can route to the correct block within a same-user-key run.
+  // Non-boundary separators store a sentinel (kNoSeqnoCorrectionSentinel)
+  // so the read-side correctly skips overflow advancement.
   Slice AddIndexEntry(const Slice& last_key_in_current_block,
                       const Slice* first_key_in_next_block,
                       const BlockHandle& block_handle,
@@ -80,7 +81,8 @@ class TrieIndexBuilder final : public UserDefinedIndexBuilder {
   Status Finish(Slice* index_contents) override;
 
   // Returns an estimate of the current serialized index size.
-  uint64_t EstimatedSize() const override;
+  // Pure arithmetic from running counters; cannot allocate or throw.
+  uint64_t EstimatedSize() const noexcept override;
 
  private:
   const Comparator* comparator_;
@@ -89,27 +91,20 @@ class TrieIndexBuilder final : public UserDefinedIndexBuilder {
 
   // --- Sequence number handling ---
   //
-  // Seqno encoding is always enabled: AddIndexEntry() unconditionally sets
-  // must_use_separator_with_seq_ to true (the unconditional set at the end of
-  // AddIndexEntry()). This means the 8-byte-per-leaf seqno side-table overhead
-  // is always incurred. The flag exists so that Finish() can check it to decide
-  // whether to serialize the seqno side-table (true path) or emit a plain
-  // trie without seqno data (false/else path, only reachable for an empty
-  // trie with zero entries).
-  //
-  // We buffer all separator entries during building, then at Finish() feed
-  // them to the trie with seqno side-table metadata.
-  //
-  // Always set to true in AddIndexEntry() -- seqno encoding is
-  // unconditionally enabled. The 8-byte per-leaf overhead is always incurred.
-  bool must_use_separator_with_seq_;
+  // Seqno encoding is always enabled. The 8-byte-per-leaf seqno side-table
+  // overhead is unconditional. We buffer all separator entries during
+  // building, then at Finish() feed them to the trie with seqno side-table
+  // metadata, de-duplicating consecutive identical separators into runs.
 
   // Buffered separator entries: (separator_key, tag, handle).
   // The separator_key is the user-key-only separator computed by
   // FindShortestSeparator. The tag field stores:
   //   - For same-user-key boundaries: the real tag of last_key
+  //     (may be 0 after bottommost compaction)
   //   - For the last block: the real tag of last_key
-  //   - For intermediate non-boundary entries: 0 (sentinel)
+  //   - For intermediate non-boundary entries: kNoSeqnoCorrectionSentinel
+  //     (UINT64_MAX) so the read-side post-seek correction can
+  //     distinguish "no correction needed" from a real tag of 0.
   struct BufferedEntry {
     std::string separator_key;
     uint64_t tag{};

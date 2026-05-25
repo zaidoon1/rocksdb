@@ -150,7 +150,8 @@ class LoudsTrieBuilder {
   // ----
   //
   // Per-key (one entry per call to AddKey/AddKeyWithSeqno):
-  //   seqnos_[i]: seqno for the i-th separator (0 = sentinel for non-boundary)
+  //   seqnos_[i]: seqno for the i-th separator
+  //               (UINT64_MAX = sentinel for non-boundary)
   //   block_counts_[i]: how many consecutive blocks share this separator
   //                     (1 = normal, >1 = same-user-key run with overflows)
   //
@@ -384,9 +385,16 @@ class LoudsTrie {
   // separator maps to multiple blocks.
   //
   // leaf_seqnos_[i]: seqno for the i-th leaf (BFS order).
-  //   For non-boundary leaves: stores 0 (sentinel meaning "no seqno
-  //   correction needed"), matching the standard index's user-key-only
-  //   comparison mode.
+  //   For non-boundary leaves: stores UINT64_MAX (sentinel meaning "no
+  //   seqno correction needed"), matching the standard index's user-key-only
+  //   comparison mode. The post-seek correction explicitly checks for this
+  //   sentinel and skips overflow advancement. UINT64_MAX is used (not 0)
+  //   because PackSequenceAndType output is bounded by
+  //   (kMaxSequenceNumber << 8) | kMaxValue = 0xFFFFFFFFFFFFFF7F, so the
+  //   sentinel cannot collide with any real packed tag. Using 0 would
+  //   collide with PackSequenceAndType(0, kTypeDeletion), which can
+  //   appear at same-user-key boundaries after bottommost compaction.
+  //
   //   For same-user-key boundary and last-block leaves: stores the actual
   //   tag ((sequence_number << 8) | value_type).
   //
@@ -412,8 +420,8 @@ class LoudsTrie {
  public:
   // ---- Seqno side-table accessors (used by TrieIndexIterator) ----
 
-  // Get the seqno for the i-th leaf (BFS order). Returns 0 (sentinel) for
-  // non-boundary leaves.
+  // Get the seqno for the i-th leaf (BFS order). Returns UINT64_MAX
+  // (sentinel) for non-boundary leaves.
   uint64_t GetLeafSeqno(uint64_t leaf_index) const {
     assert(has_seqno_encoding_ && leaf_seqnos_ != nullptr);
     assert(leaf_index < num_keys_);

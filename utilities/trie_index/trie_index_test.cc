@@ -2502,10 +2502,60 @@ TEST_F(TrieIndexFactoryTest, EmptyIndex) {
   std::unique_ptr<UserDefinedIndexBuilder> builder;
   ASSERT_OK(factory_->NewBuilder(option, builder));
 
+  // EstimatedSize on a fresh builder must be a valid call and return 0
+  // before any entries are added.
+  ASSERT_EQ(builder->EstimatedSize(), 0u);
+
   // Finish without adding any entries.
   Slice index_contents;
   ASSERT_OK(builder->Finish(&index_contents));
   // Empty index should produce empty or minimal contents.
+}
+
+TEST_F(TrieIndexFactoryTest, EstimatedSizeGrowsMonotonically) {
+  // Direct unit test for TrieIndexBuilder::EstimatedSize(). This is what
+  // primary-mode compaction will eventually consume to size files; the
+  // estimate must (a) be 0 on a fresh builder, (b) grow as entries are
+  // added, and (c) reflect the size of separator keys (so longer keys
+  // produce a larger estimate than shorter keys at the same entry count).
+  UserDefinedIndexOption option;
+  option.comparator = BytewiseComparator();
+
+  std::unique_ptr<UserDefinedIndexBuilder> short_builder;
+  ASSERT_OK(factory_->NewBuilder(option, short_builder));
+  ASSERT_EQ(short_builder->EstimatedSize(), 0u);
+
+  uint64_t prev = 0;
+  for (int i = 0; i < 16; i++) {
+    UserDefinedIndexBuilder::BlockHandle h{static_cast<uint64_t>(i) * 1000,
+                                           500};
+    std::string scratch;
+    std::string last = "k" + std::to_string(i);
+    std::string next = "k" + std::to_string(i + 1);
+    Slice next_slice(next);
+    short_builder->AddIndexEntry(Slice(last), &next_slice, h, &scratch,
+                                 EntryCtx(100, 100));
+    uint64_t curr = short_builder->EstimatedSize();
+    ASSERT_GT(curr, prev) << "EstimatedSize must grow as entries are added";
+    prev = curr;
+  }
+
+  // Now build a second builder with the same number of entries but much
+  // longer separators. The estimate must be strictly larger to be a useful
+  // signal for size-aware compaction.
+  std::unique_ptr<UserDefinedIndexBuilder> long_builder;
+  ASSERT_OK(factory_->NewBuilder(option, long_builder));
+  for (int i = 0; i < 16; i++) {
+    UserDefinedIndexBuilder::BlockHandle h{static_cast<uint64_t>(i) * 1000,
+                                           500};
+    std::string scratch;
+    std::string last = std::string(50, 'k') + std::to_string(i);
+    std::string next = std::string(50, 'k') + std::to_string(i + 1);
+    Slice next_slice(next);
+    long_builder->AddIndexEntry(Slice(last), &next_slice, h, &scratch,
+                                EntryCtx(100, 100));
+  }
+  ASSERT_GT(long_builder->EstimatedSize(), short_builder->EstimatedSize());
 }
 
 TEST_F(TrieIndexFactoryTest, DoubleFinish) {
@@ -3080,12 +3130,14 @@ TEST_F(TrieIndexFactoryTest, SeekSucceedsButTargetPastLimit) {
 TEST_F(TrieIndexFactoryTest, SameUserKeyBoundaryTriggersSeqnoEncoding) {
   // When the same user key spans two adjacent data blocks (e.g.,
   // "foo"|seq=100 ends Block 0, "foo"|seq=50 starts Block 1), the
-  // builder must detect this and switch to seqno-encoded separators.
-  // Without this, FindShortestSeparator("foo", "foo") = "foo" and the
-  // trie cannot distinguish the two blocks, causing incorrect Seek.
+  // builder records the boundary's real packed tag in the per-leaf seqno
+  // side-table. Without this, FindShortestSeparator("foo", "foo") = "foo"
+  // and the trie cannot distinguish the two blocks, causing incorrect Seek.
+  // (Seqno encoding is now always active for every entry; the side-table
+  // distinguishes real boundary tags from the non-boundary sentinel.)
   auto ctx = BuildTrieAndGetIterator({
       // Block 0: last_key="foo" seq=100, next_first="foo" seq=50.
-      // Same user key at boundary -- triggers must_use_separator_with_seq_.
+      // Same user key at boundary — entry.tag stores the real packed tag.
       {"foo", "foo", 0, 1000, 100, 50},
       // Block 1: last_key="foo" seq=50, next_first="goo" seq=1.
       {"foo", "goo", 1000, 1000, 50, 1},
@@ -3265,6 +3317,87 @@ TEST_F(TrieIndexFactoryTest, SameUserKeyLastBlockZeroSeqno) {
   // Next -> exhausted.
   ASSERT_OK(ctx.iter->NextAndGetResult(&result));
   ASSERT_NE(result.bound_check_result, IterBoundCheck::kInbound);
+}
+
+TEST_F(TrieIndexFactoryTest, ZeroTagBoundaryIsDistinctFromSentinel) {
+  // Regression test for the tag=0 sentinel collision.
+  //
+  // Before the fix, the non-boundary "no seqno correction needed" sentinel
+  // was the value 0. But PackSequenceAndType(0, kTypeDeletion) is also 0,
+  // a value that can legitimately appear at same-user-key boundaries after
+  // bottommost compaction. The two cases were indistinguishable at the
+  // read side, so the post-seek correction's "never advance when sentinel"
+  // guard could fire when it shouldn't.
+  //
+  // After the fix, the sentinel is UINT64_MAX (which cannot occur as a
+  // PackSequenceAndType output since max valid output is
+  // (kMaxSequenceNumber << 8) | kMaxValue = 0xFFFFFFFFFFFFFF7F). The
+  // read-side check explicitly compares against the sentinel.
+  //
+  // This test arranges a same-user-key run where the FIRST entry's
+  // last_key_tag is a real non-zero packed tag, but a subsequent run
+  // (different user key) has the non-boundary sentinel. We verify:
+  //   1. The non-zero-tag boundary correctly drives overflow advancement.
+  //   2. Seeks into the post-boundary non-boundary entry return the right
+  //      block regardless of target seqno.
+  //   3. A separate scenario with last_key_tag=0 (simulating bottommost
+  //      compaction) at the boundary still routes correctly to overflow
+  //      blocks via the side-table (formerly impossible because the run's
+  //      primary leaf would look like the sentinel).
+
+  // Scenario A: non-zero boundary tag, then a non-boundary block whose
+  // separator differs. Seek into the second user key with a high target
+  // seqno must NOT advance past the second block.
+  auto ctx_a = BuildTrieAndGetIterator({
+      // Block 0: "k"|100 ... "k"|50 — same-user-key boundary, tag=(50<<8)|1.
+      {"k", "k", 0, 1000, 50, 50},
+      // Block 1: "k"|50 ... "k"|10 — overflow.
+      {"k", "m", 1000, 1000, 10, 10},
+      // Block 2: "m"|... — non-boundary; FindShortestSeparator("m","z")="n",
+      // entry.tag = kNoSeqnoCorrectionSentinel.
+      {"m", "z", 2000, 1000, 10, 10},
+      // Block 3: last block "z".
+      {"z", "", 3000, 1000, 10, 0},
+  });
+
+  // Seek "k"|seq=100 (target_packed > leaf_seqno=(50<<8)|1) → must NOT
+  // advance (target newer than boundary tag); returns Block 0 primary.
+  ASSERT_NO_FATAL_FAILURE(
+      AssertSeekOffset(ctx_a.iter.get(), Slice("k"), 100, 0));
+  // Seek "k"|seq=20 (target_packed < leaf_seqno) → advance into overflow,
+  // selecting Block 1.
+  ASSERT_NO_FATAL_FAILURE(
+      AssertSeekOffset(ctx_a.iter.get(), Slice("k"), 20, 1000));
+  // Seek "n" (separator landing on the non-boundary entry) with any target
+  // seqno → no advancement (sentinel), Block 2.
+  ASSERT_NO_FATAL_FAILURE(
+      AssertSeekOffset(ctx_a.iter.get(), Slice("n"), kMaxSequenceNumber, 2000));
+  ASSERT_NO_FATAL_FAILURE(
+      AssertSeekOffset(ctx_a.iter.get(), Slice("n"), 0, 2000));
+
+  // Scenario B: same-user-key boundary where last_key_tag=0 (post-
+  // bottommost-compaction). Before the sentinel fix this leaf looked
+  // identical to the non-boundary sentinel and the run's overflow could
+  // not be reached. After the fix, the leaf carries the real tag (0) and
+  // overflow advancement is driven by the run's block_count and the
+  // ov_seqno==0 shortcut, NOT by the sentinel-vs-real ambiguity.
+  auto ctx_b = BuildTrieAndGetIterator({
+      // Block 0: "k"|0 ... "k"|0 — boundary, tag=0 (real, not sentinel).
+      {"k", "k", 0, 1000, 0, 0},
+      // Block 1: "k"|0 ... "k"|0 — overflow with seqno=0.
+      {"k", "k", 1000, 1000, 0, 0},
+      // Block 2: "k"|0 ... "z"|0 — overflow with seqno=0; forced same-
+      // user-key because FindShortestSeparator("k","z")="l" -> different.
+      // Note: this block joins as a separate (single) run because the
+      // separator changes from "k" to "l". So the "k" run has 2 blocks.
+      {"k", "z", 2000, 1000, 0, 0},
+      // Block 3: last block "z" with seq=0.
+      {"z", "", 3000, 1000, 0, 0},
+  });
+  // Full forward scan visits every block in order — proves the run's
+  // overflow blocks are reachable even with leaf_seqno=0.
+  ASSERT_NO_FATAL_FAILURE(AssertFullForwardScan(ctx_b.iter.get(), Slice("k"),
+                                                {0, 1000, 2000, 3000}));
 }
 
 TEST_F(TrieIndexFactoryTest, SeqnoEncodingRoundTripSerialization) {
@@ -5428,11 +5561,16 @@ TEST_F(TrieIndexFactoryTest, IntermediateNonBoundarySeparatorNoAdvance) {
 
 TEST_F(TrieIndexFactoryTest, NonBoundarySeparatorSeekWhenShorteningFails) {
   // Reproducer for GitHub issue #14561: when FindShortestSeparator cannot
-  // shorten the separator (e.g., "acc" -> "acd" stays "acc"), the trie lands
-  // on separator "acc" with tag=0 (non-boundary sentinel). The post-seek
-  // correction must NOT advance past it regardless of the target seqno.
+  // shorten the separator (e.g., "acc" -> "acd" stays "acc"), the builder
+  // detects this in AddIndexEntry (the buffered_entries_.back() comparison)
+  // and force-marks the entry as a same-user-key boundary so it carries
+  // last_key_tag rather than the non-boundary sentinel. The post-seek
+  // correction routes to the correct block via the side-table.
   //
-  // Seqno encoding is always active (must_use_separator_with_seq_=true).
+  // Seqno encoding is always active. Non-boundary separators carry
+  // kNoSeqnoCorrectionSentinel (UINT64_MAX) and the read side skips
+  // overflow advancement for them; boundary separators carry the real
+  // packed tag and drive the overflow-block selection.
   // The key arrangement:
   //   Block 0: separator = FindShortestSeparator("aaa","acc") = "ab"
   //   Block 1: separator = FindShortestSeparator("acc","acd") = "acc"
