@@ -21,6 +21,7 @@
 #include "port/port.h"
 #include "rocksdb/db.h"
 #include "rocksdb/experimental.h"
+#include "rocksdb/filter_policy.h"
 #include "rocksdb/options.h"
 #include "rocksdb/slice.h"
 #include "rocksdb/slice_transform.h"
@@ -241,29 +242,40 @@ class TrieIndexDBTest : public testing::TestWithParam<bool> {
     return kvs;
   }
 
+  // Returns a human-readable label for a given ReadOptions, accounting
+  // for the current parameterized mode. In secondary mode, the distinction
+  // between "standard index" and "trie index" is meaningful (the read path
+  // really differs). In primary mode, both StandardIndexReadOptions() and
+  // TrieIndexReadOptions() return a bare ReadOptions and reads always
+  // route through the UDI at the table layer — so the "dual-path"
+  // verifications below collapse into single-path correctness checks. The
+  // label makes this explicit in failure traces so triage is unambiguous.
+  std::string ReadIndexLabel(const ReadOptions& ro) const {
+    if (IsPrimaryMode()) {
+      return "primary-mode (UDI, no override)";
+    }
+    return ro.table_index_factory ? "trie index" : "standard index";
+  }
+
   // Verifies that forward scan via SeekToFirst+Next AND reverse scan via
   // SeekToLast+Prev both produce the expected key set through both the
-  // standard index and the trie index.
+  // standard index and the trie index. In primary mode the two iterations
+  // exercise the same code path; the test runtime is preserved for
+  // simplicity (rather than skipping the second iteration), and the
+  // SCOPED_TRACE labels reflect the real mode via ReadIndexLabel.
   void VerifyScanBothIndexes(const std::vector<std::string>& expected_keys) {
-    {
-      SCOPED_TRACE("standard index forward");
-      ASSERT_EQ(ScanAllKeys(StandardIndexReadOptions()), expected_keys);
-    }
-    {
-      SCOPED_TRACE("trie index forward");
-      ASSERT_EQ(ScanAllKeys(TrieIndexReadOptions()), expected_keys);
+    for (const auto& ro :
+         {StandardIndexReadOptions(), TrieIndexReadOptions()}) {
+      SCOPED_TRACE(ReadIndexLabel(ro) + " forward");
+      ASSERT_EQ(ScanAllKeys(ro), expected_keys);
     }
     // Reverse scan must produce the reversed key set.
     std::vector<std::string> expected_reverse(expected_keys.rbegin(),
                                               expected_keys.rend());
-    {
-      SCOPED_TRACE("standard index reverse");
-      ASSERT_EQ(ReverseScanAllKeys(StandardIndexReadOptions()),
-                expected_reverse);
-    }
-    {
-      SCOPED_TRACE("trie index reverse");
-      ASSERT_EQ(ReverseScanAllKeys(TrieIndexReadOptions()), expected_reverse);
+    for (const auto& ro :
+         {StandardIndexReadOptions(), TrieIndexReadOptions()}) {
+      SCOPED_TRACE(ReadIndexLabel(ro) + " reverse");
+      ASSERT_EQ(ReverseScanAllKeys(ro), expected_reverse);
     }
   }
 
@@ -272,26 +284,18 @@ class TrieIndexDBTest : public testing::TestWithParam<bool> {
   // both indexes.
   void VerifyScanBothIndexes(
       const std::vector<std::pair<std::string, std::string>>& expected_kvs) {
-    {
-      SCOPED_TRACE("standard index forward");
-      ASSERT_EQ(ScanAllKeyValues(StandardIndexReadOptions()), expected_kvs);
-    }
-    {
-      SCOPED_TRACE("trie index forward");
-      ASSERT_EQ(ScanAllKeyValues(TrieIndexReadOptions()), expected_kvs);
+    for (const auto& ro :
+         {StandardIndexReadOptions(), TrieIndexReadOptions()}) {
+      SCOPED_TRACE(ReadIndexLabel(ro) + " forward");
+      ASSERT_EQ(ScanAllKeyValues(ro), expected_kvs);
     }
     // Reverse scan must produce the reversed pairs.
     std::vector<std::pair<std::string, std::string>> expected_reverse(
         expected_kvs.rbegin(), expected_kvs.rend());
-    {
-      SCOPED_TRACE("standard index reverse");
-      ASSERT_EQ(ReverseScanAllKeyValues(StandardIndexReadOptions()),
-                expected_reverse);
-    }
-    {
-      SCOPED_TRACE("trie index reverse");
-      ASSERT_EQ(ReverseScanAllKeyValues(TrieIndexReadOptions()),
-                expected_reverse);
+    for (const auto& ro :
+         {StandardIndexReadOptions(), TrieIndexReadOptions()}) {
+      SCOPED_TRACE(ReadIndexLabel(ro) + " reverse");
+      ASSERT_EQ(ReverseScanAllKeyValues(ro), expected_reverse);
     }
   }
 
@@ -300,7 +304,7 @@ class TrieIndexDBTest : public testing::TestWithParam<bool> {
                             const std::string& expected_value) {
     for (const auto& ro :
          {StandardIndexReadOptions(), TrieIndexReadOptions()}) {
-      SCOPED_TRACE(ro.table_index_factory ? "trie index" : "standard index");
+      SCOPED_TRACE(ReadIndexLabel(ro));
       std::string value;
       ASSERT_OK(db_->Get(ro, key, &value));
       ASSERT_EQ(value, expected_value);
@@ -311,7 +315,7 @@ class TrieIndexDBTest : public testing::TestWithParam<bool> {
   void VerifyGetNotFoundBothIndexes(const std::string& key) {
     for (const auto& ro :
          {StandardIndexReadOptions(), TrieIndexReadOptions()}) {
-      SCOPED_TRACE(ro.table_index_factory ? "trie index" : "standard index");
+      SCOPED_TRACE(ReadIndexLabel(ro));
       std::string value;
       ASSERT_TRUE(db_->Get(ro, key, &value).IsNotFound());
     }
@@ -321,8 +325,7 @@ class TrieIndexDBTest : public testing::TestWithParam<bool> {
   void VerifyGetBothIndexes(const Snapshot* snap, const std::string& key,
                             const std::string& expected_value) {
     for (auto base_ro : {StandardIndexReadOptions(), TrieIndexReadOptions()}) {
-      SCOPED_TRACE(base_ro.table_index_factory ? "trie index"
-                                               : "standard index");
+      SCOPED_TRACE(ReadIndexLabel(base_ro));
       base_ro.snapshot = snap;
       std::string value;
       ASSERT_OK(db_->Get(base_ro, key, &value));
@@ -334,8 +337,7 @@ class TrieIndexDBTest : public testing::TestWithParam<bool> {
   void VerifyGetNotFoundBothIndexes(const Snapshot* snap,
                                     const std::string& key) {
     for (auto base_ro : {StandardIndexReadOptions(), TrieIndexReadOptions()}) {
-      SCOPED_TRACE(base_ro.table_index_factory ? "trie index"
-                                               : "standard index");
+      SCOPED_TRACE(ReadIndexLabel(base_ro));
       base_ro.snapshot = snap;
       std::string value;
       ASSERT_TRUE(db_->Get(base_ro, key, &value).IsNotFound());
@@ -348,8 +350,7 @@ class TrieIndexDBTest : public testing::TestWithParam<bool> {
       const Snapshot* snap,
       const std::vector<std::pair<std::string, std::string>>& expected_kvs) {
     for (auto base_ro : {StandardIndexReadOptions(), TrieIndexReadOptions()}) {
-      SCOPED_TRACE(base_ro.table_index_factory ? "trie index forward"
-                                               : "standard index forward");
+      SCOPED_TRACE(ReadIndexLabel(base_ro) + " forward");
       base_ro.snapshot = snap;
       ASSERT_EQ(ScanAllKeyValues(base_ro), expected_kvs);
     }
@@ -357,8 +358,7 @@ class TrieIndexDBTest : public testing::TestWithParam<bool> {
     std::vector<std::pair<std::string, std::string>> expected_reverse(
         expected_kvs.rbegin(), expected_kvs.rend());
     for (auto base_ro : {StandardIndexReadOptions(), TrieIndexReadOptions()}) {
-      SCOPED_TRACE(base_ro.table_index_factory ? "trie index reverse"
-                                               : "standard index reverse");
+      SCOPED_TRACE(ReadIndexLabel(base_ro) + " reverse");
       base_ro.snapshot = snap;
       ASSERT_EQ(ReverseScanAllKeyValues(base_ro), expected_reverse);
     }
@@ -371,7 +371,7 @@ class TrieIndexDBTest : public testing::TestWithParam<bool> {
                              const std::string& expected_value) {
     for (const auto& ro :
          {StandardIndexReadOptions(), TrieIndexReadOptions()}) {
-      SCOPED_TRACE(ro.table_index_factory ? "trie index" : "standard index");
+      SCOPED_TRACE(ReadIndexLabel(ro));
       std::unique_ptr<Iterator> iter(db_->NewIterator(ro));
       iter->Seek(seek_key);
       ASSERT_TRUE(iter->Valid());
@@ -387,8 +387,7 @@ class TrieIndexDBTest : public testing::TestWithParam<bool> {
                              const std::string& expected_key,
                              const std::string& expected_value) {
     for (auto base_ro : {StandardIndexReadOptions(), TrieIndexReadOptions()}) {
-      SCOPED_TRACE(base_ro.table_index_factory ? "trie index"
-                                               : "standard index");
+      SCOPED_TRACE(ReadIndexLabel(base_ro));
       base_ro.snapshot = snap;
       std::unique_ptr<Iterator> iter(db_->NewIterator(base_ro));
       iter->Seek(seek_key);
@@ -1119,12 +1118,15 @@ TEST_P(TrieIndexDBTest, IngestExternalFileWithTrieUDI) {
   ASSERT_OK(db_->Flush(FlushOptions()));
 
   // Create an SST with SstFileWriter using trie UDI, containing mixed ops.
+  // Build the SST in the same mode as the live DB so the ingest exercises
+  // the matching write-path and read-path combination.
   std::string sst_path = dbname_ + "/ingest.sst";
   {
     Options sst_options;
     sst_options.merge_operator = MergeOperators::CreateStringAppendOperator();
     BlockBasedTableOptions table_options;
     table_options.user_defined_index_factory = trie_factory_;
+    table_options.use_udi_as_primary_index = IsPrimaryMode();
     sst_options.table_factory.reset(NewBlockBasedTableFactory(table_options));
 
     SstFileWriter writer(EnvOptions(), sst_options);
@@ -1520,6 +1522,7 @@ TEST_P(TrieIndexDBTest, AutoRefreshSnapshotNextAcrossSameUserKeyBoundaries) {
 
   BlockBasedTableOptions table_options;
   table_options.user_defined_index_factory = trie_factory_;
+  table_options.use_udi_as_primary_index = IsPrimaryMode();
   table_options.block_size = 64;
   table_options.separate_key_value_in_data_block = true;
   options_.table_factory.reset(NewBlockBasedTableFactory(table_options));
@@ -1613,6 +1616,7 @@ TEST_P(TrieIndexDBTest,
 
   BlockBasedTableOptions table_options;
   table_options.user_defined_index_factory = trie_factory_;
+  table_options.use_udi_as_primary_index = IsPrimaryMode();
   table_options.block_size = 64;
   table_options.separate_key_value_in_data_block = true;
   options_.table_factory.reset(NewBlockBasedTableFactory(table_options));
@@ -1704,6 +1708,7 @@ TEST_P(TrieIndexDBTest,
 
   BlockBasedTableOptions table_options;
   table_options.user_defined_index_factory = trie_factory_;
+  table_options.use_udi_as_primary_index = IsPrimaryMode();
   table_options.block_size = 128;
   table_options.separate_key_value_in_data_block = true;
   options_.table_factory.reset(NewBlockBasedTableFactory(table_options));
@@ -1912,6 +1917,7 @@ TEST_P(TrieIndexDBTest, MultipleColumnFamilies) {
 
   BlockBasedTableOptions table_options;
   table_options.user_defined_index_factory = trie_factory_;
+  table_options.use_udi_as_primary_index = IsPrimaryMode();
   options_.table_factory.reset(NewBlockBasedTableFactory(table_options));
   last_options_ = options_;
 
@@ -4191,11 +4197,19 @@ TEST_P(TrieIndexDBTest, SeekForPrevVariableLengthKeys) {
 }
 
 // ============================================================================
-// Primary UDI backward compatibility test -- uses explicit mode, not
-// parameterized, because it tests the upgrade path from secondary to primary.
+// Primary UDI backward compatibility test -- uses explicit mode (calls
+// OpenDBSecondary/OpenDBPrimary directly), so the IsPrimaryMode() parameter
+// is unused. We GTEST_SKIP the param=true iteration to avoid running the
+// same scenario twice. (TEST_P + skip is preferred over TEST_F here because
+// the fixture is shared with parameterized tests; converting would require
+// splitting the fixture.)
 // ============================================================================
 
 TEST_P(TrieIndexDBTest, PrimaryUDIBackwardCompatibility) {
+  if (IsPrimaryMode()) {
+    ROCKSDB_GTEST_SKIP("test uses explicit Open variants; parameter unused");
+    return;
+  }
   // Verifies that SSTs written with UDI as secondary (both indexes present)
   // can be read correctly when the DB is reopened with
   // use_udi_as_primary_index. This is the upgrade path: old SSTs have both
@@ -4235,6 +4249,10 @@ TEST_P(TrieIndexDBTest, PrimaryUDIBackwardCompatibility) {
 // ============================================================================
 
 TEST_P(TrieIndexDBTest, MigrationFullPath) {
+  if (IsPrimaryMode()) {
+    ROCKSDB_GTEST_SKIP("test uses explicit Open variants; parameter unused");
+    return;
+  }
   // Tests the complete recommended migration path:
   // Step 1: No UDI -> Step 2: UDI secondary -> Step 3: Compact all SSTs ->
   // Step 4: UDI primary
@@ -4299,6 +4317,10 @@ TEST_P(TrieIndexDBTest, MigrationFullPath) {
 }
 
 TEST_P(TrieIndexDBTest, MigrationPrimaryRejectsPreUDISSTs) {
+  if (IsPrimaryMode()) {
+    ROCKSDB_GTEST_SKIP("test uses explicit Open variants; parameter unused");
+    return;
+  }
   // Verifies that enabling use_udi_as_primary_index on a DB with SSTs
   // that have no UDI block fails at open time (not silently).
   options_.disable_auto_compactions = true;
@@ -4317,7 +4339,11 @@ TEST_P(TrieIndexDBTest, MigrationPrimaryRejectsPreUDISSTs) {
 }
 
 TEST_P(TrieIndexDBTest, RollbackFromPrimaryToSecondary) {
-  // Tests the rollback path: primary -> compact with secondary -> remove UDI.
+  if (IsPrimaryMode()) {
+    ROCKSDB_GTEST_SKIP("test uses explicit Open variants; parameter unused");
+    return;
+  }
+  // Tests the rollback path: primary → compact with secondary → remove UDI.
 
   // Start in primary mode. Write data.
   ASSERT_OK(OpenDBPrimary(/*block_size=*/128));
@@ -4381,6 +4407,10 @@ TEST_P(TrieIndexDBTest, RollbackFromPrimaryToSecondary) {
 }
 
 TEST_P(TrieIndexDBTest, RollbackFromPrimaryWithoutCompactSucceeds) {
+  if (IsPrimaryMode()) {
+    ROCKSDB_GTEST_SKIP("test uses explicit Open variants; parameter unused");
+    return;
+  }
   // Verifies that removing UDI from primary-mode SSTs WITHOUT compacting
   // first still works. The standard index is always fully populated (even
   // in primary mode), so reads fall back to the standard index correctly.
@@ -4405,6 +4435,75 @@ TEST_P(TrieIndexDBTest, RollbackFromPrimaryWithoutCompactSucceeds) {
   ASSERT_TRUE(iter->Valid());
   ASSERT_EQ(iter->key().ToString(), "key_a");
   ASSERT_OK(iter->status());
+}
+
+// ============================================================================
+// DB::Open validation: incompatible primary-mode combinations must be
+// rejected as InvalidArgument. Mirrors the rules in
+// BlockBasedTableFactory::ValidateOptions.
+// ============================================================================
+
+TEST_P(TrieIndexDBTest, PrimaryModeRejectsMissingUDIFactory) {
+  if (IsPrimaryMode()) {
+    ROCKSDB_GTEST_SKIP("test uses explicit Open variants; parameter unused");
+    return;
+  }
+  // use_udi_as_primary_index=true with no user_defined_index_factory must
+  // fail at Open with InvalidArgument.
+  Options opts;
+  opts.create_if_missing = true;
+  BlockBasedTableOptions table_options;
+  table_options.use_udi_as_primary_index = true;
+  // Intentionally NOT setting user_defined_index_factory.
+  opts.table_factory.reset(NewBlockBasedTableFactory(table_options));
+  std::unique_ptr<DB> tmp_db;
+  Status s = DB::Open(opts, dbname_, &tmp_db);
+  ASSERT_TRUE(s.IsInvalidArgument()) << s.ToString();
+  ASSERT_NE(s.ToString().find("user_defined_index_factory"), std::string::npos)
+      << s.ToString();
+}
+
+TEST_P(TrieIndexDBTest, PrimaryModeRejectsTwoLevelIndex) {
+  if (IsPrimaryMode()) {
+    ROCKSDB_GTEST_SKIP("test uses explicit Open variants; parameter unused");
+    return;
+  }
+  // use_udi_as_primary_index=true combined with kTwoLevelIndexSearch must
+  // fail at Open with InvalidArgument.
+  Options opts;
+  opts.create_if_missing = true;
+  BlockBasedTableOptions table_options;
+  table_options.user_defined_index_factory = trie_factory_;
+  table_options.use_udi_as_primary_index = true;
+  table_options.index_type = BlockBasedTableOptions::kTwoLevelIndexSearch;
+  opts.table_factory.reset(NewBlockBasedTableFactory(table_options));
+  std::unique_ptr<DB> tmp_db;
+  Status s = DB::Open(opts, dbname_, &tmp_db);
+  ASSERT_TRUE(s.IsInvalidArgument()) << s.ToString();
+  ASSERT_NE(s.ToString().find("kTwoLevelIndexSearch"), std::string::npos)
+      << s.ToString();
+}
+
+TEST_P(TrieIndexDBTest, PrimaryModeRejectsPartitionedFilters) {
+  if (IsPrimaryMode()) {
+    ROCKSDB_GTEST_SKIP("test uses explicit Open variants; parameter unused");
+    return;
+  }
+  // use_udi_as_primary_index=true combined with partition_filters must
+  // fail at Open with InvalidArgument.
+  Options opts;
+  opts.create_if_missing = true;
+  BlockBasedTableOptions table_options;
+  table_options.user_defined_index_factory = trie_factory_;
+  table_options.use_udi_as_primary_index = true;
+  table_options.partition_filters = true;
+  table_options.filter_policy.reset(NewBloomFilterPolicy(10));
+  opts.table_factory.reset(NewBlockBasedTableFactory(table_options));
+  std::unique_ptr<DB> tmp_db;
+  Status s = DB::Open(opts, dbname_, &tmp_db);
+  ASSERT_TRUE(s.IsInvalidArgument()) << s.ToString();
+  ASSERT_NE(s.ToString().find("partitioned"), std::string::npos)
+      << s.ToString();
 }
 
 TEST_P(TrieIndexDBTest, PrimaryModeTableProperties) {
@@ -4436,9 +4535,13 @@ TEST_P(TrieIndexDBTest, PrimaryModeTableProperties) {
   ASSERT_EQ(value, "val1");
 }
 
-TEST_P(TrieIndexDBTest, EstimatedSizeNonZero) {
-  // Verifies that TrieIndexBuilder::EstimatedSize() returns non-zero after
-  // adding entries, ensuring compaction file sizing works.
+TEST_P(TrieIndexDBTest, FlushedSSTHasNonZeroIndexSize) {
+  // Smoke test that flushing a non-trivial amount of data produces SSTs
+  // with a non-zero standard index size in the table properties. This
+  // checks that the table builder is wiring index sizes correctly when a
+  // UDI is configured, but does NOT exercise TrieIndexBuilder::EstimatedSize
+  // — that is tested directly in trie_index_test.cc:
+  // TrieIndexFactoryTest.EstimatedSizeGrowsMonotonically.
   ASSERT_OK(OpenDB(/*block_size=*/128));
 
   // Write enough data to produce multiple blocks.

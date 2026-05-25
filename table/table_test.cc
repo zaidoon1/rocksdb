@@ -8003,7 +8003,17 @@ class UserDefinedIndexTestBase : public BlockBasedTableTestBase {
 
       int GetEntriesAdded() const { return entries_added_; }
 
-      uint64_t EstimatedSize() const override { return 0; }
+      uint64_t EstimatedSize() const override {
+        // Mirror the eventual serialized size so consumers that read this
+        // estimate (e.g., file-size-aware compaction sizing once primary
+        // mode wires it up) see a realistic non-zero value during tests.
+        // Length-prefix overhead is approximated as 4 bytes per entry.
+        uint64_t size = 0;
+        for (const auto& entry : index_data_) {
+          size += entry.first.size() + entry.second.size() + 4;
+        }
+        return size;
+      }
 
       // When true, skip the EXPECT_EQ(key.size(), 5) checks, allowing
       // variable-length keys (e.g., from DB flush/compaction).
