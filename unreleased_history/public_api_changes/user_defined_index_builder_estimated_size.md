@@ -1,0 +1,1 @@
+Changed experimental `UserDefinedIndexBuilder::EstimatedSize()` from a defaulted virtual returning 0 to a pure virtual. Out-of-tree UDI implementations must now provide an explicit estimate. The value is reserved for size-aware compaction sizing in primary-UDI mode.
