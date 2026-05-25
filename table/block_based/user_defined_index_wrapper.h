@@ -85,8 +85,10 @@ class UserDefinedIndexBuilderWrapper : public IndexBuilder {
     // and its presence is required for correct internal RocksDB behavior.
     // The write-path cost is the standard index block in the SST (~1-2%
     // of SST size). Skipping the standard index is deferred to a future
-    // refactor that extracts the index abstraction to put the binary
-    // index and UDI at the same level (see PR #14547 discussion).
+    // refactor that lifts both the standard index and the UDI to the same
+    // pluggable IndexFactory abstraction; only after that lift can the
+    // standard index be cleanly omitted without leaking ad-hoc nullability
+    // through the table builder/reader internals.
     return internal_index_builder_->AddIndexEntry(
         last_key_in_current_block, first_key_in_next_block, block_handle,
         separator_scratch, skip_delta_encoding);
@@ -386,22 +388,31 @@ class UserDefinedIndexReaderWrapper : public BlockBasedTable::IndexReader {
       const ReadOptions& read_options, bool disable_prefix_seek,
       IndexBlockIter* iter, GetContext* get_context,
       BlockCacheLookupContext* lookup_context) override {
+    // Validate ReadOptions::table_index_factory consistency (same check in
+    // both primary and secondary mode):
+    // - If set, its Name() must match the configured UDI. A mismatch is
+    //   almost always a typo or misconfiguration and is reported as
+    //   InvalidArgument. Silently ignoring a caller-supplied factory in
+    //   primary mode (the previous behavior) hid bugs where callers
+    //   expected an override that never took effect.
+    // - If unset, behavior depends on mode: primary uses UDI, secondary
+    //   falls through to the standard index.
+    if (read_options.table_index_factory &&
+        name_ != read_options.table_index_factory->Name()) {
+      return NewErrorInternalIterator<IndexValue>(Status::InvalidArgument(
+          "Bad index name: " +
+          std::string(read_options.table_index_factory->Name()) +
+          ". Only supported UDI is " + name_));
+    }
+
     // Determine whether to use the UDI for this read:
     // 1. UDI is primary -- always use it (standard index is present in the
-    //    SST but not used for reads in this mode)
-    // 2. ReadOptions::table_index_factory is set -- use it (explicit request)
-    // 3. Neither -- fall through to the standard index
-    bool use_udi = udi_is_primary_;
-    if (!use_udi && read_options.table_index_factory) {
-      if (name_ == read_options.table_index_factory->Name()) {
-        use_udi = true;
-      } else {
-        return NewErrorInternalIterator<IndexValue>(Status::InvalidArgument(
-            "Bad index name: " +
-            std::string(read_options.table_index_factory->Name()) +
-            ". Only supported UDI is " + name_));
-      }
-    }
+    //    SST but not used for reads in this mode).
+    // 2. ReadOptions::table_index_factory is set (and the name matched) --
+    //    use it (explicit request).
+    // 3. Neither -- fall through to the standard index.
+    bool use_udi =
+        udi_is_primary_ || read_options.table_index_factory != nullptr;
 
     if (use_udi) {
       std::unique_ptr<UserDefinedIndexIterator> udi_iter =
@@ -424,9 +435,8 @@ class UserDefinedIndexReaderWrapper : public BlockBasedTable::IndexReader {
   }
 
   size_t ApproximateMemoryUsage() const override {
-    size_t usage = udi_reader_->ApproximateMemoryUsage();
-    usage += reader_->ApproximateMemoryUsage();
-    return usage;
+    return reader_->ApproximateMemoryUsage() +
+           udi_reader_->ApproximateMemoryUsage();
   }
 
   void EraseFromCacheBeforeDestruction(

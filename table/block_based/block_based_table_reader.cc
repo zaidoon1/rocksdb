@@ -1324,6 +1324,11 @@ Status BlockBasedTable::PrefetchIndexAndFilterBlocks(
     if (!s.ok()) {
       RecordTick(rep_->ioptions.statistics.get(),
                  SST_USER_DEFINED_INDEX_LOAD_FAIL_COUNT);
+      // Both branches use the same format string and arguments; the only
+      // difference is log level and post-handling. ROCKS_LOG_* macros
+      // require a string literal as the format (they concatenate
+      // __LINE__/__FILE__ at preprocessing time), so the literal must
+      // be repeated rather than hoisted into a variable.
       if (table_options.fail_if_no_udi_on_open ||
           table_options.use_udi_as_primary_index) {
         ROCKS_LOG_ERROR(rep_->ioptions.logger,
@@ -1344,7 +1349,24 @@ Status BlockBasedTable::PrefetchIndexAndFilterBlocks(
     }
 
     // If the UDI block size is 0, that means there's effectively no user
-    // defined index. In that case, skip setting up the reader.
+    // defined index. In primary mode, this would silently violate the
+    // contract that all reads route through the UDI — surface as Corruption
+    // immediately rather than letting the standard-index reader take over.
+    // In non-primary mode an empty UDI block is acceptable: the standard
+    // index is the default reader anyway, so the wrapper would only be
+    // overhead.
+    if (udi_block_handle.size() == 0 &&
+        table_options.use_udi_as_primary_index) {
+      RecordTick(rep_->ioptions.statistics.get(),
+                 SST_USER_DEFINED_INDEX_LOAD_FAIL_COUNT);
+      ROCKS_LOG_ERROR(
+          rep_->ioptions.logger,
+          "Primary UDI block %s has zero size in file %s; this SST cannot "
+          "satisfy use_udi_as_primary_index=true",
+          udi_name.c_str(), rep_->file->file_name().c_str());
+      return Status::Corruption("Primary UDI block has zero size: " + udi_name,
+                                rep_->file->file_name());
+    }
     if (udi_block_handle.size() > 0) {
       // Read the block, and allocate on heap or pin in cache. The UDI block is
       // not compressed. RetrieveBlock will verify the checksum.
