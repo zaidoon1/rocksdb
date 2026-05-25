@@ -299,6 +299,16 @@ int db_stress_tool(int argc, char** argv) {
     exit(1);
   }
 
+  // use_udi_as_primary_index has no effect without a configured UDI; fail
+  // loudly rather than silently accepting a no-op flag.
+  if (FLAGS_use_udi_as_primary_index && !FLAGS_use_trie_index) {
+    fprintf(
+        stderr,
+        "Error: use_udi_as_primary_index requires use_trie_index to be "
+        "enabled. Set --use_trie_index=true to configure the UDI factory.\n");
+    exit(1);
+  }
+
   if (FLAGS_read_only) {
     if (FLAGS_writepercent != 0 || FLAGS_delpercent != 0 ||
         FLAGS_delrangepercent != 0) {

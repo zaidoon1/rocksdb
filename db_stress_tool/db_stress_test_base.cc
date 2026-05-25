@@ -1205,7 +1205,12 @@ void StressTest::OperateDb(ThreadState* thread) {
       }
       // Commenting this out as we don't want to reset stats on each open.
       // thread->stats.Start();
-      if (FLAGS_use_trie_index && udi_factory_) {
+      // Mirror the guard at the initial read_opts setup above: in primary
+      // mode the table layer auto-routes reads through the UDI, so we must
+      // leave ReadOptions::table_index_factory null. Without this guard the
+      // post-reopen iterations silently degrade to secondary-mode coverage.
+      if (FLAGS_use_trie_index && !FLAGS_use_udi_as_primary_index &&
+          udi_factory_) {
         read_opts.table_index_factory = udi_factory_.get();
       }
     }

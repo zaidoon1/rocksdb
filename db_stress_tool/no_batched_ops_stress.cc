@@ -2563,16 +2563,23 @@ class NonBatchedOpsStressTest : public StressTest {
         static_cast<int>(post_read_expected_value.IsDeleted()),
         static_cast<int>(post_read_expected_value.PendingWrite()),
         static_cast<int>(post_read_expected_value.PendingDelete()));
+    // using_udi reflects whether reads route through the UDI: either the
+    // caller explicitly set ReadOptions::table_index_factory, or primary
+    // mode routes them automatically at the table layer.
+    const bool using_udi =
+        (ro.table_index_factory != nullptr) ||
+        (FLAGS_use_trie_index && FLAGS_use_udi_as_primary_index);
     fprintf(stderr,
             "Iterator config: allow_unprepared_value=%d, "
             "auto_refresh_iterator_with_snapshot=%d, has_snapshot=%d, "
-            "use_multi_cf_iterator=%d, using_udi=%d, use_trie_index=%d\n",
+            "use_multi_cf_iterator=%d, using_udi=%d, use_trie_index=%d, "
+            "udi_primary=%d\n",
             static_cast<int>(ro.allow_unprepared_value),
             static_cast<int>(ro.auto_refresh_iterator_with_snapshot),
             static_cast<int>(ro.snapshot != nullptr),
             static_cast<int>(FLAGS_use_multi_cf_iterator),
-            static_cast<int>(ro.table_index_factory != nullptr),
-            static_cast<int>(FLAGS_use_trie_index));
+            static_cast<int>(using_udi), static_cast<int>(FLAGS_use_trie_index),
+            static_cast<int>(FLAGS_use_udi_as_primary_index));
     fprintf(stderr, "Iterator value: %s\n",
             iter->value().ToString(true).c_str());
 

@@ -673,16 +673,18 @@ DEFINE_double(uniform_cv_threshold,
 DEFINE_bool(use_trie_index, false,
             "Use trie-based user defined index (UDI) for SST files. "
             "Compatible with all operation types (Put, Delete, Merge, etc.) "
-            "and all iteration directions (forward and reverse). "
-            "Combined with use_udi_as_primary_index to control whether the "
-            "UDI is the primary or secondary index.");
+            "and all iteration directions (forward and reverse). See also "
+            "--use_udi_as_primary_index for the primary/secondary toggle.");
 
 DEFINE_bool(use_udi_as_primary_index, false,
-            "When use_trie_index is enabled, use the UDI as the primary "
-            "index. All reads automatically go through the UDI (both "
-            "the standard index and UDI are always built). When false, "
-            "the UDI is a secondary index and reads require "
-            "ReadOptions::table_index_factory to be set.");
+            "Use the UDI as the primary index for all reads. Both the "
+            "standard index and the UDI are written; reads automatically "
+            "route through the UDI without requiring "
+            "ReadOptions::table_index_factory to be set. When false (the "
+            "default), the UDI is a secondary index and callers must opt "
+            "in per-read via ReadOptions::table_index_factory. "
+            "Has no effect when --use_trie_index=false (stress fails fast "
+            "in that case).");
 
 DEFINE_bool(test_backward_scan, true,
             "Test backward iteration (Prev, SeekForPrev) in stress tests.");

@@ -680,6 +680,13 @@ DEFINE_bool(use_trie_index, false,
             "providing space reduction compared to the default binary search "
             "index. Requires BytewiseComparator.");
 
+DEFINE_bool(use_udi_as_primary_index, false,
+            "When --use_trie_index is enabled, route all reads through the "
+            "UDI (primary mode). The standard index is still built (for "
+            "rollback and SST-format compatibility) but is not consulted on "
+            "reads. Has no effect when --use_trie_index=false. Use this to "
+            "benchmark primary vs. secondary UDI read paths.");
+
 DEFINE_bool(
     optimize_filters_for_memory,
     ROCKSDB_NAMESPACE::BlockBasedTableOptions().optimize_filters_for_memory,
@@ -3748,7 +3755,11 @@ class Benchmark {
       read_options_.auto_readahead_size = FLAGS_auto_readahead_size;
       read_options_.auto_refresh_iterator_with_snapshot =
           FLAGS_auto_refresh_iterator_with_snapshot;
-      if (FLAGS_use_trie_index && udi_factory_) {
+      // In primary mode the table layer auto-routes reads through the UDI,
+      // so ReadOptions::table_index_factory stays null. In secondary mode
+      // we need the explicit factory to opt this iterator into UDI reads.
+      if (FLAGS_use_trie_index && !FLAGS_use_udi_as_primary_index &&
+          udi_factory_) {
         read_options_.table_index_factory = udi_factory_.get();
       }
 
@@ -5030,6 +5041,13 @@ class Benchmark {
       if (FLAGS_use_trie_index) {
         udi_factory_ = std::make_shared<trie_index::TrieIndexFactory>();
         block_based_options.user_defined_index_factory = udi_factory_;
+        block_based_options.use_udi_as_primary_index =
+            FLAGS_use_udi_as_primary_index;
+      } else if (FLAGS_use_udi_as_primary_index) {
+        fprintf(stderr,
+                "Error: --use_udi_as_primary_index requires --use_trie_index. "
+                "Set --use_trie_index=true to configure the UDI factory.\n");
+        exit(1);
       }
 
       options.table_factory.reset(
