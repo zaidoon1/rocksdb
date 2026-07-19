@@ -17,7 +17,7 @@ table/block_based/block_based_table_builder.h
 db/c_test.c
   s_18211f27fd441b::t_05b8850e2caacd 3426-3441
 tools/c_api_gen/auto_simple_bindings_blocklist.json
-  s_18211f27fd441b::t_ee05c70944f824 42-46,50,376-380
+  s_18211f27fd441b::t_ee05c70944f824 42-46,50,376-380,376,377-380
 db/db_properties_test.cc
   s_18211f27fd441b::t_a7e4e3af833c4e 628,644
 c_api_gen/c_generated_metadata_structs_auto.h.inc
