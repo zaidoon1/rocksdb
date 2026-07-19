@@ -1,0 +1,19 @@
+include/rocksdb/user_defined_index.h
+  s_18211f27fd441b::t_db452bde5f8e32 12,24-25,136-194
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "42d0138f0cf884083b70a6f4c59440d1815f2848",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "unknown"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
