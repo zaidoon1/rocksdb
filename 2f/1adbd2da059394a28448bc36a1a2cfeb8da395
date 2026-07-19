@@ -1,0 +1,47 @@
+include/rocksdb/compression_type.h
+  s_18211f27fd441b::t_ec72a39fcbc1e4 252-260
+db_stress_tool/no_batched_ops_stress.cc
+  s_18211f27fd441b::t_d3cc687b6e62c0 2709,2766
+tools/db_bench_tool.cc
+  s_18211f27fd441b::t_2636ec34e82d10 699-723,3248,3320-3337,4054-4058,5433-5439
+unreleased_history/public_api_changes/read_options_read_index.md
+  s_18211f27fd441b::t_50534a4ff0dc60 1
+tools/db_bench_tool_test.cc
+  s_18211f27fd441b::t_654dfcfa76d9a8 379-380
+db_stress_tool/db_stress_test_base.h
+  s_18211f27fd441b::t_75bc5e1480a058 519,542
+unreleased_history/new_features/parallel_compression_with_udi.md
+  s_18211f27fd441b::t_67885cadb246f6 1
+tools/db_crashtest.py
+  s_18211f27fd441b::t_4daf000fa77388 296-300,1148-1149,1154-1159,1162-1189,1191-1193
+unreleased_history/behavior_changes/kPreferCustom_fallback.md
+  s_18211f27fd441b::t_fe528f2ce94e0a 1
+tools/db_crashtest_test.py
+  s_18211f27fd441b::t_ec6857bd62a523 180-329
+unreleased_history/public_api_changes/index_mode_enum.md
+  s_18211f27fd441b::t_7b8cfec3f549c1 1
+db_stress_tool/db_stress_test_base.cc
+  s_18211f27fd441b::t_b558f1997e71af 265-280,1554-1559,1617-1618,2839,2900,2906,2916,5350,5433-5446,5449-5467
+unreleased_history/public_api_changes/index_factory_refactor.md
+  s_18211f27fd441b::t_02143f7845532c 1
+db_stress_tool/db_stress_common.h
+  s_18211f27fd441b::t_ad38891f76e367 190
+db_stress_tool/db_stress_gflags.cc
+  s_18211f27fd441b::t_57e9e98fd184d6 685-692
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2f1adbd2da059394a28448bc36a1a2cfeb8da395",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
