@@ -1,0 +1,35 @@
+BUCK
+  s_18211f27fd441b::t_ec0e654dbe911f 206,4603-4608
+CMakeLists.txt
+  s_18211f27fd441b::t_4f5735e2ecdc35 938,1593
+Makefile
+  s_18211f27fd441b::t_306e972587e1ab 1939-1941
+src.mk
+  s_18211f27fd441b::t_1b8cb24e032c05 196,608
+table/block_based/builtin_index_factory.cc
+  s_18211f27fd441b::t_b62d862381a2d0 1-519
+table/block_based/builtin_index_factory.h
+  s_18211f27fd441b::t_4299675b5b5b83 1-283
+table/block_based/builtin_index_factory_test.cc
+  s_18211f27fd441b::t_7361520b118bdf 1-749
+table/block_based/index_builder.h
+  s_18211f27fd441b::t_2e4d0e5fe8b94b 22,669-670,715-718,727,734,738
+table/block_based/partition_coordinator.h
+  s_18211f27fd441b::t_da5b6acc7c91e4 1-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "8274d33eea6ef0a82c601714f6917326d698dc4d",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
