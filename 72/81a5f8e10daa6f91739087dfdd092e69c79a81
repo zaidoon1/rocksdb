@@ -1,0 +1,106 @@
+include/rocksdb/options.h
+  s_18211f27fd441b::t_a2d3a58713a0f8 2431-2432,2458,2459,2460,2461-2464
+  s_18211f27fd441b::t_04139295f85e11 61-62,2473
+  s_18211f27fd441b::t_1a0a8d1d5676c9 2433-2457,2467-2472
+include/rocksdb/table.h
+  s_18211f27fd441b::t_2de0005fb13b4d 602-603,681,682,683,684,685,688-691
+  s_18211f27fd441b::t_4d4e9521943166 48,600
+  s_18211f27fd441b::t_6ea0fe716a1abc 594-599,604-680,686-687
+  s_18211f27fd441b::t_91644eb0bac41e 694-696,701-703
+BUCK
+  s_18211f27fd441b::t_ec0e654dbe911f 206,4603-4608
+CMakeLists.txt
+  s_18211f27fd441b::t_4f5735e2ecdc35 938,1593
+Makefile
+  s_18211f27fd441b::t_306e972587e1ab 1939-1941
+src.mk
+  s_18211f27fd441b::t_1b8cb24e032c05 196,608
+table/block_based/builtin_index_factory.cc
+  s_18211f27fd441b::t_b62d862381a2d0 1-519
+table/block_based/builtin_index_factory.h
+  s_18211f27fd441b::t_4299675b5b5b83 1-68,69-71,72-96,97-99,100-125,126-128,129-244
+table/block_based/builtin_index_factory_test.cc
+  s_18211f27fd441b::t_7361520b118bdf 1-749
+table/block_based/index_builder.h
+  s_18211f27fd441b::t_2e4d0e5fe8b94b 22,669-670,715-718,727,734,738
+table/block_based/partition_coordinator.h
+  s_18211f27fd441b::t_da5b6acc7c91e4 1-51
+utilities/trie_index/trie_index_factory.cc
+  s_18211f27fd441b::t_5415978689c03c 22,24
+utilities/trie_index/trie_index_test.cc
+  s_18211f27fd441b::t_782f413000ddc3 3001,3003-3005,3007,3009-3010
+  s_18211f27fd441b::t_b8551156255666 5065
+utilities/trie_index/trie_index_factory.h
+  s_18211f27fd441b::t_bf519faa7ac294 280,286,295-296,298-299
+include/rocksdb/user_defined_index.h
+  s_18211f27fd441b::t_96d3dcf8b7f0df 9-18,22,26-29,31
+include/rocksdb/index_factory.h
+  s_18211f27fd441b::t_c8678193a7dd83 392-393
+  s_18211f27fd441b::t_95b899419de7ea 395
+  s_18211f27fd441b::t_5b599dc4a8596c 1-4,7-10,15-27,31-391,394,396-410,412-416
+table/table_test.cc
+  s_18211f27fd441b::t_824db77b0e8d70 137-138
+  s_18211f27fd441b::t_9a26ccb18b3657 8880,8883-8884,8887-8888,8891-8892,8895-8896
+  s_18211f27fd441b::t_ae998f5f76805f 8703,8724,8726-8727,9214,9241,9257,9298-9299
+  s_18211f27fd441b::t_f872c67a1d7ac7 142-155
+table/block_based/partitioned_filter_block.cc
+  s_18211f27fd441b::t_cb7adf8435c997 28-29,35-36,99,101,105-133,176,278,328,355
+tools/c_api_gen/c_base.cc
+  s_18211f27fd441b::t_de116e71242906 459-470,4142,4154,4161,4179-4200,5723,5735,5741
+db/c_test.c
+  s_18211f27fd441b::t_05b8850e2caacd 3426-3441
+table/block_based/block_based_table_reader.cc
+  s_18211f27fd441b::t_e12c4bdd68185b 47,442,499,575,998-1014,1813-1819,1824-1826,1831-1839,1848-1851,1860-1879,1884,1894-1899,1901-1902,1911-1914,1916-1920,2483,2698,3335-3336,3479
+table/block_based/user_defined_index_wrapper.h
+  s_18211f27fd441b::t_e496022aa82ffa 12,21-37,39-40,43,58-64,66-69,92-93,121-122,125,135-138,144-145,152,160,164-165,168-169,173-174,180-205,209,215,218,223-227,235-237,255,257,259
+c_api_gen/c_generated_metadata_structs_auto.h.inc
+  s_18211f27fd441b::t_79089de0371303 53-56
+db/db_properties_test.cc
+  s_18211f27fd441b::t_a7e4e3af833c4e 628,644
+c_api_gen/c_generated_metadata_structs_auto.cc.inc
+  s_18211f27fd441b::t_2931ea92d4446a 66-70
+table/block_based/partitioned_filter_block.h
+  s_18211f27fd441b::t_b5da5b91c1223f 21,35-36,83-86,96-102
+include/rocksdb/c.h
+  s_18211f27fd441b::t_9306ff3e01f1a2 1347-1358,1677-1680
+table/meta_blocks.cc
+  s_18211f27fd441b::t_9d5216e25078ba 98-101,311-312
+db/c.cc
+  s_18211f27fd441b::t_9bc3cc17b5b5b7 463-474,4435,4447,4454,4472-4493,4914-4918,7208,7220,7226
+tools/c_api_gen/c_base.h
+  s_18211f27fd441b::t_7f10850d9543c0 1137-1148
+options/options_settable_test.cc
+  s_18211f27fd441b::t_5db7030b8be9bc 10,29-62,168,249,341
+table/block_based/partitioned_filter_block_test.cc
+  s_18211f27fd441b::t_fc463f44535639 165
+table/table_properties.cc
+  s_18211f27fd441b::t_08de7b4034243e 130-132,235,264,335-336,440-443
+tools/c_api_gen/auto_simple_bindings_blocklist.json
+  s_18211f27fd441b::t_ee05c70944f824 42-46,50,376-390
+include/rocksdb/table_properties.h
+  s_18211f27fd441b::t_38c3171300fe92 51,247-248,250-252
+table/block_based/block_based_table_builder.h
+  s_18211f27fd441b::t_b73b4bef29aa76 211-214
+table/block_based/block_based_table_builder.cc
+  s_18211f27fd441b::t_8bb45684ff5ddd 26,36-37,59,89,100-112,127-129,308-315,879,881-1006,1420-1423,1426,1463-1470,1472,1474-1483,1485-1487,1490-1534,1536-1554,1558-1560,1573,1869,2035-2104,2165-2167,2252-2272,2609-2626,2912-2966,2973-2983,2985-2990,2992-2994,2996-3018,3026-3050,3062-3064,3088-3112,3114,3398,3555-3560
+table/block_based/block_based_table_factory.cc
+  s_18211f27fd441b::t_ea401ee43aafaf 28,232-241,345,443-455,457-472,474-503,508-524,531,853-857,859-860,862-886,1065-1066,1224-1226,1232
+db_stress_tool/db_stress_test_base.cc
+  s_18211f27fd441b::t_98c681448342a3 5417-5418
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "7281a5f8e10daa6f91739087dfdd092e69c79a81",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "unknown"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
