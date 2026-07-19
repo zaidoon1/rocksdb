@@ -1,0 +1,25 @@
+include/rocksdb/table.h
+  s_18211f27fd441b::t_2de0005fb13b4d 602-625
+include/rocksdb/options.h
+  s_18211f27fd441b::t_a2d3a58713a0f8 2430-2445
+options/options_settable_test.cc
+  s_18211f27fd441b::t_407354760bb029 134-135
+include/rocksdb/user_defined_index.h
+  s_18211f27fd441b::t_db452bde5f8e32 12,24-25,136-194
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ed3abb80aec8c872a6ea2a05d2c1768b1050c36d",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
