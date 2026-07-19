@@ -1,0 +1,27 @@
+BUCK
+  s_18211f27fd441b::t_94bcc258c28ac3 4603-4608
+CMakeLists.txt
+  s_18211f27fd441b::t_892161878f7c2b 1593
+Makefile
+  s_18211f27fd441b::t_798707b91fc13b 1939-1941
+src.mk
+  s_18211f27fd441b::t_da08b1abe6f21f 608
+table/block_based/builtin_index_factory_test.cc
+  s_18211f27fd441b::t_a8deef89972b24 1-749
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "9a4b4f19eabb3235b427d480acdb6c4439d69b1b",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
