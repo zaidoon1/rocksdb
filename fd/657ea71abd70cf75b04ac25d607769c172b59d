@@ -1,0 +1,31 @@
+table/block_based/builtin_index_factory.cc
+  s_18211f27fd441b::t_4d2592e22ef478 1-519
+table/block_based/builtin_index_factory.h
+  s_18211f27fd441b::t_1c85bc9df39a1e 1-283
+table/block_based/index_builder.h
+  s_18211f27fd441b::t_b0bf63871061f1 22,669-670,715-718,727,734,738
+table/block_based/partition_coordinator.h
+  s_18211f27fd441b::t_628b2edd0a33f4 1-51
+BUCK
+  s_18211f27fd441b::t_5eafcb4e19f68b 206
+CMakeLists.txt
+  s_18211f27fd441b::t_224b649b2a30bd 938
+src.mk
+  s_18211f27fd441b::t_31be6e33f0cc13 196
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "fd657ea71abd70cf75b04ac25d607769c172b59d",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
