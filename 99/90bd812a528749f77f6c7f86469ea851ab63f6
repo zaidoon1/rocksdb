@@ -1,0 +1,29 @@
+include/rocksdb/options.h
+  s_452f09aba9fe6c::t_049f691a07dac1 61-62,2464
+include/rocksdb/table.h
+  s_452f09aba9fe6c::t_9cfcb0639506b2 48,598,600
+table/block_based/block_based_table_factory.cc
+  s_452f09aba9fe6c::t_0578a0a48d1ef1 1146
+table/block_based/builtin_index_factory.h
+  s_452f09aba9fe6c::t_ed8a797f92a4bb 64-65,94-95,125-126
+table/block_based/user_defined_index_wrapper.h
+  s_452f09aba9fe6c::t_6321a71518dbab 216,220,222,225,231
+table/table_test.cc
+  s_452f09aba9fe6c::t_ecb000316851fc 144-145,8034-8036,8874,8877-8878,8881-8882,8885-8886,8889-8890
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "9990bd812a528749f77f6c7f86469ea851ab63f6",
+  "prompts": {},
+  "sessions": {
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
