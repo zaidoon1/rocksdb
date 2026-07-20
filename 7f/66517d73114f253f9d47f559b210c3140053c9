@@ -1,0 +1,27 @@
+include/rocksdb/options.h
+  s_452f09aba9fe6c::t_792072fbd7755c 2430-2445
+include/rocksdb/table.h
+  s_452f09aba9fe6c::t_e8ce54bf8c4773 602-625
+options/options_settable_test.cc
+  s_452f09aba9fe6c::t_50f33a5bdbbd5a 188
+table/block_based/block_based_table_factory.cc
+  s_452f09aba9fe6c::t_d386f2144661ba 217-226,301-303
+tools/c_api_gen/auto_simple_bindings_blocklist.json
+  s_452f09aba9fe6c::t_43c93fa4d183f1 42-46,376-380
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "7f66517d73114f253f9d47f559b210c3140053c9",
+  "prompts": {},
+  "sessions": {
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
