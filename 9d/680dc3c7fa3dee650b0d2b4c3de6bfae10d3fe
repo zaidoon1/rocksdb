@@ -1,0 +1,73 @@
+c_api_gen/c_generated_metadata_structs_auto.cc.inc
+  s_452f09aba9fe6c::t_a9d9a67e8dd874 66-70
+c_api_gen/c_generated_metadata_structs_auto.h.inc
+  s_452f09aba9fe6c::t_2e83b75c7180a3 53-56
+db/c.cc
+  s_452f09aba9fe6c::t_eeff84f7029223 463-474,4435,4447,4454,4472-4493,4914-4918,7208,7220,7226
+db/c_test.c
+  s_452f09aba9fe6c::t_27990a12fd3738 3426-3441
+db/db_properties_test.cc
+  s_452f09aba9fe6c::t_765148640585e7 628,644
+db_stress_tool/db_stress_test_base.cc
+  s_452f09aba9fe6c::t_dc99a655bf052a 5417-5418
+include/rocksdb/c.h
+  s_452f09aba9fe6c::t_a7191073d0b169 1347-1358,1677-1680
+include/rocksdb/options.h
+  s_452f09aba9fe6c::t_865ed6a4663ebe 2433-2457,2467-2472
+include/rocksdb/table_properties.h
+  s_452f09aba9fe6c::t_83849fc4404934 51,247-248,250-252
+options/options_settable_test.cc
+  s_452f09aba9fe6c::t_a13fa94ebd910d 10,29-62,168-172,341
+table/block_based/block_based_table_builder.cc
+  s_403361a925e37e::t_d491df2cebcdb1 26,36-37,59,89,100-112,127-129,308-315,879,881-1006,1420-1423,1426,1463-1470,1472,1474-1477,1479-1488,1490-1492,1495-1539,1541-1559,1563-1565,1578,1874,2040-2109,2170-2172,2257-2277,2614-2631,2917-2971,2978-2988,2990-2996,2998-3000,3002-3024,3032-3063,3075-3077,3101-3125,3127,3244-3255,3419,3576-3583
+table/block_based/block_based_table_builder.h
+  s_403361a925e37e::t_390b2f3e677268 211-213
+table/block_based/block_based_table_factory.cc
+  s_403361a925e37e::t_7311ed16236729 16,29,349,447-454,456-471,473-502,507-523,530,852-856,858-859,861-892,1071-1072,1190-1243,1284-1286,1292
+table/block_based/partitioned_filter_block.cc
+  s_452f09aba9fe6c::t_bbf2a80eb382a2 28-29,35-36,99,101,105-133,176,278,328,355
+table/block_based/partitioned_filter_block.h
+  s_452f09aba9fe6c::t_24972105aef41d 21,35-36,83-86,96-102
+table/block_based/partitioned_filter_block_test.cc
+  s_452f09aba9fe6c::t_037f9423b62afc 165
+table/block_based/user_defined_index_wrapper.h
+  s_452f09aba9fe6c::t_41a63d663285f5 12,21-37,39-40,43,58-64,66-69,92-93,121-122,125,135-138,144-145,152,160,164-165,168-169,173-174,180-205,209,215,218,223-227,235-237,255,257,259
+table/meta_blocks.cc
+  s_452f09aba9fe6c::t_dcbfd8df2dd836 98-101,311-312
+table/table_properties.cc
+  s_452f09aba9fe6c::t_bff34560a94c26 130-132,235,264,335-337,441-444
+table/table_test.cc
+  s_452f09aba9fe6c::t_5e122210286a52 149-162,8052,8712,8733,8735-8736,9223,9250,9266,9307-9308
+tools/c_api_gen/auto_simple_bindings_blocklist.json
+  s_452f09aba9fe6c::t_57d2fabeb34490 50,377-386,390
+tools/c_api_gen/c_base.cc
+  s_452f09aba9fe6c::t_59efcadd6f865b 459-470,4142,4154,4161,4179-4200,5723,5735,5741
+tools/c_api_gen/c_base.h
+  s_452f09aba9fe6c::t_29785bdbfe1eb7 1137-1148
+utilities/trie_index/trie_index_test.cc
+  s_452f09aba9fe6c::t_8c3e8f6a55277e 5060
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "9d680dc3c7fa3dee650b0d2b4c3de6bfae10d3fe",
+  "prompts": {},
+  "sessions": {
+    "s_403361a925e37e": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0815a611affei6Mm0GWsHPswLS",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
