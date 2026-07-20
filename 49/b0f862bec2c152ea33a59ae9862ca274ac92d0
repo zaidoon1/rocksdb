@@ -1,0 +1,32 @@
+table/table_test.cc
+  s_18211f27fd441b::t_7967b3e91728ad 47,94-145
+  s_dce53ef762ddde::t_8b185ba229820a 23,146
+include/rocksdb/index_factory.h
+  s_18211f27fd441b::t_95b899419de7ea 1-24
+unreleased_history/public_api_changes/index_factory_aliases.md
+  s_dce53ef762ddde::t_ae7b164d61176f 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "49b0f862bec2c152ea33a59ae9862ca274ac92d0",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_dce53ef762ddde": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6735-689a-7de0-b9b0-1f6ef3e03d6f",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
