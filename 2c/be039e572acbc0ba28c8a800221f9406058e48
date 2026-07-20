@@ -1,0 +1,23 @@
+table/block_based/block_cache.cc
+  s_452f09aba9fe6c::t_f6007a207f289d 87,105
+table/block_fetcher.cc
+  s_452f09aba9fe6c::t_64574c7c4fa4f4 50,386
+table/block_fetcher_test.cc
+  s_452f09aba9fe6c::t_395b9f70cd1cd5 15-16,21,24,108-109,114-127,130,135-137,242-274,456-469
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2cbe039e572acbc0ba28c8a800221f9406058e48",
+  "prompts": {},
+  "sessions": {
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
