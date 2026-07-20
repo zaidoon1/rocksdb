@@ -1,0 +1,37 @@
+db_stress_tool/db_stress_common.h
+  s_452f09aba9fe6c::t_a257607d8068b0 190
+db_stress_tool/db_stress_test_base.h
+  s_452f09aba9fe6c::t_9393dd7e292f57 519,542
+db_stress_tool/no_batched_ops_stress.cc
+  s_452f09aba9fe6c::t_ab381ce7fead17 2709,2766
+include/rocksdb/compression_type.h
+  s_452f09aba9fe6c::t_2b8789357d0c8a 252-260
+tools/db_bench_tool_test.cc
+  s_452f09aba9fe6c::t_c50fcfe6828f85 379-380
+unreleased_history/behavior_changes/kPreferCustom_fallback.md
+  s_452f09aba9fe6c::t_a387992b2cf8cd 1
+unreleased_history/new_features/parallel_compression_with_udi.md
+  s_452f09aba9fe6c::t_309efcd04f0cf9 1
+unreleased_history/public_api_changes/index_factory_refactor.md
+  s_452f09aba9fe6c::t_bfd62836f426df 1
+unreleased_history/public_api_changes/index_mode_enum.md
+  s_452f09aba9fe6c::t_9d4f9edb4a7b52 1
+unreleased_history/public_api_changes/read_options_read_index.md
+  s_452f09aba9fe6c::t_d7696a609d93a5 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "38fbfebb3c78f78007c99afa1cd3005f9ae0799a",
+  "prompts": {},
+  "sessions": {
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
