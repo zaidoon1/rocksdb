@@ -1,0 +1,27 @@
+BUCK
+  s_452f09aba9fe6c::t_828b7255c79a20 206
+CMakeLists.txt
+  s_452f09aba9fe6c::t_69ce040565f764 938
+src.mk
+  s_452f09aba9fe6c::t_db521b1805d4d3 196
+table/block_based/index_builder.h
+  s_452f09aba9fe6c::t_e854c261bc9e75 22,669-670,715-718,727,734,738
+table/block_based/partition_coordinator.h
+  s_452f09aba9fe6c::t_a4a493dc73d285 1-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2fb1e375f7983895075a71994bcf5f72d71e4536",
+  "prompts": {},
+  "sessions": {
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
