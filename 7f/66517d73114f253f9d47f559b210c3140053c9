@@ -1,13 +1,18 @@
 include/rocksdb/options.h
   s_452f09aba9fe6c::t_792072fbd7755c 2430-2445
+  s_18211f27fd441b::t_a2d3a58713a0f8 2430-2445
 include/rocksdb/table.h
   s_452f09aba9fe6c::t_e8ce54bf8c4773 602-625
+  s_18211f27fd441b::t_2de0005fb13b4d 602-625
 options/options_settable_test.cc
   s_452f09aba9fe6c::t_50f33a5bdbbd5a 188
+  s_18211f27fd441b::t_c8572574587274 188
 table/block_based/block_based_table_factory.cc
   s_452f09aba9fe6c::t_d386f2144661ba 217-226,301-303
+  s_18211f27fd441b::t_89b83581d32bdb 217-226,301-303
 tools/c_api_gen/auto_simple_bindings_blocklist.json
   s_452f09aba9fe6c::t_43c93fa4d183f1 42-46,376-380
+  s_18211f27fd441b::t_7106801344e22f 42-46,376-380
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -15,6 +20,14 @@ tools/c_api_gen/auto_simple_bindings_blocklist.json
   "base_commit_sha": "7f66517d73114f253f9d47f559b210c3140053c9",
   "prompts": {},
   "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
     "s_452f09aba9fe6c": {
       "agent_id": {
         "tool": "opencode",
