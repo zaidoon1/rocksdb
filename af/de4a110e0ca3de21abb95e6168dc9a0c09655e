@@ -1,0 +1,35 @@
+BUCK
+  s_452f09aba9fe6c::t_9bad037adc67a0 4603-4608
+CMakeLists.txt
+  s_452f09aba9fe6c::t_1ede31adab4faa 1593
+Makefile
+  s_452f09aba9fe6c::t_db65ab4fa8564a 1939-1941
+src.mk
+  s_452f09aba9fe6c::t_ce9a0f3c990df5 608
+table/block_based/builtin_index_factory_test.cc
+  s_8dce2a5fe56b10::t_b5f9539aaee6f0 1-941
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "afde4a110e0ca3de21abb95e6168dc9a0c09655e",
+  "prompts": {},
+  "sessions": {
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_8dce2a5fe56b10": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0815a6089ffez6omAxYWhXouyf",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
