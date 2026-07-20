@@ -1,0 +1,23 @@
+table/block_based/block_cache.cc
+  s_18211f27fd441b::t_f261c2b11170fb 87,105
+table/block_fetcher_test.cc
+  s_18211f27fd441b::t_bcf7030cb884b2 15-16,21,24,108-109,114-127,130,135-137,242-274,456-469
+table/block_fetcher.cc
+  s_18211f27fd441b::t_b98531524f5ea1 50,386
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ae26f9e4f2bd0dfabc57014a71355fb91a4079ad",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "unknown"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
