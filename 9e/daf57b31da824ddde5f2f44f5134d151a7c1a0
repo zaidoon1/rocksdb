@@ -1,0 +1,27 @@
+include/rocksdb/options.h
+  s_18211f27fd441b::t_a2d3a58713a0f8 2430-2445
+include/rocksdb/table.h
+  s_18211f27fd441b::t_2de0005fb13b4d 602-625
+tools/c_api_gen/auto_simple_bindings_blocklist.json
+  s_18211f27fd441b::t_7106801344e22f 42-46,376-380
+options/options_settable_test.cc
+  s_18211f27fd441b::t_c8572574587274 188
+table/block_based/block_based_table_factory.cc
+  s_18211f27fd441b::t_89b83581d32bdb 217-226,301-304
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "9edaf57b31da824ddde5f2f44f5134d151a7c1a0",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "unknown"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
