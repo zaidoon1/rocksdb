@@ -1,0 +1,50 @@
+include/rocksdb/index_factory.h
+  s_18211f27fd441b::t_95b899419de7ea 1-24
+table/table_test.cc
+  s_18211f27fd441b::t_7967b3e91728ad 47,98-146
+include/rocksdb/options.h
+  s_18211f27fd441b::t_a2d3a58713a0f8 2430-2445
+include/rocksdb/table.h
+  s_18211f27fd441b::t_2de0005fb13b4d 602-625
+tools/c_api_gen/auto_simple_bindings_blocklist.json
+  s_18211f27fd441b::t_7106801344e22f 42-46,376-380
+include/rocksdb/user_defined_index.h
+  s_18211f27fd441b::t_db452bde5f8e32 13,135-161,166-191,193
+table/block_based/builtin_index_factory.cc
+  s_18211f27fd441b::t_4d2592e22ef478 1-519
+  s_18211f27fd441b::t_b62d862381a2d0 1-519
+table/block_based/builtin_index_factory.h
+  s_18211f27fd441b::t_1c85bc9df39a1e 1-283
+  s_18211f27fd441b::t_4299675b5b5b83 1-283
+table/block_based/index_builder.h
+  s_18211f27fd441b::t_b0bf63871061f1 22,669-670,715-718,727,734,738
+  s_18211f27fd441b::t_2e4d0e5fe8b94b 22,669-670,715-718,727,734,738
+table/block_based/partition_coordinator.h
+  s_18211f27fd441b::t_628b2edd0a33f4 1-51
+  s_18211f27fd441b::t_da5b6acc7c91e4 1-51
+BUCK
+  s_18211f27fd441b::t_5eafcb4e19f68b 206
+  s_18211f27fd441b::t_ec0e654dbe911f 206
+CMakeLists.txt
+  s_18211f27fd441b::t_224b649b2a30bd 938
+  s_18211f27fd441b::t_4f5735e2ecdc35 938
+src.mk
+  s_18211f27fd441b::t_31be6e33f0cc13 196
+  s_18211f27fd441b::t_1b8cb24e032c05 196
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "044f83024600ccfcfd56c0128b49ccb8c7194d19",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "unknown"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
