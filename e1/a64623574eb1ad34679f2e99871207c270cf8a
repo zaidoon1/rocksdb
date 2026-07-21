@@ -1,0 +1,19 @@
+utilities/trie_index/louds_trie.h
+  s_452f09aba9fe6c::t_127ba8b4bfdd32 69
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "e1a64623574eb1ad34679f2e99871207c270cf8a",
+  "prompts": {},
+  "sessions": {
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
