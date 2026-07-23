@@ -1,0 +1,27 @@
+tools/c_api_gen/c_base.h
+  s_939ac6d9b09cd9::t_57acfb66f8ef3a 868-878,896-903,924-929,946-953
+db/c.cc
+  s_939ac6d9b09cd9::t_b136efe5ec6beb 19,670-680,3562-3582,3622-3653,3705-3736,3790-3811,3863-3898
+include/rocksdb/c.h
+  s_939ac6d9b09cd9::t_b76ddca75d9dd8 1045-1055,1073-1080,1101-1106,1123-1130
+tools/c_api_gen/c_base.cc
+  s_939ac6d9b09cd9::t_3f5095e70586c8 15,666-676,3309-3329,3369-3400,3452-3483,3537-3558,3610-3645
+unreleased_history/public_api_changes/writebatch_slice_parts_c_api.md
+  s_939ac6d9b09cd9::t_fff7839254852f 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "7e634b605dc0ec232bb0bc327d963e474740f59c",
+  "prompts": {},
+  "sessions": {
+    "s_939ac6d9b09cd9": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f8888-4733-7613-97cb-d678dac184b0",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
