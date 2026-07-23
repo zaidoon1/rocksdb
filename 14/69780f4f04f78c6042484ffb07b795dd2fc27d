@@ -1,0 +1,21 @@
+db/c.cc
+  s_939ac6d9b09cd9::t_879c72c907e1ef 64,259-261,1956-1969,1974-1997,5627-5630,5642-5646,5650-5655,5659-5664,5668-5673,5677-5681,5685-5689,5694-5699,5704-5738,5742-5745,5749-5752,5755-5759,5773-5793,5805-5806
+include/rocksdb/c.h
+  s_939ac6d9b09cd9::t_024b09c54bedde 204-205,1985-2005,2089-2090,2106-2112,2117-2118,2131-2144
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "1469780f4f04f78c6042484ffb07b795dd2fc27d",
+  "prompts": {},
+  "sessions": {
+    "s_939ac6d9b09cd9": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f8888-4733-7613-97cb-d678dac184b0",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
