@@ -1,0 +1,43 @@
+src.mk
+  s_18211f27fd441b::t_1b8cb24e032c05 196
+  s_18211f27fd441b::t_da08b1abe6f21f 608
+table/block_based/builtin_index_factory.cc
+  s_18211f27fd441b::t_b62d862381a2d0 1-260,264-512
+table/block_based/builtin_index_factory.h
+  s_18211f27fd441b::t_4299675b5b5b83 1-307
+CMakeLists.txt
+  s_18211f27fd441b::t_4f5735e2ecdc35 938
+  s_18211f27fd441b::t_892161878f7c2b 1593
+BUCK
+  s_18211f27fd441b::t_ec0e654dbe911f 206
+  s_18211f27fd441b::t_94bcc258c28ac3 4603-4608
+table/block_based/builtin_index_factory_test.cc
+  s_8dce2a5fe56b10::t_b5f9539aaee6f0 338-340,447-448,451,480,492-493,514-515,643
+  s_18211f27fd441b::t_a8deef89972b24 1-337,341-446,449-450,452-479,481-491,494-513,516-642,644-949
+Makefile
+  s_18211f27fd441b::t_798707b91fc13b 1939-1941
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2ae93abb08a6370f0a32cc61fb0b7d4bb3fb32fe",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_8dce2a5fe56b10": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0815a6089ffez6omAxYWhXouyf",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
