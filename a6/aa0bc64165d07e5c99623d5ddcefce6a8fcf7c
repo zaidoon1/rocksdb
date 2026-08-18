@@ -1,0 +1,19 @@
+table/table_test.cc
+  s_c2cb259dd63613::t_86df863708145b 8472-8589,9657-9985
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "a6aa0bc64165d07e5c99623d5ddcefce6a8fcf7c",
+  "prompts": {},
+  "sessions": {
+    "s_c2cb259dd63613": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
