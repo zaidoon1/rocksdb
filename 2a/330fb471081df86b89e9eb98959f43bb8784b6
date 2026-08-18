@@ -1,0 +1,19 @@
+include/rocksdb/user_defined_index.h
+  s_c2cb259dd63613::t_a5baf8864f8af7 12-13,71-76,127-133,137,142-146,148-181
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2a330fb471081df86b89e9eb98959f43bb8784b6",
+  "prompts": {},
+  "sessions": {
+    "s_c2cb259dd63613": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
