@@ -1,0 +1,33 @@
+include/rocksdb/options.h
+  s_c2cb259dd63613::t_4cdfde007e582a 61-62,2483
+include/rocksdb/table.h
+  s_c2cb259dd63613::t_e44e0f55e00739 48,598,600
+include/rocksdb/user_defined_index.h
+  s_c2cb259dd63613::t_66fcbfc803c631 9-21,25,29-33,35
+table/block_based/builtin_index_factory.h
+  s_c2cb259dd63613::t_1a1807ba21fadd 66-67,96-97,127-128
+table/block_based/user_defined_index_wrapper.h
+  s_c2cb259dd63613::t_a31e4251d0264d 216,220,222,225,231
+utilities/trie_index/trie_index_factory.cc
+  s_c2cb259dd63613::t_f59be1141760c7 22,24,549,562-564
+utilities/trie_index/trie_index_factory.h
+  s_c2cb259dd63613::t_367b5d842095b7 279,285,292-293,296-297,299-300
+utilities/trie_index/trie_index_test.cc
+  s_c2cb259dd63613::t_53751f29f1bed3 2830-2832,2868-2869,2996,2998-3000,3002,3004-3005
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "65945d1fa6f677917e977ad931f3e12748cf8070",
+  "prompts": {},
+  "sessions": {
+    "s_c2cb259dd63613": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
