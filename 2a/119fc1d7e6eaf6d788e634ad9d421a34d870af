@@ -1,0 +1,50 @@
+include/rocksdb/options.h
+  s_452f09aba9fe6c::t_792072fbd7755c 2449-2464
+  s_18211f27fd441b::t_a2d3a58713a0f8 2449-2464
+include/rocksdb/table.h
+  s_452f09aba9fe6c::t_e8ce54bf8c4773 602-625
+  s_18211f27fd441b::t_2de0005fb13b4d 602-625
+options/options_settable_test.cc
+  s_452f09aba9fe6c::t_50f33a5bdbbd5a 188
+  s_18211f27fd441b::t_c8572574587274 188
+table/block_based/block_based_table_factory.cc
+  s_452f09aba9fe6c::t_d386f2144661ba 217-226,301-303
+  s_18211f27fd441b::t_89b83581d32bdb 217-226,301-303
+tools/c_api_gen/auto_simple_bindings_blocklist.json
+  s_452f09aba9fe6c::t_43c93fa4d183f1 42-46,376-380
+  s_18211f27fd441b::t_7106801344e22f 42-46,376-380
+include/rocksdb/user_defined_index.h
+  s_c2cb259dd63613::t_a5baf8864f8af7 12-13,71-76,127-133,137,142-146,148-181
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2a119fc1d7e6eaf6d788e634ad9d421a34d870af",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_c2cb259dd63613": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}

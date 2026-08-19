@@ -1,0 +1,27 @@
+BUCK
+  s_c2cb259dd63613::t_e437828fdf7911 208
+CMakeLists.txt
+  s_c2cb259dd63613::t_581dc57996c714 940
+src.mk
+  s_c2cb259dd63613::t_d022e50a882081 198
+table/block_based/builtin_index_factory.cc
+  s_c2cb259dd63613::t_af291186a2f77b 1-512
+table/block_based/builtin_index_factory.h
+  s_c2cb259dd63613::t_baec02c5f69869 1-311
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "260d3cccf002c51dee12804de9e897ddde75f063",
+  "prompts": {},
+  "sessions": {
+    "s_c2cb259dd63613": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
