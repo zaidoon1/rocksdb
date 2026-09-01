@@ -1,0 +1,21 @@
+table/block_based/builtin_index_factory.cc
+  s_3738a26067a935::t_84bd35eb6ff49d 38,313
+table/block_based/builtin_index_factory.h
+  s_3738a26067a935::t_c80b8b905c5c66 156
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ccf94a87852c33966ff586b8dd13aaa0f80ff7ae",
+  "prompts": {},
+  "sessions": {
+    "s_3738a26067a935": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a058ba-f720-7470-9f96-a1ecec422dfa",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
