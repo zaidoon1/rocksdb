@@ -1,0 +1,93 @@
+include/rocksdb/options.h
+  s_452f09aba9fe6c::t_792072fbd7755c 2538-2553
+  s_18211f27fd441b::t_a2d3a58713a0f8 2538-2553
+  s_c2cb259dd63613::t_4cdfde007e582a 61-62
+  s_c2cb259dd63613::t_824b0758c6b63c 2571
+include/rocksdb/table.h
+  s_452f09aba9fe6c::t_e8ce54bf8c4773 602-625
+  s_18211f27fd441b::t_2de0005fb13b4d 598,600,602-625
+  s_c2cb259dd63613::t_e44e0f55e00739 48
+options/options_settable_test.cc
+  s_452f09aba9fe6c::t_50f33a5bdbbd5a 189
+  s_18211f27fd441b::t_c8572574587274 189
+table/block_based/block_based_table_factory.cc
+  s_452f09aba9fe6c::t_d386f2144661ba 227-236,316-318
+  s_18211f27fd441b::t_89b83581d32bdb 227-236,316-318
+tools/c_api_gen/auto_simple_bindings_blocklist.json
+  s_452f09aba9fe6c::t_43c93fa4d183f1 42-46,376-380
+  s_18211f27fd441b::t_7106801344e22f 42-46,376-380
+BUCK
+  s_c2cb259dd63613::t_e437828fdf7911 209
+  s_c2cb259dd63613::t_9ccd5e501235d4 4615-4620
+CMakeLists.txt
+  s_c2cb259dd63613::t_581dc57996c714 941
+  s_c2cb259dd63613::t_34286de6436266 1599
+src.mk
+  s_c2cb259dd63613::t_d022e50a882081 199
+  s_c2cb259dd63613::t_c713d082ea0349 614
+table/block_based/builtin_index_factory.cc
+  s_c2cb259dd63613::t_af291186a2f77b 1-512
+table/block_based/builtin_index_factory.h
+  s_c2cb259dd63613::t_baec02c5f69869 1-65,68-72,73-75,76-95,98-102,103-105,106-126,129-133,134-136,137-278
+  s_c2cb259dd63613::t_1a1807ba21fadd 66-67,96-97,127-128
+Makefile
+  s_c2cb259dd63613::t_656607ba42ab42 2021-2023
+table/block_based/builtin_index_factory_test.cc
+  s_c2cb259dd63613::t_50ea2292cc92f7 1-949
+include/rocksdb/user_defined_index.h
+  s_c2cb259dd63613::t_66fcbfc803c631 9-21,25,29-33,35
+table/table_test.cc
+  s_c2cb259dd63613::t_259ba124388cc2 146-147,9436-9437
+  s_c2cb259dd63613::t_ecd13fc23a7db6 9438,10276,10279-10280,10283-10284,10287-10288,10291-10292
+utilities/trie_index/trie_index_factory.cc
+  s_c2cb259dd63613::t_f59be1141760c7 22,24
+  s_c2cb259dd63613::t_e05fa90dddc6e2 549,562-564
+include/rocksdb/index_factory.h
+  s_589b2cd38faf7d::t_cac3c93e00a785 1-4,7-10,15-27,31-382,384-388
+table/block_based/user_defined_index_wrapper.h
+  s_c2cb259dd63613::t_0e5c94e9f8ee40 216,220,222,225,231
+utilities/trie_index/trie_index_factory.h
+  s_c2cb259dd63613::t_0b2397c2dd7f16 279,285,292-293,296-297,299-300
+utilities/trie_index/trie_index_test.cc
+  s_c2cb259dd63613::t_d16e1e82f4522d 2830-2832,2868-2869,2996,2998-3000,3002,3004-3005
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "df8fb0b37257fddf763485b0f10492ccda66e215",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_589b2cd38faf7d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_febf879f4ffeIwqsfLzVxLi2r0",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_c2cb259dd63613": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
