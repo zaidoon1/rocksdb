@@ -1,0 +1,19 @@
+utilities/trie_index/trie_index_db_test.cc
+  s_3738a26067a935::t_672572f6028fb0 5041-5197
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "9fdd82f05f45079528842f0bb97a05e643a0d7de",
+  "prompts": {},
+  "sessions": {
+    "s_3738a26067a935": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a058ba-f720-7470-9f96-a1ecec422dfa",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
