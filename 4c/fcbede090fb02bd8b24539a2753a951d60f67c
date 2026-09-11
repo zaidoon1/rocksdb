@@ -28,6 +28,7 @@ table/block_based/block_based_table_builder.h
   s_c2cb259dd63613::t_323932d22afc83 217-219
 table/table_test.cc
   s_c2cb259dd63613::t_e14cac99319e30 149-193,9297
+  s_589b2cd38faf7d::t_9db2294fc16394 149-193,8083,8743,8764,8766-8767,9254,9281,9297,9338-9339
 db/c_test.c
   s_c2cb259dd63613::t_763111c0e7bc42 3604-3619
 table/block_based/user_defined_index_wrapper.h
@@ -50,6 +51,10 @@ table/block_based/partitioned_filter_block.cc
   s_c2cb259dd63613::t_36170a8883dc9e 28,34,97,99,103-118,161,263,313,340
 table/block_based/block_based_table_reader.cc
   s_c2cb259dd63613::t_f2d2a8bfe5162f 47,367,424,500,923-942,1808-1811,1820-1827,1831-1842,1844-1846,1851-1854,1863-1866,1875-1892,1897,1907-1912,1914-1915,1924-1929,1931-1936,1945-1976,2069-2074,3051-3052,3195
+db_stress_tool/db_stress_test_base.cc
+  s_c2cb259dd63613::t_0eebde4d31afed 6227-6228
+utilities/trie_index/trie_index_test.cc
+  s_c2cb259dd63613::t_e1be7861b2c9a4 5060
 ---
 {
   "schema_version": "authorship/3.0.0",
