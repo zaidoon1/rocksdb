@@ -1,0 +1,23 @@
+table/block_based/builtin_index_factory.cc
+  s_3738a26067a935::t_3014f38b892f37 35-37,39-40,41-45,100-104,276,295-299,302-304,306-311,333,347-352,356-361,362-363,382,398-402,407-413,414-415
+table/block_based/builtin_index_factory.h
+  s_3738a26067a935::t_2ee269c38ef156 165-169,189-190,261,264-265
+table/block_based/builtin_index_factory_test.cc
+  s_3738a26067a935::t_db42b32c01c65e 20,22,124-145,150-154,157,162,177,185,193-201,203,218,226,239-250,253,262,270,278-288,296-297,301,314-321,324,334,342,350-358,360,371-373,377,394,407,468-469,480-481,487-492,534-569,571,593,620-623,626,728-731
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "dafdecc893e580019a8aeef78376f8e272409d33",
+  "prompts": {},
+  "sessions": {
+    "s_3738a26067a935": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a058ba-f720-7470-9f96-a1ecec422dfa",
+        "model": "unknown"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
