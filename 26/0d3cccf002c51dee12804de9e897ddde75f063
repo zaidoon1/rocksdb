@@ -15,6 +15,22 @@ table/block_based/builtin_index_factory.h
   "base_commit_sha": "260d3cccf002c51dee12804de9e897ddde75f063",
   "prompts": {},
   "sessions": {
+    "s_05a29c0f0d235f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05b5c-4964-7722-a266-43cb2a9ab665",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_3738a26067a935": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a058ba-f720-7470-9f96-a1ecec422dfa",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
     "s_c2cb259dd63613": {
       "agent_id": {
         "tool": "opencode",
