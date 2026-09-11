@@ -3,7 +3,7 @@ table/block_based/block_based_table_factory.cc
   s_18211f27fd441b::t_89b83581d32bdb 217-226
   s_18211f27fd441b::t_ea401ee43aafaf 786,788
 utilities/trie_index/trie_index_test.cc
-  s_18211f27fd441b::t_782f413000ddc3 3001,3003-3005,3007,3009-3010
+  s_18211f27fd441b::t_782f413000ddc3 3001,3003-3005,3007,3009-3010,3010
 utilities/trie_index/trie_index_factory.h
   s_18211f27fd441b::t_bf519faa7ac294 280,286,293-294,297-298,300-301
 include/rocksdb/table.h
