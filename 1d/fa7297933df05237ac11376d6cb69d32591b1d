@@ -1,0 +1,25 @@
+db/db_properties_test.cc
+  s_05a29c0f0d235f::t_6d9a7bd102563d 1151-1204
+db/internal_stats.cc
+  s_05a29c0f0d235f::t_291b6ef0cb08eb 314-315,370-371,607-609,1315-1322
+db/internal_stats.h
+  s_05a29c0f0d235f::t_c02b722702b5ad 857-858
+include/rocksdb/db.h
+  s_05a29c0f0d235f::t_6fc8ee0135e5b0 1442-1447,1690
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "1dfa7297933df05237ac11376d6cb69d32591b1d",
+  "prompts": {},
+  "sessions": {
+    "s_05a29c0f0d235f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05b5c-4964-7722-a266-43cb2a9ab665",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
