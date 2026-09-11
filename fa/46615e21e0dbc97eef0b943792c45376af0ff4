@@ -116,6 +116,8 @@ db/wide/db_wide_blob_direct_write_test.cc
 db/db_test_util.h
   s_18211f27fd441b::t_60999ca5282209 16-17,1444,1473-1481
   s_18211f27fd441b::t_dd779db7e92633 16-17,1444,1473-1481
+tools/db_crashtest.py
+  s_18211f27fd441b::t_4daf000fa77388 1159-1160
 ---
 {
   "schema_version": "authorship/3.0.0",
