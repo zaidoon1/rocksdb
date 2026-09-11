@@ -1,13 +1,15 @@
-BUCK
-  s_c2cb259dd63613::t_e437828fdf7911 208
 CMakeLists.txt
   s_c2cb259dd63613::t_581dc57996c714 940
-src.mk
-  s_c2cb259dd63613::t_d022e50a882081 198
 table/block_based/builtin_index_factory.cc
   s_c2cb259dd63613::t_af291186a2f77b 1-512
+BUCK
+  s_c2cb259dd63613::t_e437828fdf7911 208
+src.mk
+  s_c2cb259dd63613::t_d022e50a882081 198
 table/block_based/builtin_index_factory.h
-  s_c2cb259dd63613::t_baec02c5f69869 1-311
+  s_c2cb259dd63613::t_baec02c5f69869 1-272,276
+  s_c2cb259dd63613::t_7aed2c35fdf2ea 273-275
+  s_c2cb259dd63613::t_79c820e554f370 277-279
 ---
 {
   "schema_version": "authorship/3.0.0",
