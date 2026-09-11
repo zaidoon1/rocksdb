@@ -1,0 +1,39 @@
+db/db_etc2_test.cc
+  s_c2cb259dd63613::t_f6efcff7090b4a 31,7906-7909,7928,7935,7942,8284-8399
+db/db_impl/db_impl_compaction_flush.cc
+  s_05a29c0f0d235f::t_8d4cbcd2b26875 1626-1635,2212
+db/db_impl/db_impl_experimental.cc
+  s_c2cb259dd63613::t_6b268c2b3e0170 148
+db/db_impl/db_impl_open.cc
+  s_05a29c0f0d235f::t_9d2c55b4246f21 686-687
+db/experimental.cc
+  s_c2cb259dd63613::t_aad4c8165014bc 161-171
+db/version_edit.h
+  s_c2cb259dd63613::t_a8d90b5a06c59c 814-815,826-828
+db/version_set.cc
+  s_05a29c0f0d235f::t_98af4797ad71b0 7680-7684,7694
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2b628ccfe575abebf22afa42f4273608a26a9539",
+  "prompts": {},
+  "sessions": {
+    "s_05a29c0f0d235f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05b5c-4964-7722-a266-43cb2a9ab665",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_c2cb259dd63613": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
