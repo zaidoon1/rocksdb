@@ -1,5 +1,5 @@
 table/table_test.cc
-  s_18211f27fd441b::t_7967b3e91728ad 47,96-145
+  s_18211f27fd441b::t_7967b3e91728ad 47,96-145,98-146
   s_dce53ef762ddde::t_8b185ba229820a 23,146
 include/rocksdb/index_factory.h
   s_18211f27fd441b::t_95b899419de7ea 1-24
@@ -16,7 +16,7 @@ options/options_settable_test.cc
 table/block_based/block_based_table_factory.cc
   s_18211f27fd441b::t_89b83581d32bdb 217-226
 include/rocksdb/user_defined_index.h
-  s_18211f27fd441b::t_db452bde5f8e32 13,135-194
+  s_18211f27fd441b::t_db452bde5f8e32 13,135-194,135-161,166-191,193
   s_18211f27fd441b::t_0a66f268261e3f 12
 ---
 {
