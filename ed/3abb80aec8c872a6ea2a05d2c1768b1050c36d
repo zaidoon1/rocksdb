@@ -5,7 +5,13 @@ include/rocksdb/options.h
 options/options_settable_test.cc
   s_18211f27fd441b::t_407354760bb029 134-135
 include/rocksdb/user_defined_index.h
-  s_18211f27fd441b::t_db452bde5f8e32 12,24-25,136-194
+  s_18211f27fd441b::t_db452bde5f8e32 12,24-25,136-194,136-162,164-189,193
+include/rocksdb/index_factory.h
+  s_18211f27fd441b::t_95b899419de7ea 1-24
+table/table_test.cc
+  s_18211f27fd441b::t_7967b3e91728ad 46,91-139
+tools/c_api_gen/auto_simple_bindings_blocklist.json
+  s_18211f27fd441b::t_7106801344e22f 42-46,376-380
 ---
 {
   "schema_version": "authorship/3.0.0",
