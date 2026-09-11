@@ -63,7 +63,7 @@ table/block_based/builtin_index_factory_test.cc
 utilities/trie_index/trie_index_factory.h
   s_18211f27fd441b::t_bf519faa7ac294 280,286,293-294,297-298,300-301
 utilities/trie_index/trie_index_test.cc
-  s_18211f27fd441b::t_782f413000ddc3 3001,3003-3005,3007,3009-3010
+  s_18211f27fd441b::t_782f413000ddc3 3001,3003-3005,3007,3009-3010,3010
   s_18211f27fd441b::t_b8551156255666 5065
 include/rocksdb/user_defined_index.h
   s_18211f27fd441b::t_96d3dcf8b7f0df 9-18,22,26-29,32
