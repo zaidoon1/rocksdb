@@ -4,12 +4,13 @@ tools/c_api_gen/auto_simple_bindings_blocklist.json
   s_18211f27fd441b::t_7106801344e22f 42-46,376-380
 include/rocksdb/table.h
   s_18211f27fd441b::t_2de0005fb13b4d 602-625
+  s_05a29c0f0d235f::t_26d3243d49449d 602-625
 table/block_based/block_based_table_factory.cc
   s_18211f27fd441b::t_89b83581d32bdb 217-226,301-303
 include/rocksdb/options.h
   s_18211f27fd441b::t_a2d3a58713a0f8 2430-2445
 table/table_test.cc
-  s_18211f27fd441b::t_7967b3e91728ad 47,96-145
+  s_18211f27fd441b::t_7967b3e91728ad 47,96-145,98-146
   s_dce53ef762ddde::t_8b185ba229820a 23,146
 include/rocksdb/index_factory.h
   s_18211f27fd441b::t_95b899419de7ea 1-24
@@ -22,6 +23,14 @@ unreleased_history/public_api_changes/index_factory_aliases.md
   "base_commit_sha": "ed5e9fdc08e6a9947e88a1c32c03ff57558b5b86",
   "prompts": {},
   "sessions": {
+    "s_05a29c0f0d235f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05b5c-4964-7722-a266-43cb2a9ab665",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
     "s_18211f27fd441b": {
       "agent_id": {
         "tool": "codex",
