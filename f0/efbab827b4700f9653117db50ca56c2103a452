@@ -15,7 +15,7 @@ tools/c_api_gen/auto_simple_bindings_blocklist.json
 options/options_settable_test.cc
   s_18211f27fd441b::t_c8572574587274 188
 table/block_based/block_based_table_factory.cc
-  s_18211f27fd441b::t_89b83581d32bdb 217-226
+  s_18211f27fd441b::t_89b83581d32bdb 217-226,219-226,301-303
   s_18211f27fd441b::t_ea401ee43aafaf 786,788
 include/rocksdb/user_defined_index.h
   s_18211f27fd441b::t_db452bde5f8e32 13,135-194,135-161,166-191,193
@@ -29,7 +29,7 @@ CMakeLists.txt
   s_18211f27fd441b::t_892161878f7c2b 1593
   s_18211f27fd441b::t_224b649b2a30bd 938
 table/block_based/builtin_index_factory.cc
-  s_18211f27fd441b::t_b62d862381a2d0 1-519,1-222,224-230,232-519
+  s_18211f27fd441b::t_b62d862381a2d0 1-519,1-222,1-182,185,186-187,190-192,194-519,224-230,232-519
   s_18211f27fd441b::t_4d2592e22ef478 1-222,224-230,232-519
 table/block_based/partition_coordinator.h
   s_18211f27fd441b::t_da5b6acc7c91e4 1-51
