@@ -3,23 +3,25 @@ table/block_based/builtin_index_factory.h
 utilities/trie_index/trie_index_factory.h
   s_c2cb259dd63613::t_367b5d842095b7 279,285,292-293,296-297,299-300
 include/rocksdb/table.h
-  s_c2cb259dd63613::t_e44e0f55e00739 48
+  s_c2cb259dd63613::t_e44e0f55e00739 48,598,600
   s_18211f27fd441b::t_2de0005fb13b4d 598,600
 utilities/trie_index/trie_index_factory.cc
   s_c2cb259dd63613::t_f59be1141760c7 22,24,549,562-564
 include/rocksdb/user_defined_index.h
   s_c2cb259dd63613::t_66fcbfc803c631 9-21,25,29-33,35
 include/rocksdb/options.h
-  s_c2cb259dd63613::t_4cdfde007e582a 61-62
+  s_c2cb259dd63613::t_4cdfde007e582a 61-62,2483
   s_c2cb259dd63613::t_479e45ae5a0ffa 2483
 table/block_based/block_based_table_factory.cc
   s_c2cb259dd63613::t_b78260cac82bb6 1146
 table/block_based/user_defined_index_wrapper.h
   s_c2cb259dd63613::t_4c7edb68c924d2 216,220,222,225,231
+  s_c2cb259dd63613::t_a31e4251d0264d 216,220,222,225,231
 table/table_test.cc
   s_c2cb259dd63613::t_259ba124388cc2 144-145,8034-8036,8874,8877-8878,8881-8882,8885-8886,8889-8890
 utilities/trie_index/trie_index_test.cc
   s_c2cb259dd63613::t_8f6fac25bd1db0 2830-2832,2868-2869,2996,2998-3000,3002,3004-3005
+  s_c2cb259dd63613::t_53751f29f1bed3 2830-2832,2868-2869,2996,2998-3000,3002,3004-3005
 ---
 {
   "schema_version": "authorship/3.0.0",
