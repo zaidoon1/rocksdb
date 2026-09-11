@@ -69,6 +69,8 @@ table/block_based/builtin_index_factory_test.cc
 Makefile
   s_18211f27fd441b::t_798707b91fc13b 1939-1941
   s_18211f27fd441b::t_306e972587e1ab 1939-1941
+tools/db_crashtest.py
+  s_18211f27fd441b::t_4daf000fa77388 1159-1160
 ---
 {
   "schema_version": "authorship/3.0.0",
