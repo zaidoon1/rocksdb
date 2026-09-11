@@ -1,0 +1,23 @@
+db/db_impl/db_impl.h
+  s_05a29c0f0d235f::t_28f0d4fbad0355 1159-1161,1164,1195-1198,1201,1207-1212,1540
+db/db_secondary_test.cc
+  s_05a29c0f0d235f::t_631ce15f82de1c 103-152,1204-1250,1482,1486-1488,1514-1655
+unreleased_history/bug_fixes/secondary_retains_recovered_transactions.md
+  s_05a29c0f0d235f::t_7b3e00b0d32c7d 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ad81b654a4dec07f7067f1ec3749301e403ee857",
+  "prompts": {},
+  "sessions": {
+    "s_05a29c0f0d235f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05b5c-4964-7722-a266-43cb2a9ab665",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
