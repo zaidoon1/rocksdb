@@ -4,6 +4,7 @@ include/rocksdb/table.h
   s_452f09aba9fe6c::t_e8ce54bf8c4773 602-625
 table/block_based/builtin_index_factory.h
   s_c2cb259dd63613::t_1a1807ba21fadd 66-67,96-97,127-128
+  s_c2cb259dd63613::t_baec02c5f69869 1-65,68-72,73-75,76-95,98-102,103-105,106-126,129-133,134-136,137-278
 include/rocksdb/user_defined_index.h
   s_c2cb259dd63613::t_66fcbfc803c631 9-21,25,29-33,35
 include/rocksdb/options.h
@@ -34,6 +35,21 @@ table/block_based/block_based_table_factory.cc
 tools/c_api_gen/auto_simple_bindings_blocklist.json
   s_452f09aba9fe6c::t_43c93fa4d183f1 42-46,376-380
   s_18211f27fd441b::t_7106801344e22f 42-46,376-380
+BUCK
+  s_c2cb259dd63613::t_e437828fdf7911 208
+  s_c2cb259dd63613::t_9ccd5e501235d4 4614-4619
+CMakeLists.txt
+  s_c2cb259dd63613::t_581dc57996c714 940
+  s_c2cb259dd63613::t_34286de6436266 1598
+src.mk
+  s_c2cb259dd63613::t_d022e50a882081 198
+  s_c2cb259dd63613::t_c713d082ea0349 613
+table/block_based/builtin_index_factory.cc
+  s_c2cb259dd63613::t_af291186a2f77b 1-512
+Makefile
+  s_c2cb259dd63613::t_656607ba42ab42 2021-2023
+table/block_based/builtin_index_factory_test.cc
+  s_c2cb259dd63613::t_50ea2292cc92f7 1-949
 ---
 {
   "schema_version": "authorship/3.0.0",
