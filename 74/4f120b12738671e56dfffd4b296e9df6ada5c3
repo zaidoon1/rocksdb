@@ -1,0 +1,43 @@
+include/rocksdb/table.h
+  s_18211f27fd441b::t_2de0005fb13b4d 601
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "744f120b12738671e56dfffd4b296e9df6ada5c3",
+  "prompts": {},
+  "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_8dce2a5fe56b10": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0815a6089ffez6omAxYWhXouyf",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_dce53ef762ddde": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6735-689a-7de0-b9b0-1f6ef3e03d6f",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}

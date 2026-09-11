@@ -1,17 +1,3 @@
-db/db_etc2_test.cc
-  s_c2cb259dd63613::t_f6efcff7090b4a 31,7906-7909,7928,7935,7942,8284-8399
-db/db_impl/db_impl_compaction_flush.cc
-  s_05a29c0f0d235f::t_8d4cbcd2b26875 1626-1635,2212
-db/db_impl/db_impl_experimental.cc
-  s_c2cb259dd63613::t_6b268c2b3e0170 148
-db/db_impl/db_impl_open.cc
-  s_05a29c0f0d235f::t_9d2c55b4246f21 686-687
-db/experimental.cc
-  s_c2cb259dd63613::t_aad4c8165014bc 161-171
-db/version_edit.h
-  s_c2cb259dd63613::t_a8d90b5a06c59c 814-815,826-828
-db/version_set.cc
-  s_05a29c0f0d235f::t_98af4797ad71b0 7680-7684,7694
 include/rocksdb/table.h
   s_18211f27fd441b::t_2de0005fb13b4d 597,601
 table/block_based/block_based_table_factory.cc
@@ -23,23 +9,16 @@ table/table_test.cc
   s_18211f27fd441b::t_75e59070e11f19 9246,9254
   s_452f09aba9fe6c::t_6aacd4f4a64af8 9246,9254
   s_27fa79882faee3::t_35f9d19231d433 8646-8649,8653,8656-8661,8664,8665,8671-8672
+  s_18211f27fd441b::t_4ddcdf7a113016 8646-8649,8653,8656-8661,8664,8665,8671-8672
 table/block_based/block_based_table_builder.cc
   s_403361a925e37e::t_d491df2cebcdb1 1334
 ---
 {
   "schema_version": "authorship/3.0.0",
   "git_ai_version": "1.6.10",
-  "base_commit_sha": "2b628ccfe575abebf22afa42f4273608a26a9539",
+  "base_commit_sha": "71d3bd1773164739e6153654145d005a9b5baf22",
   "prompts": {},
   "sessions": {
-    "s_05a29c0f0d235f": {
-      "agent_id": {
-        "tool": "codex",
-        "id": "01a05b5c-4964-7722-a266-43cb2a9ab665",
-        "model": "gpt-5.6-sol"
-      },
-      "human_author": "zaidoon <zaidoon@cloudflare.com>"
-    },
     "s_18211f27fd441b": {
       "agent_id": {
         "tool": "codex",
@@ -77,14 +56,6 @@ table/block_based/block_based_table_builder.cc
         "tool": "opencode",
         "id": "ses_0815a6089ffez6omAxYWhXouyf",
         "model": "claude-opus-4-7"
-      },
-      "human_author": "zaidoon <zaidoon@cloudflare.com>"
-    },
-    "s_c2cb259dd63613": {
-      "agent_id": {
-        "tool": "opencode",
-        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
-        "model": "claude-opus-5"
       },
       "human_author": "zaidoon <zaidoon@cloudflare.com>"
     },

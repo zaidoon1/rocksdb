@@ -36,6 +36,8 @@ util/coro_stats_util.cc
   s_05a29c0f0d235f::t_9b879bf6d4e579 1-213
 util/coro_stats_util.h
   s_05a29c0f0d235f::t_6a7fd725e21f6a 1-58
+utilities/trie_index/trie_index_test.cc
+  s_c2cb259dd63613::t_eeba6cd1b3657f 3004
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -47,6 +49,14 @@ util/coro_stats_util.h
       "agent_id": {
         "tool": "codex",
         "id": "01a05b5c-4964-7722-a266-43cb2a9ab665",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
         "model": "gpt-5.6-sol"
       },
       "human_author": "zaidoon <zaidoon@cloudflare.com>"
