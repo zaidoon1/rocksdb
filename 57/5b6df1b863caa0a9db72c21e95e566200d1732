@@ -1,0 +1,31 @@
+table/block_based/block_based_table_builder.cc
+  s_589b2cd38faf7d::t_d9c05a5a1abe2d 1621,1642
+table/format.h
+  s_c2cb259dd63613::t_8ee8a0e6f741c2 291
+table/table_test.cc
+  s_c2cb259dd63613::t_cde79c8d9b4052 8806,8811,8813,8817,9398,9406
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "575b6df1b863caa0a9db72c21e95e566200d1732",
+  "prompts": {},
+  "sessions": {
+    "s_589b2cd38faf7d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_febf879f4ffeIwqsfLzVxLi2r0",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_c2cb259dd63613": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
