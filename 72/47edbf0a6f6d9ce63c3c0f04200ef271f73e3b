@@ -1,0 +1,63 @@
+BUCK
+  s_05a29c0f0d235f::t_bc8f4e0e81dfbe 271,396
+CMakeLists.txt
+  s_05a29c0f0d235f::t_b68b1381ff353b 1005
+buckifier/buckify_rocksdb.py
+  s_c2cb259dd63613::t_881ac9890eba9d 162
+db/db_impl/db_impl.cc
+  s_05a29c0f0d235f::t_e5b6c15303e274 20,127,7518-7564,7569,7576-7586,7590-7599,7606-7613,7621,7628-7639,7643-7652,7659-7667
+db/db_impl/db_impl_readonly_sync_and_async.h
+  s_c2cb259dd63613::t_76aff8c92dc476 46,48
+db/db_impl/db_impl_secondary_sync_and_async.h
+  s_c2cb259dd63613::t_f0660cb8345eb1 45,47
+db/db_impl/db_impl_sync_and_async.h
+  s_05a29c0f0d235f::t_fffed7b91d5a02 50,53,103
+db/perf_context_test.cc
+  s_05a29c0f0d235f::t_45ebd9e732e4a4 10,14,21-23,27,33-44,85-345
+db_stress_tool/db_stress_common.cc
+  s_05a29c0f0d235f::t_d5508df3cff769 45-46
+include/rocksdb/db.h
+  s_05a29c0f0d235f::t_aad2458a6743e6 47,49,1120-1135,1139-1141,1149-1150,1168-1171,1178,1228-1229
+include/rocksdb/iostats_context.h
+  s_c2cb259dd63613::t_ad0b23d2cdd222 77-78,84,114-115
+include/rocksdb/perf_context.h
+  s_c2cb259dd63613::t_f57f4160cffb80 63,80-81,110-111,333,336
+monitoring/iostats_context.cc
+  s_c2cb259dd63613::t_d3577d6f7a92b9 23-43,63-82
+monitoring/perf_context.cc
+  s_c2cb259dd63613::t_97ac5b06778461 8,228-232,238,241,245-254,290-309,318-327
+src.mk
+  s_05a29c0f0d235f::t_8c956580986884 256
+table/block_fetcher_sync_and_async.h
+  s_05a29c0f0d235f::t_5c0f87c60e0bf9 39,51,75
+test_util/mock_time_env.h
+  s_c2cb259dd63613::t_c7502307a93531 44-57,86-97,132-133
+util/coro_stats_util.cc
+  s_05a29c0f0d235f::t_9b879bf6d4e579 1-213
+util/coro_stats_util.h
+  s_05a29c0f0d235f::t_6a7fd725e21f6a 1-58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "7247edbf0a6f6d9ce63c3c0f04200ef271f73e3b",
+  "prompts": {},
+  "sessions": {
+    "s_05a29c0f0d235f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05b5c-4964-7722-a266-43cb2a9ab665",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_c2cb259dd63613": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
