@@ -1,9 +1,14 @@
-table/block_based/builtin_index_factory.cc
-  s_3738a26067a935::t_3014f38b892f37 35-43,45-50,105-109,281,300-304,307-309,311-318,339,353-358,362-370,389,405-409,414-423
 table/block_based/builtin_index_factory.h
-  s_3738a26067a935::t_2ee269c38ef156 165-169,189-192,265,268-269
-table/block_based/builtin_index_factory_test.cc
-  s_3738a26067a935::t_db42b32c01c65e 20,22,124-145,150-154,157,162,177,185,193-201,203,218,226,239-250,253,262,270,278-288,296-297,301,314-321,324,334,342,350-358,360,371-373,377,394,407,468-469,480-481,487-492,534-569,571,593,620-623,626,728-731
+  s_c2cb259dd63613::t_baec02c5f69869 165-169,189-192
+table/block_based/builtin_index_factory.cc
+  s_c2cb259dd63613::t_af291186a2f77b 38,47,107,300-304,307-309,311-318,339,353-358,362-370,389,405-409,414-417
+  s_c2cb259dd63613::t_80191f406b09f4 35-37
+  s_c2cb259dd63613::t_1f02dd113df0db 39-41
+  s_c2cb259dd63613::t_83e69c71f5f024 45-46
+  s_c2cb259dd63613::t_2d6697b8083137 48-50
+  s_c2cb259dd63613::t_46e9e0dbaee7e1 105-106
+  s_c2cb259dd63613::t_3ef249e1a9e319 108-109
+  s_c2cb259dd63613::t_8f7100c9bcdc22 418-420
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -11,11 +16,11 @@ table/block_based/builtin_index_factory_test.cc
   "base_commit_sha": "7311e3ed549ad817fe1051e74369493c20b86e48",
   "prompts": {},
   "sessions": {
-    "s_3738a26067a935": {
+    "s_c2cb259dd63613": {
       "agent_id": {
-        "tool": "codex",
-        "id": "01a058ba-f720-7470-9f96-a1ecec422dfa",
-        "model": "unknown"
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
       },
       "human_author": "zaidoon <zaidoon@cloudflare.com>"
     }
