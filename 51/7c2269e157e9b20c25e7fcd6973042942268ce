@@ -10,6 +10,14 @@ table/table_test.cc
   "base_commit_sha": "517c2269e157e9b20c25e7fcd6973042942268ce",
   "prompts": {},
   "sessions": {
+    "s_05a29c0f0d235f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05b5c-4964-7722-a266-43cb2a9ab665",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
     "s_18211f27fd441b": {
       "agent_id": {
         "tool": "codex",
