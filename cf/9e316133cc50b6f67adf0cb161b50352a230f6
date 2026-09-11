@@ -9,8 +9,10 @@ table/block_based/block_based_table_reader.cc
 table/block_based/user_defined_index_wrapper.h
   s_18211f27fd441b::t_e496022aa82ffa 12,21-37,39-40,43,58-64,66-69,92-93,121-122,125,135-138,144-145,152,160,164-165,168-169,173-174,180-205,209,215,218,223-227,235-237,255,257,259
 table/table_test.cc
-  s_18211f27fd441b::t_ae998f5f76805f 8703,8724,8726-8727,9214,9241,9257,9298-9299
+  s_18211f27fd441b::t_ae998f5f76805f 8703,8724,8726-8727,8727,9214,9241,9257,9298-9299
   s_18211f27fd441b::t_f872c67a1d7ac7 142-155
+  s_18211f27fd441b::t_824db77b0e8d70 137-138
+  s_18211f27fd441b::t_75e59070e11f19 8704-8707,8711,9309,9317
 c_api_gen/c_generated_metadata_structs_auto.h.inc
   s_18211f27fd441b::t_79089de0371303 53-56
 db/db_properties_test.cc
@@ -23,6 +25,7 @@ include/rocksdb/c.h
   s_18211f27fd441b::t_9306ff3e01f1a2 1347-1358,1677-1680
 include/rocksdb/options.h
   s_18211f27fd441b::t_1a0a8d1d5676c9 2433-2457,2467-2472
+  s_18211f27fd441b::t_04139295f85e11 61-62,2473
 table/meta_blocks.cc
   s_18211f27fd441b::t_9d5216e25078ba 98-101,311-312
 db/c.cc
@@ -32,6 +35,7 @@ tools/c_api_gen/c_base.h
 include/rocksdb/table.h
   s_18211f27fd441b::t_6ea0fe716a1abc 594-599,604-680,686-687
   s_18211f27fd441b::t_91644eb0bac41e 694-696,701-703
+  s_18211f27fd441b::t_4d4e9521943166 48,600
 options/options_settable_test.cc
   s_18211f27fd441b::t_5db7030b8be9bc 10,29-62,168,245,337
 table/block_based/partitioned_filter_block_test.cc
@@ -47,12 +51,23 @@ table/block_based/block_based_table_builder.h
 utilities/trie_index/trie_index_test.cc
   s_18211f27fd441b::t_b8551156255666 5065
   s_05a29c0f0d235f::t_cb74076d6b1c27 5065
+  s_18211f27fd441b::t_782f413000ddc3 3001,3003-3005,3007,3009-3010
 table/block_based/block_based_table_builder.cc
   s_18211f27fd441b::t_8bb45684ff5ddd 26,36-37,59,89,100-112,127-129,308-315,879,881-1006,1420-1423,1426,1463-1470,1472,1474-1483,1485-1487,1490-1534,1536-1554,1558-1560,1573,1869,2035-2104,2165-2167,2252-2272,2609-2626,2912-2966,2973-2983,2985-2990,2992-2994,2996-3018,3026-3050,3062-3064,3088-3112,3114,3398,3555-3560
 table/block_based/block_based_table_factory.cc
   s_18211f27fd441b::t_ea401ee43aafaf 28,232-241,345,443-455,457-472,474-503,508-524,531,853-857,859-860,862-886,1065-1066,1224-1226,1232
 db_stress_tool/db_stress_test_base.cc
   s_18211f27fd441b::t_98c681448342a3 5417-5418
+include/rocksdb/user_defined_index.h
+  s_18211f27fd441b::t_96d3dcf8b7f0df 9-18,22,26-29,31
+include/rocksdb/index_factory.h
+  s_18211f27fd441b::t_95b899419de7ea 395
+  s_18211f27fd441b::t_5b599dc4a8596c 1-4,7-10,15-27,31-391,394,396-410,412-416
+  s_18211f27fd441b::t_c8678193a7dd83 392-393
+utilities/trie_index/trie_index_factory.h
+  s_18211f27fd441b::t_bf519faa7ac294 280,286,295-296,298-299
+utilities/trie_index/trie_index_factory.cc
+  s_18211f27fd441b::t_5415978689c03c 22,24
 ---
 {
   "schema_version": "authorship/3.0.0",
