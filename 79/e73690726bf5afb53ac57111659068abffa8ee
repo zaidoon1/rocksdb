@@ -1,17 +1,25 @@
 table/block_based/index_builder.h
   s_18211f27fd441b::t_2e4d0e5fe8b94b 22,669-670,715-718,727,734,738
+  s_452f09aba9fe6c::t_e854c261bc9e75 22,669-670,715-718,727,734,738
 table/block_based/partition_coordinator.h
   s_18211f27fd441b::t_da5b6acc7c91e4 1-51
+  s_452f09aba9fe6c::t_a4a493dc73d285 1-51
 src.mk
   s_18211f27fd441b::t_1b8cb24e032c05 196
+  s_452f09aba9fe6c::t_db521b1805d4d3 196
 table/block_based/builtin_index_factory.h
-  s_18211f27fd441b::t_4299675b5b5b83 1-304
+  s_18211f27fd441b::t_4299675b5b5b83 1-304,1-7,10-185,190,202-203,206-209,217-240,242,245-263,264-281,284-285,293-294,295-301,302-304
 table/block_based/builtin_index_factory.cc
-  s_18211f27fd441b::t_b62d862381a2d0 1-512
+  s_18211f27fd441b::t_b62d862381a2d0 1-512,1-8,10-18,21-33,40-42,48-51,55,57-59,61-103,104,107-128,133-135,138-198,200,205,206-208,210-212,214-219,221-227,229-239,241-243,246-248,250-259,260-261,264-268,270-315,316-319,321-370,372-380,381,383-433,436-444,445,448-451,455-464,466-468,472-512
 CMakeLists.txt
   s_18211f27fd441b::t_4f5735e2ecdc35 938
+  s_452f09aba9fe6c::t_69ce040565f764 938
 BUCK
   s_18211f27fd441b::t_ec0e654dbe911f 206
+  s_452f09aba9fe6c::t_828b7255c79a20 206
+include/rocksdb/user_defined_index.h
+  s_18211f27fd441b::t_0a66f268261e3f 12
+  s_18211f27fd441b::t_db452bde5f8e32 13,127-133,137,147-163,167-171,174-187
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -24,6 +32,14 @@ BUCK
         "tool": "codex",
         "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
         "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
+        "model": "gpt-5.6-sol"
       },
       "human_author": "zaidoon <zaidoon@cloudflare.com>"
     }
