@@ -1,13 +1,13 @@
 BUCK
-  s_18211f27fd441b::t_94bcc258c28ac3 4603-4608
-CMakeLists.txt
-  s_18211f27fd441b::t_892161878f7c2b 1593
-Makefile
-  s_18211f27fd441b::t_798707b91fc13b 1939-1941
-src.mk
-  s_18211f27fd441b::t_da08b1abe6f21f 608
+  s_18211f27fd441b::t_ec0e654dbe911f 4603-4608
 table/block_based/builtin_index_factory_test.cc
-  s_18211f27fd441b::t_a8deef89972b24 1-749
+  s_18211f27fd441b::t_7361520b118bdf 1-749
+CMakeLists.txt
+  s_18211f27fd441b::t_4f5735e2ecdc35 1593
+Makefile
+  s_18211f27fd441b::t_306e972587e1ab 1939-1941
+src.mk
+  s_18211f27fd441b::t_1b8cb24e032c05 608
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -19,7 +19,7 @@ table/block_based/builtin_index_factory_test.cc
       "agent_id": {
         "tool": "codex",
         "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
-        "model": "gpt-5.5"
+        "model": "unknown"
       },
       "human_author": "zaidoon <zaidoon@cloudflare.com>"
     }
