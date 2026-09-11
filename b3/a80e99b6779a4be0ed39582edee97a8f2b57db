@@ -122,6 +122,8 @@ table/block_fetcher_test.cc
   s_18211f27fd441b::t_bcf7030cb884b2 15-16,21,24,108-109,114-127,130,135-137,242-244,242-274,246-274,456-469
 utilities/trie_index/louds_trie.h
   s_18211f27fd441b::t_d603fce243ae66 69
+tools/db_crashtest.py
+  s_18211f27fd441b::t_4daf000fa77388 1159-1160
 ---
 {
   "schema_version": "authorship/3.0.0",
