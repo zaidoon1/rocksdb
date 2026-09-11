@@ -1,5 +1,6 @@
 table/table_test.cc
-  s_18211f27fd441b::t_4ddcdf7a113016 8512-8626,9527-9728
+  s_18211f27fd441b::t_75e59070e11f19 8512-8626,9527-9727
+  s_18211f27fd441b::t_941eb7bee94abd 9728
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -11,7 +12,7 @@ table/table_test.cc
       "agent_id": {
         "tool": "codex",
         "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
-        "model": "gpt-5.5"
+        "model": "unknown"
       },
       "human_author": "zaidoon <zaidoon@cloudflare.com>"
     }
