@@ -122,6 +122,8 @@ table/block_fetcher.cc
   s_18211f27fd441b::t_b98531524f5ea1 50,386
 unreleased_history/public_api_changes/index_factory_aliases.md
   s_dce53ef762ddde::t_ae7b164d61176f 1
+tools/db_crashtest.py
+  s_18211f27fd441b::t_4daf000fa77388 1159-1160
 ---
 {
   "schema_version": "authorship/3.0.0",
