@@ -1,7 +1,8 @@
 include/rocksdb/index_factory.h
   s_18211f27fd441b::t_95b899419de7ea 1-24,5-6,8-11,13-15,21,23-24
 table/table_test.cc
-  s_18211f27fd441b::t_7967b3e91728ad 46,91-139,91-111,115-139
+  s_18211f27fd441b::t_7967b3e91728ad 46,91-139,91-111,91-138,115-139
+  s_dce53ef762ddde::t_8b185ba229820a 139
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -14,6 +15,14 @@ table/table_test.cc
         "tool": "codex",
         "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
         "model": "unknown"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_dce53ef762ddde": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6735-689a-7de0-b9b0-1f6ef3e03d6f",
+        "model": "gpt-5.5"
       },
       "human_author": "zaidoon <zaidoon@cloudflare.com>"
     }
