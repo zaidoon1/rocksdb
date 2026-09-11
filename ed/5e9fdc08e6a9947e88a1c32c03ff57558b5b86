@@ -6,7 +6,7 @@ include/rocksdb/table.h
   s_18211f27fd441b::t_2de0005fb13b4d 602-625
   s_05a29c0f0d235f::t_26d3243d49449d 602-625
 table/block_based/block_based_table_factory.cc
-  s_18211f27fd441b::t_89b83581d32bdb 217-226,301-303
+  s_18211f27fd441b::t_89b83581d32bdb 217-226,219-226,301-303
 include/rocksdb/options.h
   s_18211f27fd441b::t_a2d3a58713a0f8 2430-2445
 table/table_test.cc
