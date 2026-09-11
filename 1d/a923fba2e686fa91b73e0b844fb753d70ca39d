@@ -11,7 +11,7 @@ utilities/trie_index/trie_index_db_test.cc
       "agent_id": {
         "tool": "codex",
         "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
-        "model": "gpt-5.5"
+        "model": "unknown"
       },
       "human_author": "zaidoon <zaidoon@cloudflare.com>"
     }
