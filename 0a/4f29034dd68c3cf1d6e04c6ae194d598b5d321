@@ -1,18 +1,24 @@
 include/rocksdb/options.h
   s_452f09aba9fe6c::t_792072fbd7755c 2449-2464
-  s_18211f27fd441b::t_a2d3a58713a0f8 2449-2464
+  s_18211f27fd441b::t_a2d3a58713a0f8 2449-2464,2449,2463-2464
+  s_18211f27fd441b::t_1a0a8d1d5676c9 2450-2462
 include/rocksdb/table.h
   s_452f09aba9fe6c::t_e8ce54bf8c4773 602-625
-  s_18211f27fd441b::t_2de0005fb13b4d 602-625
+  s_18211f27fd441b::t_2de0005fb13b4d 602-625,618-625
+  s_18211f27fd441b::t_6ea0fe716a1abc 602-617
 options/options_settable_test.cc
   s_452f09aba9fe6c::t_50f33a5bdbbd5a 188
   s_18211f27fd441b::t_c8572574587274 188
+  s_05a29c0f0d235f::t_fe739c297755af 188
 table/block_based/block_based_table_factory.cc
   s_452f09aba9fe6c::t_d386f2144661ba 217-226,301-303
-  s_18211f27fd441b::t_89b83581d32bdb 217-226,301-303
+  s_18211f27fd441b::t_89b83581d32bdb 217-226,301-303,301-302
+  s_05a29c0f0d235f::t_b0e7b5587f9b2b 303
 tools/c_api_gen/auto_simple_bindings_blocklist.json
   s_452f09aba9fe6c::t_43c93fa4d183f1 42-46,376-380
   s_18211f27fd441b::t_7106801344e22f 42-46,376-380
+  s_18211f27fd441b::t_ee05c70944f824 42-46,376-379
+  s_18211f27fd441b::t_1972fab75e43c0 380
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -20,6 +26,14 @@ tools/c_api_gen/auto_simple_bindings_blocklist.json
   "base_commit_sha": "0a4f29034dd68c3cf1d6e04c6ae194d598b5d321",
   "prompts": {},
   "sessions": {
+    "s_05a29c0f0d235f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05b5c-4964-7722-a266-43cb2a9ab665",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
     "s_18211f27fd441b": {
       "agent_id": {
         "tool": "codex",
