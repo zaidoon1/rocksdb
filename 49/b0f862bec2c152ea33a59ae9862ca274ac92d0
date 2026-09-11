@@ -1,8 +1,8 @@
 table/table_test.cc
-  s_18211f27fd441b::t_7967b3e91728ad 47,94-145
+  s_18211f27fd441b::t_7967b3e91728ad 47,94-145,98-146,98-118,122-146
   s_dce53ef762ddde::t_8b185ba229820a 23,146
 include/rocksdb/index_factory.h
-  s_18211f27fd441b::t_95b899419de7ea 1-24
+  s_18211f27fd441b::t_95b899419de7ea 1-24,5-6,8-11,13-15,21,23-24
 unreleased_history/public_api_changes/index_factory_aliases.md
   s_dce53ef762ddde::t_ae7b164d61176f 1
 ---
