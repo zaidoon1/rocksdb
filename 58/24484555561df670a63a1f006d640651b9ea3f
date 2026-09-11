@@ -32,7 +32,7 @@ tools/c_api_gen/auto_simple_bindings_blocklist.json
   s_18211f27fd441b::t_7106801344e22f 42-46,376,387-389
 utilities/trie_index/trie_index_test.cc
   s_18211f27fd441b::t_b8551156255666 5065
-  s_18211f27fd441b::t_782f413000ddc3 3001,3003-3005,3007,3009-3010
+  s_18211f27fd441b::t_782f413000ddc3 3001,3003-3005,3007,3009-3010,3010
 db/c_test.c
   s_18211f27fd441b::t_05b8850e2caacd 3426-3441
 table/block_based/block_based_table_factory.cc
