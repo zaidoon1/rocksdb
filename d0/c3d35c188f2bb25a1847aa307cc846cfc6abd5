@@ -12,6 +12,7 @@ include/rocksdb/c.h
   s_18211f27fd441b::t_9306ff3e01f1a2 1347-1358,1677-1680
 include/rocksdb/table.h
   s_18211f27fd441b::t_6ea0fe716a1abc 594-599,604-680,686-687
+  s_18211f27fd441b::t_4d4e9521943166 48,600
 include/rocksdb/table_properties.h
   s_18211f27fd441b::t_38c3171300fe92 51,247-248,250-252
 options/options_settable_test.cc
@@ -37,17 +38,31 @@ table/meta_blocks.cc
 table/table_properties.cc
   s_18211f27fd441b::t_08de7b4034243e 130-132,235,264,335-336,440-443
 tools/c_api_gen/auto_simple_bindings_blocklist.json
-  s_18211f27fd441b::t_ee05c70944f824 42-46,50,376-380
+  s_18211f27fd441b::t_ee05c70944f824 42-46,50,376-380,376,377-380
 tools/c_api_gen/c_base.cc
   s_18211f27fd441b::t_de116e71242906 459-470,4142,4154,4161,4179-4200,5723,5735,5741
 tools/c_api_gen/c_base.h
   s_18211f27fd441b::t_7f10850d9543c0 1137-1148
 utilities/trie_index/trie_index_test.cc
   s_18211f27fd441b::t_b8551156255666 5065
+  s_18211f27fd441b::t_782f413000ddc3 3001,3003-3005,3007,3009-3010
 include/rocksdb/options.h
   s_18211f27fd441b::t_1a0a8d1d5676c9 2433-2457,2467-2472
+  s_18211f27fd441b::t_04139295f85e11 61-62,2473
 table/table_test.cc
   s_18211f27fd441b::t_ae998f5f76805f 8689,8710,8712-8713,9200,9227,9243,9284-9285
+  s_18211f27fd441b::t_9a26ccb18b3657 8866,8869-8870,8873-8874,8877-8878,8881-8882
+  s_18211f27fd441b::t_824db77b0e8d70 137-138
+include/rocksdb/user_defined_index.h
+  s_18211f27fd441b::t_96d3dcf8b7f0df 9-18,22,26-29,31
+include/rocksdb/index_factory.h
+  s_18211f27fd441b::t_95b899419de7ea 395
+  s_18211f27fd441b::t_5b599dc4a8596c 1-4,7-10,15-27,31-391,394,396-410,412-416
+  s_18211f27fd441b::t_c8678193a7dd83 392-393
+utilities/trie_index/trie_index_factory.h
+  s_18211f27fd441b::t_bf519faa7ac294 280,286,295-296,298-299
+utilities/trie_index/trie_index_factory.cc
+  s_18211f27fd441b::t_5415978689c03c 22,24
 ---
 {
   "schema_version": "authorship/3.0.0",
