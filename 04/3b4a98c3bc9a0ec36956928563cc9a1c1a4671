@@ -166,6 +166,14 @@ db_stress_tool/db_stress_test_base.cc
   s_c2cb259dd63613::t_0eebde4d31afed 6252-6253
   s_c2cb259dd63613::t_3276debc3dad49 6252-6253
   s_c2cb259dd63613::t_af0b8abdea7d81 6252-6253
+table/block_based/block_cache.cc
+  s_05a29c0f0d235f::t_2ddfc3d214635c 87,105
+table/block_fetcher.cc
+  s_05a29c0f0d235f::t_235116bb6c009e 50
+table/block_fetcher_sync_and_async.h
+  s_05a29c0f0d235f::t_06f2bc79d20be3 110
+table/block_fetcher_test.cc
+  s_05a29c0f0d235f::t_3165840dfaec77 15-16,21,24,108-109,114-127,130,135-137,242-274,456-469
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -173,6 +181,14 @@ db_stress_tool/db_stress_test_base.cc
   "base_commit_sha": "043b4a98c3bc9a0ec36956928563cc9a1c1a4671",
   "prompts": {},
   "sessions": {
+    "s_05a29c0f0d235f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05b5c-4964-7722-a266-43cb2a9ab665",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
     "s_18211f27fd441b": {
       "agent_id": {
         "tool": "codex",
