@@ -18,6 +18,23 @@ db_stress_tool/db_stress_test_base.h
   s_c2cb259dd63613::t_e0c2849e70cd8c 604,629
 db_stress_tool/no_batched_ops_stress.cc
   s_c2cb259dd63613::t_30b6fe7639f42d 2733,2790
+include/rocksdb/options.h
+  s_452f09aba9fe6c::t_792072fbd7755c 2450-2451,2477,2478,2479,2480-2483
+  s_18211f27fd441b::t_a2d3a58713a0f8 2450-2451,2477,2478,2479,2480-2483
+include/rocksdb/table.h
+  s_452f09aba9fe6c::t_e8ce54bf8c4773 602-603,683,684,685,686,687,690-693
+  s_18211f27fd441b::t_2de0005fb13b4d 602-603,683,684,685,686,687,690-693
+options/options_settable_test.cc
+  s_452f09aba9fe6c::t_50f33a5bdbbd5a 227
+  s_18211f27fd441b::t_c8572574587274 227
+table/block_based/block_based_table_factory.cc
+  s_452f09aba9fe6c::t_d386f2144661ba 218-227,302-304
+  s_18211f27fd441b::t_89b83581d32bdb 218-227,302-304
+tools/c_api_gen/auto_simple_bindings_blocklist.json
+  s_452f09aba9fe6c::t_43c93fa4d183f1 42-46,376,387-389
+  s_18211f27fd441b::t_7106801344e22f 42-46,376,387-389
+utilities/trie_index/trie_index_db_test.cc
+  s_3738a26067a935::t_672572f6028fb0 5041-5197
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -25,6 +42,30 @@ db_stress_tool/no_batched_ops_stress.cc
   "base_commit_sha": "1c7182f6a58c5d6625241a6ca21afc83cb58da1b",
   "prompts": {},
   "sessions": {
+    "s_18211f27fd441b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_3738a26067a935": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a058ba-f720-7470-9f96-a1ecec422dfa",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_452f09aba9fe6c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08178f2beffemN5M7oS4rpF2i7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
     "s_83a0243bb3548b": {
       "agent_id": {
         "tool": "opencode",
