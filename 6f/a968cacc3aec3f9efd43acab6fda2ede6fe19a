@@ -1,0 +1,45 @@
+tools/db_bench_tool.cc
+  s_c2cb259dd63613::t_1d0dcd5cf1395a 770-795,2302-2316,3832,3907-3924,4658-4663,6204
+include/rocksdb/compression_type.h
+  s_c2cb259dd63613::t_0cc1c5c30580d5 252-260
+tools/db_crashtest.py
+  s_83a0243bb3548b::t_767145cc8c86f3 208-225,390-393,1319-1320,1325-1334,1337-1363,1809-1816
+db_stress_tool/db_stress_gflags.cc
+  s_c2cb259dd63613::t_0c46e1b7524e22 709-717
+db_stress_tool/no_batched_ops_stress.cc
+  s_c2cb259dd63613::t_30b6fe7639f42d 2868,2925
+db_stress_tool/db_stress_test_base.cc
+  s_c2cb259dd63613::t_5e6e4a07335d52 305-320,2148-2153,2213-2214,3490,3551,3557,3567,6196,6282-6297,6300-6318
+tools/db_crashtest_test.py
+  s_c2cb259dd63613::t_62fab55222abaf 327-521
+db_stress_tool/db_stress_test_base.h
+  s_c2cb259dd63613::t_e0c2849e70cd8c 627,652
+tools/db_bench_tool_test.cc
+  s_c2cb259dd63613::t_73fca7d1d05a54 418-419
+db_stress_tool/db_stress_common.h
+  s_c2cb259dd63613::t_01ec4ceebd26db 192
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "6fa968cacc3aec3f9efd43acab6fda2ede6fe19a",
+  "prompts": {},
+  "sessions": {
+    "s_83a0243bb3548b": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fec6c9d64ffe0FEnQK7xNTU0fW",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_c2cb259dd63613": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
