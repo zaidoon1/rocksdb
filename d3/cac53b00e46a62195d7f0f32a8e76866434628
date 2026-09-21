@@ -1,0 +1,57 @@
+db_stress_tool/db_stress_test_base.h
+  s_c2cb259dd63613::t_e0c2849e70cd8c 627,652
+include/rocksdb/compression_type.h
+  s_c2cb259dd63613::t_0cc1c5c30580d5 252-260
+db_stress_tool/db_stress_common.h
+  s_c2cb259dd63613::t_01ec4ceebd26db 195
+  s_c2cb259dd63613::t_9c0ec42513c4e2 196
+tools/db_crashtest.py
+  s_83a0243bb3548b::t_767145cc8c86f3 219-246,414-418,1465-1466,1471-1483,1485-1489,1491-1521,1967-1975
+tools/db_crashtest_test.py
+  s_c2cb259dd63613::t_62fab55222abaf 544-738,740-745,747-748,750,755-760,762-763,765,770-775,777-778,780
+  s_c2cb259dd63613::t_edac0fc090b1cf 739
+  s_c2cb259dd63613::t_128fd273015165 746
+  s_c2cb259dd63613::t_846d27af54425c 749
+  s_c2cb259dd63613::t_936882ed1fa4b7 751-754
+  s_c2cb259dd63613::t_853123fe9845ac 761
+  s_c2cb259dd63613::t_c200f50d50049c 764
+  s_c2cb259dd63613::t_460000a9107be6 766-769
+  s_c2cb259dd63613::t_ef2527b2fce22b 776
+  s_c2cb259dd63613::t_57bd2fffe1fc09 779
+  s_c2cb259dd63613::t_f697bf0a092bfc 781-783
+db_stress_tool/no_batched_ops_stress.cc
+  s_c2cb259dd63613::t_30b6fe7639f42d 2868,2925
+tools/db_bench_tool_test.cc
+  s_c2cb259dd63613::t_73fca7d1d05a54 418-419
+tools/db_bench_tool.cc
+  s_c2cb259dd63613::t_1d0dcd5cf1395a 775-800,2307-2321,3837,3915-3951,4686-4691,6238
+db_stress_tool/db_stress_gflags.cc
+  s_c2cb259dd63613::t_0c46e1b7524e22 738-746
+  s_c2cb259dd63613::t_41bbcb3c037c0b 747-749
+db_stress_tool/db_stress_test_base.cc
+  s_c2cb259dd63613::t_5e6e4a07335d52 370-401,2229-2230,2290-2291,3611,3672,3678,3688,6317,6403-6441,6444-6462
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "d3cac53b00e46a62195d7f0f32a8e76866434628",
+  "prompts": {},
+  "sessions": {
+    "s_83a0243bb3548b": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fec6c9d64ffe0FEnQK7xNTU0fW",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_c2cb259dd63613": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
