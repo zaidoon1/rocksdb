@@ -1,0 +1,29 @@
+table/block_based/block_based_table_factory.cc
+  s_ee96ce8c13e54b::t_8b6722aea37a79 462,465
+table/table_test.cc
+  s_ee96ce8c13e54b::t_17414b540244af 10501-10502
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "0675830967b4733109a045049a90e72b97417e6a",
+  "prompts": {},
+  "sessions": {
+    "s_8cd5c611145d86": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0f043-5db5-7fb2-92db-acdd804b445b",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_ee96ce8c13e54b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0f1fc-0b41-7f21-8000-a940ea7325f9",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}

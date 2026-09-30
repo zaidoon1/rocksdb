@@ -1,0 +1,68 @@
+table/table_test.cc
+  s_c2cb259dd63613::t_e14cac99319e30 10263,10268,10272,10273,10273,10285,10292,10298-10305,10298-10305,10307-10331,10307-10331,10334-10335,10334-10335,10336-10385,10336-10371,10387-10396,10399-10400,10401-10428,10430-10435,10437-10438,10864,10872
+  s_c2cb259dd63613::t_21eb333af2141e 10361,10426
+  s_c2cb259dd63613::t_cde79c8d9b4052 10298-10305,10307-10331,10334-10335,10336-10359,10362-10363,10381,10402,10405,10414,10430-10431,10864,10872
+  s_c2cb259dd63613::t_86df863708145b 10382,10399,10401,10428
+  s_c2cb259dd63613::t_9fa649332b788e 10360
+  s_c2cb259dd63613::t_773135a57b4bb9 10364-10366,10378-10380
+  s_c2cb259dd63613::t_8126b645f8d169 10383-10385
+  s_c2cb259dd63613::t_f9121bb5cc5b09 10387-10389,10395-10396
+  s_c2cb259dd63613::t_a8cfe0ba357529 10400
+  s_c2cb259dd63613::t_8bd7ee8d0efc70 10403-10404
+  s_c2cb259dd63613::t_6b7390584da049 10406-10408,10411-10413
+  s_c2cb259dd63613::t_749c78673a0e6f 10415-10417,10423-10425
+  s_c2cb259dd63613::t_b02f5dd42e6453 10427
+  s_c2cb259dd63613::t_6d228d71ee20b5 10432-10434
+  s_ee96ce8c13e54b::t_c0738836855e9b 10273,10367-10377,10390-10394,10409-10410,10418-10422,10435,10437-10438
+table/block_based/block_based_table_builder.cc
+  s_589b2cd38faf7d::t_d9c05a5a1abe2d 1739
+  s_f482bc40a3d8ba::t_262935b63895f4 1739
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "176d7c7ea1b1b193dba627c888b354274872bd4f",
+  "prompts": {},
+  "sessions": {
+    "s_3738a26067a935": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a058ba-f720-7470-9f96-a1ecec422dfa",
+        "model": "unknown"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_589b2cd38faf7d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_febf879f4ffeIwqsfLzVxLi2r0",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_c2cb259dd63613": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_ee96ce8c13e54b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0f1fc-0b41-7f21-8000-a940ea7325f9",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_f482bc40a3d8ba": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_febcba737ffe2CtrWtgMIA55TP",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
