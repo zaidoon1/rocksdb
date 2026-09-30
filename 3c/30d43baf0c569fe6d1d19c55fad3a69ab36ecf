@@ -1,0 +1,59 @@
+table/table_test.cc
+  s_c2cb259dd63613::t_259ba124388cc2 146-147
+  s_ee96ce8c13e54b::t_46642cd65e8106 9716-9718,10556,10559-10560,10563-10564,10567-10568,10571-10572
+include/rocksdb/user_defined_index.h
+  s_c2cb259dd63613::t_66fcbfc803c631 9-21,25,29-33,35
+table/block_based/builtin_index_factory.h
+  s_c2cb259dd63613::t_1a1807ba21fadd 61-62,86-87,112-113
+utilities/trie_index/trie_index_factory.cc
+  s_c2cb259dd63613::t_f59be1141760c7 22,24
+  s_ee96ce8c13e54b::t_fba34babf7c2a7 549,562-564
+include/rocksdb/table.h
+  s_c2cb259dd63613::t_e44e0f55e00739 48
+  s_ee96ce8c13e54b::t_75a525b316bfb2 598,600
+include/rocksdb/index_factory.h
+  s_589b2cd38faf7d::t_cac3c93e00a785 1-4,7-10,15-27,31-382,384-388
+include/rocksdb/options.h
+  s_c2cb259dd63613::t_4cdfde007e582a 61-62
+  s_ee96ce8c13e54b::t_870226e2b2691f 2599
+table/block_based/user_defined_index_wrapper.h
+  s_ee96ce8c13e54b::t_11ec2bf09d8802 216,220,222,225,231
+utilities/trie_index/trie_index_factory.h
+  s_ee96ce8c13e54b::t_2a12b1263f5651 279,285,292-293,296-297,299-300
+utilities/trie_index/trie_index_test.cc
+  s_ee96ce8c13e54b::t_10c05ff3022d70 2830-2832,2868-2869,2996,2998-3000,3002,3004-3005
+table/block_based/block_based_table_factory.cc
+  s_ee96ce8c13e54b::t_cf032f0ccd9864 1164
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "3c30d43baf0c569fe6d1d19c55fad3a69ab36ecf",
+  "prompts": {},
+  "sessions": {
+    "s_589b2cd38faf7d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_febf879f4ffeIwqsfLzVxLi2r0",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_c2cb259dd63613": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
+        "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_ee96ce8c13e54b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0f1fc-0b41-7f21-8000-a940ea7325f9",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
