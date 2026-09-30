@@ -1,7 +1,7 @@
 tools/db_bench_tool_test.cc
   s_c2cb259dd63613::t_73fca7d1d05a54 379-380
 tools/db_crashtest_test.py
-  s_c2cb259dd63613::t_62fab55222abaf 222-416
+  s_c2cb259dd63613::t_62fab55222abaf 222-416,223-226,235-237,239,247,249,252,261,277,286,303,312,314,316,416
 db_stress_tool/db_stress_common.h
   s_c2cb259dd63613::t_01ec4ceebd26db 191
 db_stress_tool/db_stress_test_base.cc
@@ -11,7 +11,7 @@ include/rocksdb/compression_type.h
 tools/db_bench_tool.cc
   s_c2cb259dd63613::t_1d0dcd5cf1395a 747-772,2249-2263,3490,3565-3582,4316-4321,5744
 db_stress_tool/db_stress_gflags.cc
-  s_c2cb259dd63613::t_0c46e1b7524e22 702-710
+  s_c2cb259dd63613::t_0c46e1b7524e22 702-710,703
 tools/db_crashtest.py
   s_83a0243bb3548b::t_767145cc8c86f3 183-200,360-363,1285-1286,1291-1300,1303-1329,1761-1768
 db_stress_tool/db_stress_test_base.h
