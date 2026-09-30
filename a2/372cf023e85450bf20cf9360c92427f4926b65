@@ -1,7 +1,19 @@
+table/block_based/block_based_table_builder.cc
+  s_ee96ce8c13e54b::t_a0726890d46c2f 3509-3516
 ---
 {
   "schema_version": "authorship/3.0.0",
   "git_ai_version": "1.6.10",
   "base_commit_sha": "a2372cf023e85450bf20cf9360c92427f4926b65",
-  "prompts": {}
+  "prompts": {},
+  "sessions": {
+    "s_ee96ce8c13e54b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0f1fc-0b41-7f21-8000-a940ea7325f9",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
 }
