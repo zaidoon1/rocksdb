@@ -76,7 +76,7 @@ table/format.cc
 table/meta_blocks.cc
   s_c2cb259dd63613::t_d5e8281c619a27 100-103,313-314
 table/block_based/block_based_table_builder.cc
-  s_589b2cd38faf7d::t_d9c05a5a1abe2d 21,27,58,66,209,220-228,450-457,1045-1049,1051-1175,1758-1761,1764,1813-1820,1822,1824-1827,1829-1847,1849-1851,1854-1875,1877-1884,1886-1931,1935-1941,1954,2250,2416-2490,2563-2565,2669-2689,3108-3133,3419-3466,3473-3489,3491-3493,3495-3517,3525-3566,3578-3580,3604-3630,3632,3774-3785,3945,4106-4112
+  s_589b2cd38faf7d::t_d9c05a5a1abe2d 21,27,58,66,209,220-228,450-457,1045-1049,1051-1175,1758-1761,1764,1813-1820,1822,1824-1827,1829-1847,1849-1851,1854-1875,1877-1884,1885,1886-1931,1935-1941,1954,2250,2416-2490,2563-2565,2669-2689,3108-3133,3419-3466,3473-3489,3491-3493,3495-3517,3525-3566,3578-3580,3604-3630,3632,3774-3785,3945,4106-4112
 table/block_based/block_based_table_builder.h
   s_c2cb259dd63613::t_323932d22afc83 219-221
 db/c_test.c
@@ -86,7 +86,7 @@ table/block_based/user_defined_index_wrapper.h
 table/block_based/block_based_table_reader_sync_and_async.h
   s_c2cb259dd63613::t_b27f0ebcd8ab3f 175,297
 table/format.h
-  s_c2cb259dd63613::t_8ee8a0e6f741c2 303-309,325,359-364,411,442-443
+  s_c2cb259dd63613::t_8ee8a0e6f741c2 303-309,309,325,359-364,411,442-443
 include/rocksdb/c.h
   s_c2cb259dd63613::t_5089f4efe3cc43 1394-1405,1724-1727
 db/db_properties_test.cc
@@ -95,6 +95,10 @@ table/block_based/partitioned_filter_block.cc
   s_c2cb259dd63613::t_36170a8883dc9e 27,33,100,102,106-121,164,266,322,348
 table/block_based/block_based_table_reader.cc
   s_c2cb259dd63613::t_f2d2a8bfe5162f 47,367,424,500,923-942,1813-1816,1825-1832,1836-1847,1849-1851,1856-1859,1868-1871,1880-1897,1902,1912-1917,1919-1920,1929-1934,1936-1941,1950-1981,2074-2079,3059-3060,3203
+db_stress_tool/db_stress_gflags.cc
+  s_c2cb259dd63613::t_0c46e1b7524e22 711
+tools/db_crashtest.py
+  s_83a0243bb3548b::t_767145cc8c86f3 1308-1309
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -139,6 +143,14 @@ table/block_based/block_based_table_reader.cc
         "tool": "opencode",
         "id": "ses_febf879f4ffeIwqsfLzVxLi2r0",
         "model": "claude-opus-5"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    },
+    "s_83a0243bb3548b": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fec6c9d64ffe0FEnQK7xNTU0fW",
+        "model": "gpt-5.6-sol"
       },
       "human_author": "zaidoon <zaidoon@cloudflare.com>"
     },

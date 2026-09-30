@@ -26,6 +26,8 @@ table/table_test.cc
   s_c2cb259dd63613::t_e14cac99319e30 9529
 tools/db_crashtest.py
   s_83a0243bb3548b::t_767145cc8c86f3 1308-1309
+db_stress_tool/db_stress_gflags.cc
+  s_c2cb259dd63613::t_0c46e1b7524e22 711
 ---
 {
   "schema_version": "authorship/3.0.0",
