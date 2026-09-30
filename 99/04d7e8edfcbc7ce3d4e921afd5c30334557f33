@@ -1,0 +1,29 @@
+include/rocksdb/table.h
+  s_ee96ce8c13e54b::t_de403d897b8806 683-686,701-702,708-709
+table/block_based/block_based_table_factory.cc
+  s_ee96ce8c13e54b::t_aabf6110587f5b 462-464,466-468,473-480,482-490,499-500,502,505-511,1185-1194,1209-1214,1216-1221,1223
+table/block_based/block_based_table_factory.h
+  s_ee96ce8c13e54b::t_d3d458e4486574 104-105,107-108
+table/block_based/block_based_table_reader.cc
+  s_ee96ce8c13e54b::t_561c1a53bea805 1886
+table/table_test.cc
+  s_ee96ce8c13e54b::t_3183ccd86db11d 167-310,10774-10845,11489,11492,11495
+unreleased_history/bug_fixes/udi_cache_and_legacy_options.md
+  s_ee96ce8c13e54b::t_0c43e023bc32e8 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "9904d7e8edfcbc7ce3d4e921afd5c30334557f33",
+  "prompts": {},
+  "sessions": {
+    "s_ee96ce8c13e54b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0f1fc-0b41-7f21-8000-a940ea7325f9",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
