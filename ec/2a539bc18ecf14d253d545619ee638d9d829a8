@@ -1,5 +1,5 @@
 table/block_based/block_based_table_builder.cc
-  s_05a29c0f0d235f::t_28d7037a906519 3509-3516
+  s_ee96ce8c13e54b::t_a023c0941657eb 3509-3516
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -7,11 +7,11 @@ table/block_based/block_based_table_builder.cc
   "base_commit_sha": "ec2a539bc18ecf14d253d545619ee638d9d829a8",
   "prompts": {},
   "sessions": {
-    "s_05a29c0f0d235f": {
+    "s_ee96ce8c13e54b": {
       "agent_id": {
         "tool": "codex",
-        "id": "01a05b5c-4964-7722-a266-43cb2a9ab665",
-        "model": "gpt-5.6-sol"
+        "id": "01a0f1fc-0b41-7f21-8000-a940ea7325f9",
+        "model": "gpt-6.1-sol"
       },
       "human_author": "zaidoon <zaidoon@cloudflare.com>"
     }
