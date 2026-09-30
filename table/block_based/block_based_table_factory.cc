@@ -472,6 +472,11 @@ static struct BlockBasedTableTypeInfo {
 
 void BlockBasedTableFactory::UpdateIndexMode() {
   if (index_mode_explicit_) {
+    // Effective options can be copied into a new factory. Clear ignored legacy
+    // inputs so an explicit kStandardDefault survives that reconstruction.
+    table_options_.use_udi_as_primary_index = false;
+    table_options_.fail_if_no_udi_on_open = false;
+    skip_standard_index_ = false;
     return;
   }
   using IndexMode = BlockBasedTableOptions::IndexMode;
@@ -1180,6 +1185,7 @@ Status BlockBasedTableFactory::ParseOption(const ConfigOptions& config_options,
   if (status.ok()) {
     if (opt_name == "index_mode") {
       index_mode_explicit_ = true;
+      UpdateIndexMode();
     } else if (opt_name == "use_udi_as_primary_index" ||
                opt_name == "fail_if_no_udi_on_open" ||
                opt_name == "skip_standard_index") {

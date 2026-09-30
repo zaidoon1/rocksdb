@@ -62,7 +62,9 @@ when a stale bool is left behind.
 
 Legacy aliases retain their boolean state across configuration calls. Clearing
 an alias recomputes the mode from the remaining enabled aliases unless a mode
-was selected explicitly. For a C++ `BlockBasedTableOptions` struct, the default
+was selected explicitly. Explicit modes clear ignored legacy inputs so a copied
+options struct preserves the selected behavior when used to construct a new
+factory. For a C++ `BlockBasedTableOptions` struct, the default
 `kStandardDefault` value cannot distinguish an explicit choice from an unset
 field; configure `index_mode` on the factory to make that choice explicit.
 

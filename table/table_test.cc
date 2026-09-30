@@ -241,6 +241,11 @@ TEST(IndexFactoryCompatibilityTest, ConfiguredIndexModeBeatsLegacyBooleans) {
           clone->ConfigureOption(cfg, "use_udi_as_primary_index", "true"));
       EXPECT_EQ(clone->GetOptions<BlockBasedTableOptions>()->index_mode, mode);
 
+      BlockBasedTableFactory reconstructed(
+          *factory.GetOptions<BlockBasedTableOptions>());
+      EXPECT_EQ(reconstructed.GetOptions<BlockBasedTableOptions>()->index_mode,
+                mode);
+
       BlockBasedTableFactory combined{BlockBasedTableOptions()};
       ASSERT_OK(
           combined.ConfigureFromMap(cfg, {{"index_mode", name},
@@ -248,6 +253,16 @@ TEST(IndexFactoryCompatibilityTest, ConfiguredIndexModeBeatsLegacyBooleans) {
                                           {"fail_if_no_udi_on_open", "true"},
                                           {"skip_standard_index", "true"}}));
       EXPECT_EQ(combined.GetOptions<BlockBasedTableOptions>()->index_mode,
+                mode);
+      BlockBasedTableOptions parsed;
+      ASSERT_OK(GetBlockBasedTableOptionsFromString(
+          cfg, BlockBasedTableOptions(),
+          std::string("index_mode=") + name +
+              ";use_udi_as_primary_index=true;fail_if_no_udi_on_open=true;"
+              "skip_standard_index=true",
+          &parsed));
+      BlockBasedTableFactory from_parsed(parsed);
+      EXPECT_EQ(from_parsed.GetOptions<BlockBasedTableOptions>()->index_mode,
                 mode);
     }
   }
