@@ -1,13 +1,9 @@
-table/block_based/block_based_table_builder.cc
-  s_589b2cd38faf7d::t_d9c05a5a1abe2d 1688,1691,1709
-  s_f482bc40a3d8ba::t_262935b63895f4 1688,1691,1709
+include/rocksdb/options.h
+  s_ee96ce8c13e54b::t_b611db41906b05 2229-2232,2341-2350
+tools/c_api_gen/auto_simple_bindings_blocklist.json
+  s_ee96ce8c13e54b::t_7bf25fc60faea3 61-65
 table/table_test.cc
-  s_589b2cd38faf7d::t_9db2294fc16394 10235
-  s_c2cb259dd63613::t_cde79c8d9b4052 10190,10195,10199,10200,10202,10206,10212-10213,10216,10226,10231,10236-10237,10243-10244,10249-10251,10257,10787,10795
-  s_c2cb259dd63613::t_e14cac99319e30 10235
-  s_c2cb259dd63613::t_1ce7b8e69f311f 10190,10195,10199,10200,10202,10206,10212-10213,10216,10226,10231,10236-10237,10243-10244,10249-10251,10257,10787,10795
-table/block_based/block_based_table_factory.cc
-  s_c2cb259dd63613::t_40e30318b7cdb0 801,803
+  s_ee96ce8c13e54b::t_83b48f74e56649 8285-8286,8290,8293-8294,9139-9218
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -15,35 +11,11 @@ table/block_based/block_based_table_factory.cc
   "base_commit_sha": "da3a0961faaf9430e569935edb0bfdede72691b7",
   "prompts": {},
   "sessions": {
-    "s_18211f27fd441b": {
+    "s_ee96ce8c13e54b": {
       "agent_id": {
         "tool": "codex",
-        "id": "019f791e-824c-70d1-83b2-0dc8e59652fb",
-        "model": "unknown"
-      },
-      "human_author": "zaidoon <zaidoon@cloudflare.com>"
-    },
-    "s_589b2cd38faf7d": {
-      "agent_id": {
-        "tool": "opencode",
-        "id": "ses_febf879f4ffeIwqsfLzVxLi2r0",
-        "model": "claude-opus-5"
-      },
-      "human_author": "zaidoon <zaidoon@cloudflare.com>"
-    },
-    "s_c2cb259dd63613": {
-      "agent_id": {
-        "tool": "opencode",
-        "id": "ses_03bc79ba5ffezFRBpQg23F7VXm",
-        "model": "claude-opus-5"
-      },
-      "human_author": "zaidoon <zaidoon@cloudflare.com>"
-    },
-    "s_f482bc40a3d8ba": {
-      "agent_id": {
-        "tool": "opencode",
-        "id": "ses_febcba737ffe2CtrWtgMIA55TP",
-        "model": "claude-opus-5"
+        "id": "01a0f1fc-0b41-7f21-8000-a940ea7325f9",
+        "model": "gpt-6.1-sol"
       },
       "human_author": "zaidoon <zaidoon@cloudflare.com>"
     }
