@@ -1,0 +1,21 @@
+utilities/trie_index/trie_index_db_test.cc
+  s_6f8ce430b8ae60::t_c0b75bf4bbd659 179-180,675,712-728
+utilities/trie_index/trie_index_test.cc
+  s_6f8ce430b8ae60::t_73e9a5401c033f 6194,6198
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "6429bd1bf0495692c68820ed1f4c7e617a27153c",
+  "prompts": {},
+  "sessions": {
+    "s_6f8ce430b8ae60": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a10235-8d9a-70c3-a3f9-802ac370c74c",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
