@@ -85,7 +85,9 @@ class TrieIndexBuilder final : public IndexFactoryBuilder {
   void OnKeyAdded(const Slice& key, ValueType type,
                   const Slice& value) override;
 
-  // Finalize the trie and return the serialized index data.
+  // Finalize the trie and return the serialized index data. Returns
+  // NotSupported if any data-block offset or size exceeds UINT32_MAX;
+  // the serialized trie encodes these fields as 32-bit integers.
   Status Finish(Slice* index_contents) override;
 
   // Returns an estimate of the current serialized index size. The estimate is
@@ -115,6 +117,7 @@ class TrieIndexBuilder final : public IndexFactoryBuilder {
   const Comparator* comparator_;
   LoudsTrieBuilder trie_builder_;
   bool finished_;
+  bool has_unsupported_handle_ = false;
 
   // Buffered separator entries: (separator_key, tag, handle).
   // The separator_key is the user-key-only separator computed by
@@ -128,10 +131,16 @@ class TrieIndexBuilder final : public IndexFactoryBuilder {
     TrieBlockHandle handle;
   };
   std::vector<BufferedEntry> buffered_entries_;
+
   // EstimatedSize() is called on the emit thread. Keep its state disjoint from
   // buffered_entries_, which the BG writer mutates during parallel builds.
-  uint64_t estimated_separator_bytes_ = 0;
+  // Adjacent separators charge their common prefix only once.
+  uint64_t estimated_trie_edges_ = 0;
   uint64_t estimated_num_entries_ = 0;
+  std::string previous_prepared_separator_;
+  // Returns the shared prefix length for reusing emit-owned separator bytes.
+  size_t UpdateSizeEstimate(const Slice& separator,
+                            const Slice& previous_separator);
 
   // Staged data for the parallel AddIndexEntry protocol. Populated by
   // PrepareAddEntry on the emit thread, consumed by FinishAddEntry on

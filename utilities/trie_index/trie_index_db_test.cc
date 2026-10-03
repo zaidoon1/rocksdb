@@ -176,6 +176,8 @@ class TrieIndexDBTest
     return OpenDBImpl(block_size, GetIndexMode());
   }
 
+  void VerifySharedPrefixCompaction();
+
   // Explicitly opens as primary -- used by the backward compatibility test.
   Status OpenDBPrimary(int block_size = 0) {
     return OpenDBImpl(block_size,
@@ -668,6 +670,60 @@ TEST_P(TrieIndexDBTest, CompactionTailSizeIsUpperBound) {
   std::string value;
   ASSERT_OK(db_->Get(TrieIndexReadOptions(), key, &value));
   EXPECT_EQ(value, "new");
+}
+
+void TrieIndexDBTest::VerifySharedPrefixCompaction() {
+  options_.disable_auto_compactions = true;
+  options_.target_file_size_is_upper_bound = true;
+  options_.target_file_size_base = 256 << 10;
+  ASSERT_OK(OpenDB(512));
+  const std::string prefix(512, 'p');
+  constexpr int kKeyCount = 2048;
+  for (char version : {'a', 'b'}) {
+    for (int i = 0; i < kKeyCount; ++i) {
+      ASSERT_OK(db_->Put(WriteOptions(), prefix + MakeKeyBody(i),
+                         std::string(64, version)));
+    }
+    ASSERT_OK(db_->Flush(FlushOptions()));
+  }
+  CompactRangeOptions compact_options;
+  compact_options.bottommost_level_compaction =
+      BottommostLevelCompaction::kForce;
+  ASSERT_OK(db_->CompactRange(compact_options, nullptr, nullptr));
+  std::vector<LiveFileMetaData> files;
+  db_->GetLiveFilesMetaData(&files);
+  // About 1.2 MiB of data (plus a similarly sized standard index in dual
+  // modes) should fit in a small number of 256 KiB SSTs. Charging the shared
+  // prefix once per block used to produce dozens.
+  EXPECT_GT(files.size(), 1U);
+  EXPECT_LE(files.size(), 12U);
+  for (const auto& file : files) {
+    EXPECT_LE(file.size, options_.target_file_size_base);
+  }
+  ASSERT_OK(db_->Close());
+  db_.reset();
+  ASSERT_OK(OpenDB(512));
+  for (int i = 0; i < kKeyCount; ++i) {
+    ASSERT_NO_FATAL_FAILURE(
+        VerifyGetBothIndexes(prefix + MakeKeyBody(i), std::string(64, 'b')));
+  }
+}
+
+TEST_P(TrieIndexDBTest, SharedPrefixDoesNotCutCompactionFilesEarly) {
+  options_.compression = kNoCompression;
+  ASSERT_NO_FATAL_FAILURE(VerifySharedPrefixCompaction());
+}
+
+TEST_P(TrieIndexDBTest, SharedPrefixWithParallelCompression) {
+  if (!Zlib_Supported()) {
+    ROCKSDB_GTEST_SKIP("Zlib not linked into this build");
+  }
+  options_.compression = kZlibCompression;
+  options_.compression_opts.parallel_threads = 4;
+  // Exercise the compression pipeline but retain uncompressed blocks so
+  // the file-size assertions match the serial case regardless of codec ratio.
+  options_.compression_opts.max_compressed_bytes_per_kb = 1;
+  ASSERT_NO_FATAL_FAILURE(VerifySharedPrefixCompaction());
 }
 
 TEST_P(TrieIndexDBTest, FlushWithAllOperationTypes) {

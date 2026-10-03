@@ -139,8 +139,12 @@ Slice TrieIndexBuilder::AddIndexEntry(const Slice& last_key_in_current_block,
   }
 
   entry.handle = handle;
-  estimated_separator_bytes_ += entry.separator_key.size();
-  ++estimated_num_entries_;
+  has_unsupported_handle_ |=
+      handle.offset > UINT32_MAX || handle.size > UINT32_MAX;
+  const Slice previous_separator =
+      buffered_entries_.empty() ? Slice()
+                                : Slice(buffered_entries_.back().separator_key);
+  UpdateSizeEstimate(entry.separator_key, previous_separator);
   buffered_entries_.push_back(std::move(entry));
 
   return separator;
@@ -157,6 +161,10 @@ Status TrieIndexBuilder::Finish(Slice* index_contents) {
     return Status::InvalidArgument("TrieIndexBuilder::Finish called twice");
   }
   finished_ = true;
+  if (has_unsupported_handle_) {
+    return Status::NotSupported(
+        "Trie index block offset or size exceeds the 32-bit encoding limit");
+  }
 
   // Every staged entry needs the seqno side-table so the post-seek
   // correction can disambiguate the last block and any same-user-key run,
@@ -234,10 +242,22 @@ Status TrieIndexBuilder::Finish(Slice* index_contents) {
 // ============================================================================
 
 uint64_t TrieIndexBuilder::EstimatedSize() const {
+  if (finished_) {
+    return trie_builder_.GetSerializedData().size();
+  }
   // Dense/sparse labels, bitvectors, child positions, and capped chain metadata
-  // use at most 12 bytes per separator byte. Each handle and seqno record needs
-  // at most 20 bytes. Reserve 1 KiB for headers and alignment.
-  return 1024 + estimated_separator_bytes_ * 12 + estimated_num_entries_ * 20;
+  // use at most 12 bytes per distinct trie edge. Each handle and seqno record
+  // needs at most 20 bytes. Reserve 1 KiB for headers and alignment. Shared
+  // prefixes contribute only once, just as in LoudsTrieBuilder::Finish().
+  return 1024 + estimated_trie_edges_ * 12 + estimated_num_entries_ * 20;
+}
+
+size_t TrieIndexBuilder::UpdateSizeEstimate(const Slice& separator,
+                                            const Slice& previous_separator) {
+  const size_t shared_prefix = previous_separator.difference_offset(separator);
+  estimated_trie_edges_ += separator.size() - shared_prefix;
+  ++estimated_num_entries_;
+  return shared_prefix;
 }
 
 // ---------------------------------------------------------------------------
@@ -276,8 +296,13 @@ void TrieIndexBuilder::PrepareAddEntry(const Slice& last_key_in_current_block,
   }
 
   p->valid = true;
-  estimated_separator_bytes_ += p->separator_key.size();
-  ++estimated_num_entries_;
+  const size_t shared_prefix =
+      UpdateSizeEstimate(p->separator_key, previous_prepared_separator_);
+  // The writer can move the prepared key as soon as this callback returns.
+  // Keep one emit-owned copy, reusing the prefix bytes already stored here.
+  previous_prepared_separator_.replace(shared_prefix, std::string::npos,
+                                       p->separator_key.data() + shared_prefix,
+                                       p->separator_key.size() - shared_prefix);
 }
 
 void TrieIndexBuilder::FinishAddEntry(const BlockHandle& block_handle,
@@ -329,6 +354,8 @@ void TrieIndexBuilder::FinishAddEntry(const BlockHandle& block_handle,
   }
   be.handle.offset = block_handle.offset;
   be.handle.size = block_handle.size;
+  has_unsupported_handle_ |=
+      be.handle.offset > UINT32_MAX || be.handle.size > UINT32_MAX;
 
   buffered_entries_.push_back(std::move(be));
 
