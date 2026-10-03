@@ -298,6 +298,7 @@ class TrieIndexReader : public IndexFactoryReader {
 
   // Approximate memory usage of the deserialized trie.
   size_t ApproximateMemoryUsage() const override;
+  bool MemoryUsageIncludesIndexBlock() const override { return false; }
 
  private:
   const Comparator* comparator_;
