@@ -1,0 +1,19 @@
+docs/components/index_factory/index.md
+  s_6f8ce430b8ae60::t_c5edd5ac3bbf00 63-69,120-125
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "08432005621d106054336ee8465ef1ed87e7bd83",
+  "prompts": {},
+  "sessions": {
+    "s_6f8ce430b8ae60": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a10235-8d9a-70c3-a3f9-802ac370c74c",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}

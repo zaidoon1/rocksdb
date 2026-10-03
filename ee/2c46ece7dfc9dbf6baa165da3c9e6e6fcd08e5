@@ -1,0 +1,57 @@
+db_stress_tool/db_stress_common.h
+  s_ee96ce8c13e54b::t_bbcc070484b3b9 198-199
+db_stress_tool/db_stress_gflags.cc
+  s_ee96ce8c13e54b::t_f3d7efe7b5bea7 753-768
+db_stress_tool/db_stress_test_base.cc
+  s_ee96ce8c13e54b::t_73a052cb4bb38e 618-649,2477-2478,2538-2539,3998,4059,4065,4075,6728,6814-6852,6855-6873
+db_stress_tool/db_stress_test_base.h
+  s_ee96ce8c13e54b::t_77709564eb9640 665,690
+db_stress_tool/no_batched_ops_stress.cc
+  s_ee96ce8c13e54b::t_dccd532060c2dc 2929,2986
+docs/components/index.md
+  s_ee96ce8c13e54b::t_9934512843f202 12
+docs/components/index_factory/index.md
+  s_ee96ce8c13e54b::t_c12092ccf68cff 1-203
+include/rocksdb/compression_type.h
+  s_ee96ce8c13e54b::t_0f6e7eed045fc7 252-260
+tools/db_bench_tool.cc
+  s_ee96ce8c13e54b::t_ab5a49e9ff42db 775-800,2307-2321,3837,3915-3951,4686-4691,6238
+tools/db_bench_tool_test.cc
+  s_ee96ce8c13e54b::t_ecbe08b8664287 418-419
+tools/db_crashtest.py
+  s_ee96ce8c13e54b::t_95f07b5a091103 222-249,419-423,1525-1526,1531-1543,1545-1549,1551-1581,2042-2050
+tools/db_crashtest_test.py
+  s_ee96ce8c13e54b::t_69262cc3ee06cb 692-931
+unreleased_history/behavior_changes/kPreferCustom_fallback.md
+  s_ee96ce8c13e54b::t_c5dac460ab80d6 1
+unreleased_history/behavior_changes/udi_rejects_user_defined_timestamps.md
+  s_ee96ce8c13e54b::t_052fea5a26545e 1
+unreleased_history/new_features/parallel_compression_with_udi.md
+  s_ee96ce8c13e54b::t_6ea7c63158913b 1
+unreleased_history/public_api_changes/index_factory_refactor.md
+  s_ee96ce8c13e54b::t_957677154d6c3e 1
+unreleased_history/public_api_changes/index_mode_c_api.md
+  s_ee96ce8c13e54b::t_b46094d2c2d32e 1
+unreleased_history/public_api_changes/index_mode_enum.md
+  s_ee96ce8c13e54b::t_1252ab61d5dabd 1
+unreleased_history/public_api_changes/read_options_read_index.md
+  s_ee96ce8c13e54b::t_0b1fe21c5c2a88 1
+unreleased_history/public_api_changes/standard_index_is_stub_property.md
+  s_ee96ce8c13e54b::t_63ea9b3ea7535b 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ee2c46ece7dfc9dbf6baa165da3c9e6e6fcd08e5",
+  "prompts": {},
+  "sessions": {
+    "s_ee96ce8c13e54b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0f1fc-0b41-7f21-8000-a940ea7325f9",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
