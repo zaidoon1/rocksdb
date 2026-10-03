@@ -1,0 +1,41 @@
+include/rocksdb/index_factory.h
+  s_6f8ce430b8ae60::t_56aaaabfec3623 319-323,325-328
+table/block_based/block_based_table_builder.cc
+  s_6f8ce430b8ae60::t_db40ddcaa9178b 1847
+table/block_based/block_based_table_factory.cc
+  s_6f8ce430b8ae60::t_dd29c2cbd7b61a 37,474-488,528-549,743-746,909-910,915,1238-1256
+table/block_based/block_based_table_factory.h
+  s_6f8ce430b8ae60::t_760923d3e72971 51-52
+table/block_based/block_based_table_reader.cc
+  s_6f8ce430b8ae60::t_779c2faf0bd7b1 738-741,1903-1904,1925
+table/block_based/partitioned_filter_block.cc
+  s_6f8ce430b8ae60::t_057171c57b87a1 100,102,148,250,306,332
+table/block_based/user_defined_index_wrapper.h
+  s_6f8ce430b8ae60::t_26c83e904347b6 8,170,175-176,252-256,272
+table/table_test.cc
+  s_6f8ce430b8ae60::t_1ebf5fa43c3c10 27,63,254,264-265,315-366,10902-11183,11837-11838,11846-11849
+unreleased_history/bug_fixes/udi_options_and_memory_compatibility.md
+  s_6f8ce430b8ae60::t_1dc0a5f59528aa 1
+utilities/trie_index/trie_index_factory.h
+  s_6f8ce430b8ae60::t_44dfe348ab5e29 301
+docs/components/index_factory/index.md
+  s_6f8ce430b8ae60::t_ae8475b876a574 63-69,120-125
+include/rocksdb/table.h
+  s_6f8ce430b8ae60::t_0351a9a2c6c000 682-684
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2c927f2577f60b1ed414695615cb2b006c6625ce",
+  "prompts": {},
+  "sessions": {
+    "s_6f8ce430b8ae60": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a10235-8d9a-70c3-a3f9-802ac370c74c",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
