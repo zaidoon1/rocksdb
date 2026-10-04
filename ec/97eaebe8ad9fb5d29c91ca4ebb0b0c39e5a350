@@ -1,0 +1,31 @@
+docs/components/index_factory/index.md
+  s_6164d625965089::t_ed9623c4a2cff7 147-152
+include/rocksdb/index_factory.h
+  s_6164d625965089::t_408cfb6895e91e 322-324,327-330,378-382
+table/block_based/block_based_table_reader.cc
+  s_6164d625965089::t_8ab7166ac838ab 1903-1907,1911,1964
+table/block_based/block_based_table_reader.h
+  s_6164d625965089::t_e2ea9fcdcb4f8e 819-824
+table/block_based/user_defined_index_wrapper.h
+  s_6164d625965089::t_1af9552f6aa7f4 255-256
+table/table_test.cc
+  s_6164d625965089::t_872b5ed960970b 11290-11446,11491-11493,11495,11531-11532,11551,11554,11556-11557,11559,11565-11569,11571-11572,11575-11576,11582,11587,11589,11592,11598,11600-11606,11608-11611,11613,11617-11654,11659,11663-11665,11670-11719,11723-11725,11729,11732-11733,11737-11803
+unreleased_history/bug_fixes/udi_options_and_memory_compatibility.md
+  s_6164d625965089::t_2f7b4979d6fd06 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ec97eaebe8ad9fb5d29c91ca4ebb0b0c39e5a350",
+  "prompts": {},
+  "sessions": {
+    "s_6164d625965089": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7fc69275-62ec-4119-8bce-3d9c4e21b91f",
+        "model": "unknown"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
