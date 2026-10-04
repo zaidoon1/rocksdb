@@ -1,0 +1,19 @@
+docs/components/index_factory/index.md
+  s_6164d625965089::t_d1e010fc3932da 147-152
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "1060f8c148a103579e51eb9764e0906cdd2bbabf",
+  "prompts": {},
+  "sessions": {
+    "s_6164d625965089": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7fc69275-62ec-4119-8bce-3d9c4e21b91f",
+        "model": "unknown"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
