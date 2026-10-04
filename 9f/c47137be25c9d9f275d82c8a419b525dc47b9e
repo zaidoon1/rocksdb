@@ -1,0 +1,29 @@
+include/rocksdb/index_factory.h
+  s_6164d625965089::t_7dd36e9f4095ce 322-324,327-330,378-382
+table/block_based/block_based_table_reader.cc
+  s_6164d625965089::t_928f7e22100c5a 1903-1907,1911,1964
+table/block_based/block_based_table_reader.h
+  s_6164d625965089::t_64886739ec1a70 819-824
+table/block_based/user_defined_index_wrapper.h
+  s_6164d625965089::t_6342f43d3d288d 255-256
+table/table_test.cc
+  s_6164d625965089::t_4cd4749abb9a32 11290-11446,11491-11493,11495,11531-11532,11551,11554,11556-11557,11559,11565-11569,11571-11572,11575-11576,11582,11587,11589,11592,11598,11600-11606,11608-11611,11613,11617-11654,11659,11663-11665,11670-11719,11723-11725,11729,11732-11733,11737-11803
+unreleased_history/bug_fixes/udi_options_and_memory_compatibility.md
+  s_6164d625965089::t_c426e4160b420e 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "9fc47137be25c9d9f275d82c8a419b525dc47b9e",
+  "prompts": {},
+  "sessions": {
+    "s_6164d625965089": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7fc69275-62ec-4119-8bce-3d9c4e21b91f",
+        "model": "unknown"
+      },
+      "human_author": "zaidoon <zaidoon@cloudflare.com>"
+    }
+  }
+}
